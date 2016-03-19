@@ -51,7 +51,7 @@ if (!Object.is) {
 
 The outer `if` statement checks to see whether the API is available, and this will only return true if it isn't implemented in the browser's JavaScript engine. There are many shims that you can use as a fallback behavior for older evironments and fortunately most of these shims are available in Babel. With the combination of transpiling and Shims/Polyfills, we can make use of the newesta and best features of JavaScript without worrying about backwards compatibility with older versions of JavaScript. This truly spells an exciting time for JS developers!
 
-#let 
+#Block scope declarations with `let` 
 
 One of the key features of the new JavaScript update is the ability to bind your variables to a scope. Before ES2015, you had to create an immediatelt invoked function expression to create "private" variables that weren't available outside the block in which they were declared. In ES2015 we can now create variables that are bound to blocks using `let`. The wonderful thing about using this feature is that all you need is a block scoping, so in other words all you need are a pair of curly braces `{  }`. So let's have a look at an example: 
 
