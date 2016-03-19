@@ -78,11 +78,11 @@ The `let` varaiables are scoped to the block in which they were declared and can
 ```javascript 
   function showNamesLength(names) {
     if(names.length > 5) {
-      let moreThanFive = 'there are more than 5 names';
+      var moreThanFive = 'there are more than 5 names';
       alert(moreThanFive);
       //other code......
     } else {
-      let lessThanFive = 'there are less than 5 names';
+      var lessThanFive = 'there are less than 5 names';
       console.log(moreThanFive); //moreThanFive - causes reference error
       alert(lessThanFive);
       //other
@@ -91,7 +91,7 @@ The `let` varaiables are scoped to the block in which they were declared and can
     //both let variables don't exist here either
   }
   
-  showNamesLength(["Abdi", "Cagarweyne", "John", "Nick", "Kieran"]);// throws reference error on line 66
+  showNamesLength(["Abdi", "Cagarweyne", "John", "Nick", "Kieran"]);// console logs undefined
 ```
 
 If we run this function, you will see that it doesn't throw a reference error, and instead writes to the console `undefined`. This is because when we use `var` instead of `let` all of the variables get hoisted up to the top of the function before the code is executed line by line. All variables get assigned undefined until they are explicitly assigned a value in the code. Since the code inside the `if` block doesn't get executed the variable moreThanFive doesn't get assigned the string, it stll contains undefined and this is what is printed out to the console when the line of code: `console.log(moreThanfive)` is executed.  
