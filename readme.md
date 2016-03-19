@@ -125,6 +125,7 @@ for(let i=0;i<5;i++) {
 }
 
 funcs[0](); //this logs 0 to the console.
-
+funcs[2](); //this logs 2 to the console.
+funcs[4](); //this logs 4 to the console.
 
 ```
