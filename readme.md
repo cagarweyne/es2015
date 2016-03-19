@@ -51,4 +51,5 @@ if (!Object.is) {
 
 The outer `if` statement checks to see whether the API is available, and this will only return true if it isn't implemented in the browser's JavaScript engine. There are many shims that you can use as a fallback behavior for older evironments and fortunately most of these shims are available in Babel. With the combination of transpiling and Shims/Polyfills, we can make use of the newesta and best features of JavaScript without worrying about backwards compatibility with older versions of JavaScript. This truly spells an exciting time for JS developers!
 
+#let 
 
