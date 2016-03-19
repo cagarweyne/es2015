@@ -149,5 +149,6 @@ var foo = "hello";
 let bar = "world"; 
 
 ```
-Accessing a `let` variable 
+Accessing a `let` variable earlier than it's declaration generates a ReferenceError, this is also referred to as a Temporal Dead Zone (TDZ). TDZ is not an offical term form the ECMASCript specificaton, but it is a name given by the JavaScript community to describe the behavior of non-hoisting variables of `let` and also, as we will come to see next, `const`. 
+
 #`const` 
