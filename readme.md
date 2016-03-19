@@ -40,14 +40,15 @@ In order to make use of new features that cannot be achieved with transpiling, w
 ```javascript
 if (!Object.is) {
   Object.is = function(x, y) {
-    // SameValue algorithm
-    if (x === y) { // Steps 1-5, 7-10
-      // Steps 6.b-6.e: +0 != -0
+    if (x === y) { 
       return x !== 0 || 1 / x === 1 / y;
     } else {
-      // Step 6.a: NaN == NaN
       return x !== x && y !== y;
     }
   };
 }
 ```
+
+The outer `if` statement checks to see whether the API is available, and this will only return true if it isn't implemented in the browser's JavaScript engine. There are many shims that you can use as a fallback behavior for older evironments and fortunately most of these shims are available in Babel. With the combination of transpiling and Shims/Polyfills, we can make use of the newesta and best features of JavaScript without worrying about backwards compatibility with older versions of JavaScript. This truly spells an exciting time for JS developers!
+
+
