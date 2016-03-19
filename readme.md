@@ -20,3 +20,13 @@ var myObj = {
 ```
 
 In ES2015, you can shorten the definition of the object properties if the key value pairs are exactly the same. Once this code is transpiled, it will be translated into it's equivalent or close counterpart in ES2015. So, in our example above, the code will be transpiled to: 
+
+```javascript 
+
+var name = "Abdi"; 
+
+var myObj = {
+  name: name
+};
+
+```
