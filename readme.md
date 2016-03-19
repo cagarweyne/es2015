@@ -131,4 +131,23 @@ funcs[4](); //this logs 4 to the console.
 ```
 Using `let` solves this problem of shared variable in the scope, `i` is redclared for each iteration of the loop. this means that each function that is pushed to the funcs array will close over that instance of `i` and not the last value that is assigned before the iteration comes to an end. 
 
+##A few gotchas with `let` that are worth noting
+
+As we have seen `let` can be very useful in some instances, but there are a few things that we need to be aware of when using it: 
+
+####You cannot access a `let` variable earlier than its declaration 
+
+Coming from ES5, we are used to the fact that `var` declared variables are hoisted to the top and are attached to the entire enclosing function. Let's take a look at what we mean in code: 
+
+```javascript 
+
+console.log(foo); //logs undefined
+console.log(bar); //this is a ReferenceError
+
+var foo = "hello";
+
+let bar = "world"; 
+
+```
+Accessing a `let` variable 
 #`const` 
