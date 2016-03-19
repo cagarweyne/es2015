@@ -166,7 +166,7 @@ let foo = "world"; //generates an error: SyntaxError: Identifier 'foo' has alrea
 
 Likewise, if we try to use the same identifier but for a `let` variable it throws an error: 
 
-```javascripit 
+```javascript
 
 var foo = "hello";
 
