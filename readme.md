@@ -53,3 +53,4 @@ The outer `if` statement checks to see whether the API is available, and this wi
 
 #let 
 
+One of the key features of the new JavaScript update is the ability to bind your variables to a scope. Before ES2015, you had to create an immediatelt invoked function expression to create "private" variables that weren't available outside the block in which they were declared. In ES2015 we can now create variables that are bound to blocks using `let`. The wonderful thing about using this feature is that all you need is a block scoping, so in other words all you need are a pair of curly braces `{  }`. 
