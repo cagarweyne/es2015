@@ -130,3 +130,5 @@ funcs[4](); //this logs 4 to the console.
 
 ```
 Using `let` solves this problem of shared variable in the scope, `i` is redclared for each iteration of the loop. this means that each function that is pushed to the funcs array will close over that instance of `i` and not the last value that is assigned before the iteration comes to an end. 
+
+#`const` 
