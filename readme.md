@@ -35,3 +35,4 @@ A great tool that will help you to transpile your code into ES5 is [Babel](https
 
 #Shims/Polyfills
 
+In order to make use of new features that cannot be achieved with transpiling, we make user of shims to mimic the same behavior in older versions of JavaScript. There are many new features introduced that require a shim in order to work properly, and these are included within the tooling that we can use to run ES2015 in older browsers. Just in case, you're wondering what a shim is, it is basically a small piece of code that imeplements the feature which is missing from an older environment. for example, in ES2015 it introduces new API's to check strict equality of two values called `Object.assign()` 
