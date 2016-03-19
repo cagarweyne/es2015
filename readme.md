@@ -107,7 +107,24 @@ for(var i=0;i<5;i++) {
   funcs.push(function() { console.log(i) });
 }
 
-funcs[0](); //this logs 5 to the console. 
+funcs[0](); //logs 5
+funcs[1](); //logs 5
+funcs[4](); //logs 5
+
 ```
 
 When we use `var` in a for loop like this in a closure, each function will close over the last instance of the value in `i` since there is only one `i` available in the scope. Hence the reason why when we invoke any of the functions in the array, 5 is logged to the console, since this is the last variable in which the functions closed over after the test for `i<5` returned false.
+
+Using `let` instead of `var` in this case solves the problem nicely and the functions behave as you would expect. Let's change the `var` to `let` in the same code above and see what happens when we invoke any of the functions in the array: 
+
+```javascript 
+var funcs = []; 
+
+for(let i=0;i<5;i++) {
+  funcs.push(function() { console.log(i) });
+}
+
+funcs[0](); //this logs 0 to the console.
+
+
+```
