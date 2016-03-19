@@ -63,13 +63,36 @@ One of the key features of the new JavaScript update is the ability to bind your
       //other code......
     } else {
       let lessThanFive = 'there are less than 5 names';
-      console.log(moreThanFive); //moreThanFive doesn't exist in this block
+      console.log(moreThanFive); //moreThanFive - causes reference error
       alert(lessThanFive);
       //other
     }
     
     //both let variables don't exist here either
   }
+  
+  showNamesLength(["Abdi", "Cagarweyne", "John", "Nick", "Kieran"]);// throws reference error on line 66
 ```
+The `let` varaiables are scoped to the block in which they were declared and cannot be accessed any where else. If you are familiar with other programming languages, then this might not mean much to you, but in the previous version all variable declaration were hoisted to the top by the JS engine.Let's look at an example to see how `let` behaves differently to using `var`. If we use the same function, but this time use `var` instead of `let`: 
+
+```javascript 
+  function showNamesLength(names) {
+    if(names.length > 5) {
+      let moreThanFive = 'there are more than 5 names';
+      alert(moreThanFive);
+      //other code......
+    } else {
+      let lessThanFive = 'there are less than 5 names';
+      console.log(moreThanFive); //moreThanFive - causes reference error
+      alert(lessThanFive);
+      //other
+    }
+    
+    //both let variables don't exist here either
+  }
+  
+  showNamesLength(["Abdi", "Cagarweyne", "John", "Nick", "Kieran"]);// throws reference error on line 66
+```
+
 
 
