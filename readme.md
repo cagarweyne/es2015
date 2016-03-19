@@ -19,7 +19,7 @@ var myObj = {
 
 ```
 
-In ES2015, you can shorten the definition of the object properties if the key value pairs are exactly the same. Once this code is transpiled, it will be translated into it's equivalent or close counterpart in ES2015. So, in our example above, the code will be transpiled to: 
+In ES2015, you can shorten the definition of the object properties if the key value pairs names are exactly the same. Once this code is transpiled, it will be translated into it's equivalent or close counterpart in ES2015. So, in our example above, the code will be transpiled to: 
 
 ```javascript 
 
@@ -30,3 +30,8 @@ var myObj = {
 };
 
 ```
+
+A great tool that will help you to transpile your code into ES5 is [Babel](https://babeljs.io/), which, as it's motto says, will let you use next generation JavaScript today. However, not all the new features in JavaScript can be simply transpiled into its equivalent in ES5, because there are some features that aren't simply availabel, even if you transpile the code. The solution to this problem is: Shims. 
+
+#Shims/Polyfills
+
