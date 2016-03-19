@@ -149,6 +149,29 @@ var foo = "hello";
 let bar = "world"; 
 
 ```
-Accessing a `let` variable earlier than it's declaration generates a ReferenceError, this is also referred to as a Temporal Dead Zone (TDZ). TDZ is not an offical term form the ECMASCript specificaton, but it is a name given by the JavaScript community to describe the behavior of non-hoisting variables of `let` and also, as we will come to see next, `const`. 
+Accessing a `let` variable earlier than it's declaration generates a ReferenceError, this is also referred to as a Temporal Dead Zone (TDZ). TDZ is not an offical term form the ECMASCript specificaton, but it is a name given by the JavaScript community to describe the behavior of non-hoisting variables of `let` and also, as we will come to see next, `const`.
+
+
+####You cannot redclare `let` twice in the same scope or sharing the same identifier 
+
+declaring a `let` variable twice in the same scope will generate an error, let' see what we mean: 
+
+```javascript 
+
+let foo = "hello"; 
+
+let foo = "world"; //generates an error: SyntaxError: Identifier 'foo' has already been declared
+
+```
+
+Likewise, if we try to use the same identifier but for a `let` variable it throws an error: 
+
+```javascripit 
+
+var foo = "hello";
+
+let foo = "world"; //generates error: SyntaxError: Identifier 'foo' has already been declared
+
+```
 
 #`const` 
