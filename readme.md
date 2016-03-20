@@ -330,6 +330,32 @@ console.log(sum(1, 2, 3, 4, 5)); // 15
 ```
  The 3 dots before the parameter indicate that all of the arguments that are passed into the function when it's call should be gathered in ann array called numbers. This is a real array and you can use all of the normal array methods on it, in this case we are using the `forEach` array method to access each index value and add it to the result variable. This is a much easier and cleaner to access parameters in a function, and from the function declaration we can see that this function accepts any number of arguments and that these arguments will be gathered into an array called numbers. 
 
+There is a key restriction when using rest parameters in your functions, and that it no other named arguments can follow in the function declaration. This means that you can't have something like this: 
+
+```javascript 
+function sum(…numbers, last) { // causes a syntax error
+  var result = 0;
+  numbers.forEach(function (number) {
+    result += number;
+  });
+  return result;
+}
+```
+
+However, if the rest parameter is the last argument to be passed in, then this will work fine and will gather all of the arguments into an array: 
+
+```javascript 
+function sum(first, second, ...numbers) { 
+  var result = 0;
+  numbers.forEach(function (number) {
+    result += number;
+  });
+  return result;
+}
+\
+sum('first', 'second', 2,2,3,4,5); //works just fine
+```
+
 ###Spread 
 
 The spread operator uses the exact same syntax, and you could think of it as acting completely oppositely to the rest operator. Whereas the rest operator gathers all of the parameters passed in to the function into an array, the spread operator spreads out the contents of an array into individual values. The spread operator uses the same 3 dots to achieve this: 
