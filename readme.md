@@ -175,3 +175,10 @@ let foo = "world"; //generates error: SyntaxError: Identifier 'foo' has already 
 ```
 
 #`const` 
+
+Another great addition to the JS language is the variable `const` declaration. `const` creates constants and this means that value cannot be changed once it has been set. This is something that was badly needed in JS, as developers had to bec careful that they didn't reset a constant further down their program code. When using `const` you must initialize it on declaration, so if you just declare a `const` like this: 
+
+```javascript
+const API_KEY; //error: SyntaxError: Missing initializer in const declaration
+```
+This causes a syntax, and in the error message it tells exactly why the error occured. 
