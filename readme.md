@@ -181,4 +181,8 @@ Another great addition to the JS language is the variable `const` declaration. `
 ```javascript
 const API_KEY; //error: SyntaxError: Missing initializer in const declaration
 ```
-This causes a syntax, and in the error message it tells exactly why the error occured. 
+This causes a syntax, and in the error message it tells exactly why the error occured. So the correct way to use a `const` is to initialize it on declaration like so: 
+
+```javascript 
+const API_KEY = '123'; //no error this time
+```
