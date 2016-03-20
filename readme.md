@@ -361,5 +361,23 @@ sum('first', 'second', 2,2,3,4,5); //works just fine
 The spread operator uses the exact same syntax, and you could think of it as acting completely oppositely to the rest operator. Whereas the rest operator gathers all of the parameters passed in to the function into an array, the spread operator spreads out the contents of an array into individual values. The spread operator uses the same 3 dots to achieve this: 
 
 ```javascript 
+let numbers = [1, 2, 3]; 
 
+function sum(num1, num2, num3) {
+  return num1 + num2 + num3; 
+}
+
+sum(...numbers); 
+
+```
+The spread operator uses exactly the same syntax as the rest operator, however, it behaves differently depending on where it is used. Here we are calling the sum function and passing it our arguments using the spread operator. The operator spreads out each of the contents into individual parts and then the function merely adds up these individual values. You could think of it as acting like the `apply` method on arrays. So, if we used `apply` instead we would get the same effect: 
+
+```javascript 
+let numbers = [1, 2, 3]; 
+
+function sum(num1, num2, num3) {
+  return num1 + num2 + num3; 
+}
+
+sum.apply(null, numbers); 
 ```
