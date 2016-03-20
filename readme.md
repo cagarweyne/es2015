@@ -296,5 +296,21 @@ console.log(multiply(1));        // throws error
 ```
 ###Rest and spread
 
-So far we have seen some really cool additions to the language in ES2015 and the spread and rest operators are another great feature added to JS. Let's start with the rest operator first, to understand why it's useful we need to look at the arguments object that is available inside all functions. You can examine all of the parameters passed to function in the `arguments` object, this is an object that behaves very much like an array, but is actually an object. 
+So far we have seen some really cool additions to the language in ES2015 and the spread and rest operators are another great feature added to JS. Let's start with the rest operator first, to understand why it's useful we need to look at the arguments object that is available inside all functions. You can examine all of the parameters passed to function in the `arguments` object, this is an object that behaves very much like an array, but is actually an object. Let's take a look at an example of using the `atguments` object in a function in ES5: 
+
+```javascript 
+function sum() {
+  //convert arguments object into an array using the the array slice method
+   var numbers = Array.prototype.slice.call(arguments);
+   var result = 0;
+   
+   //loop over the numebrs array and add each index value to result on each iteration
+   numbers.forEach(function (number) {
+       result += number;
+   });
+   return result;
+}
+console.log(sum(1));             // 1
+console.log(sum(1, 2, 3, 4, 5)); // 15
+```
 
