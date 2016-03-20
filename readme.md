@@ -294,3 +294,7 @@ function multiply(num1 = num2, num2) {
 console.log(multiply(3, 3));     // 9
 console.log(multiply(1));        // throws error
 ```
+###Rest and spread
+
+So far we have seen some really cool additions to the language in ES2015 and the spread and rest operators are another great feature added to JS. Let's start with the rest operator first, to understand why it's useful we need to look at the arguments 
+
