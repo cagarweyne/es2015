@@ -207,4 +207,33 @@ console.log(names[2]); //prints 'Abdi'
 
 #Functions 
 
+Functions are one of the foundations of the JS language, and it is no surprise that functions have been updated in the latest edition of JS. One of the cool features of functions in ES2015 is the addition of default parameters. 
 
+##Default parameters 
+
+To make functions more robust and not break when they are called without their expected paramters, we would normally add in default values in the body of the function to make sure that our function didn't break. Let's take a simple function that will take 3 parameters and do some computation based on the passed in values or the default fall back ones set in the function body: 
+
+```javascript 
+function box(height, color, url) {
+  var height = height || 50, 
+      color = color || 'blue'
+      url = url || 'google.com';
+      
+  console.log('height is:', height, 'color is:', color, 'url is:', url);     
+}
+
+box(75, 'green', 'fullstackstudent.com')// logs: height is: 75 color is: green url is: fullstackstudent.com
+
+box(); //logs the default values: height is: 50 color is: blue url is: google.com
+
+```
+The above function works fine most circumstances but requires some brain power in order to undertsand what is happening at the top of the function with the default assignments. Also, your function could run into problems when a value that is deemed falsy is passed in as the parameter to the function, for example if we pass in 0 as the height: 
+
+```javascript 
+box(0, 'yellow', 'wikipedia.org'); // this logs: height is: 50 color is: yellow url is: wikipedia.org
+```
+When passing in 0 as the height, the value is evalluated to be falsy, so the right side of the || operation is executed and the height value is assigned to be 50 instead of 0, which is what we intended. We can account for this scenario by doing further checks in the code, but this means more work and more code that has to be written. In ES2015 you can create default paramaters on function declaration using a simple syntax and that will also resolve our issue when falsy values are passed in as parameters: 
+
+```javascript 
+
+```
