@@ -315,4 +315,17 @@ console.log(sum(1, 2, 3, 4, 5)); // 15
 ```
 In the sum function above it’s not at all obvious that the function can handle more than one parameter. You could define several more parameters, but you would still not know that this function can take any number of parameters and is a variadic function. If there are complex multiple parameters such as objects and arrays, you have to keep track of where to start your index when looping over the arguments object. As you can see this is a little cumbersome and the function can break if we pass it multiple parameters that aren't the correct type. 
 
-ES2015 introduced a new operator called rest parameters to help us access the parameters passed to a function.  
+ES2015 introduced a new operator called rest parameters to help us access the parameters passed to a function. Let's look at it in action to get a better understading: 
+
+```javascript 
+function sum(…numbers) {
+  let result = 0;
+  numbers.forEach(function (number) {
+    result += number;
+  });
+  return result;
+}
+console.log(sum(1)); // 1
+console.log(sum(1, 2, 3, 4, 5)); // 15
+```
+ The 3 dots before the parameter indicate that all of the arguments that are passed into the function when it's call should be gathered in ann array called numbers. This is a real array and you can use all of the normal array methods on it, in this case we are using the `forEach` array method to access each index value and add it to the result variable. This is a much easier and cleaner to access parameters in a function, and from the function declaration we can see that this function accepts any number of arguments and that these arguments will be gathered into an array called numbers. 
