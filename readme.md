@@ -278,6 +278,19 @@ box();//logs: height is: 100 color is: blue url is: google.com
 This is very interesting, because it means that you can invoke other functions that return values when you declare the function that will use that return value. This makes for a powerful default parameter structure in ES2015. Also, you can use a previous parameter as the default paramter for any subsequent parameters: 
 
 ```javascript 
+function multiply(num1, num2 = num1) {
+  return num1 * num2; 
+}
 
+console.lo(multiply(2));//returns 4
 ```
+The above multiply function takes two arguments and sets the second parameters default value to be the first. Note that this will only work for parameters that come after the first one. For example, you can't make the default value for the first parameter to be the second parameter: 
 
+```javascript 
+function multiply(num1 = num2, num2) {
+    return num1 * num2;
+}
+
+console.log(multiply(3, 3));     // 9
+console.log(multiply(1));        // throws error
+```
