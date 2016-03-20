@@ -294,7 +294,7 @@ function multiply(num1 = num2, num2) {
 console.log(multiply(3, 3));     // 9
 console.log(multiply(1));        // throws error
 ```
-###Rest and spread
+###Rest
 
 So far we have seen some really cool additions to the language in ES2015 and the spread and rest operators are another great feature added to JS. Let's start with the rest operator first, to understand why it's useful we need to look at the arguments object that is available inside all functions. You can examine all of the parameters passed to function in the `arguments` object, this is an object that behaves very much like an array, but is actually an object. Let's take a look at an example of using the `atguments` object in a function in ES5: 
 
@@ -329,3 +329,8 @@ console.log(sum(1)); // 1
 console.log(sum(1, 2, 3, 4, 5)); // 15
 ```
  The 3 dots before the parameter indicate that all of the arguments that are passed into the function when it's call should be gathered in ann array called numbers. This is a real array and you can use all of the normal array methods on it, in this case we are using the `forEach` array method to access each index value and add it to the result variable. This is a much easier and cleaner to access parameters in a function, and from the function declaration we can see that this function accepts any number of arguments and that these arguments will be gathered into an array called numbers. 
+
+###Spread 
+
+The spread operator uses the exact same syntax, and you could think of it a acting completely oppositely to the rest operator. Whereas the rest operator gathers all of the parameters passed in to the function into an array, the spread operator spreads out the contents of an array into individual values. The spread operator uses the same 3 dots to achieve this: 
+
