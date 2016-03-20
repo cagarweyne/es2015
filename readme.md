@@ -239,5 +239,7 @@ function box(height = 50, color = 'blue', url = 'google.com') {
   console.log('height is:', height, 'color is:', color, 'url is:', url);     
 }
 
-box(0); 
+box(0); //logs: height is: 0 color is: blue url is: google.com
 ```
+You will notice that the above function declaration is terse, in that the default parameters are actually assigned when setting the parameters themselves and you will also notice that when we pass in 0 as the first argument it isn't taken as falsy value and the default parameter for height is not used. 
+
