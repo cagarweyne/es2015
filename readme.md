@@ -263,5 +263,21 @@ In ES2015 you can use any valid expression as the default values, including func
 
 ```javascript 
 
+function setHeight(value) {
+  return 10 * value; 
+}
+
+
+function box(height = setHeight(10), color = 'blue', url = 'google.com') {
+  console.log('height is:', height, 'color is:', color, 'url is:', url);     
+}
+
+box();//logs: height is: 100 color is: blue url is: google.com
+```
+
+This is very interesting, because it means that you can invoke other functions that return values when you declare the function that will use that return value. This makes for a powerful default parameter structure in ES2015. Also, you can use a previous parameter as the default paramter for any subsequent parameters: 
+
+```javascript 
+
 ```
 
