@@ -235,5 +235,9 @@ box(0, 'yellow', 'wikipedia.org'); // this logs: height is: 50 color is: yellow 
 When passing in 0 as the height, the value is evalluated to be falsy, so the right side of the || operation is executed and the height value is assigned to be 50 instead of 0, which is what we intended. We can account for this scenario by doing further checks in the code, but this means more work and more code that has to be written. In ES2015 you can create default paramaters on function declaration using a simple syntax and that will also resolve our issue when falsy values are passed in as parameters: 
 
 ```javascript 
+function box(height = 50, color = 'blue', url = 'google.com') {
+  console.log('height is:', height, 'color is:', color, 'url is:', url);     
+}
 
+box(0); 
 ```
