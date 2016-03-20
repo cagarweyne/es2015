@@ -202,5 +202,6 @@ const names = ['Liam', 'Daniel'];
 names.push('Abdi');//works as expected without throwing error
 
 console.log(names[2]); //prints 'Abdi'
-
 ```
+`const`s share a few similarites with `let` in that they are also block scoped, so this means that they are not accessible outside their block scope. Also, you cannot use the same identifier that has eithe been used with a `var` or `let` variable. 
+
