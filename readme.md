@@ -186,3 +186,21 @@ This causes a syntax, and in the error message it tells exactly why the error oc
 ```javascript 
 const API_KEY = '123'; //no error this time
 ```
+One of the key uses of `const` is that the value cannot be reassigned after its declaration, and this is something that is desriable  if you wanted a variable to never be reassigned inadvertently later on. So if you create `const` and then try to reassign it with another value it will throw an error: 
+
+```javascript
+const name = 'Daniel';
+
+name = 'Brian'; //throws a TypeError: Assignment to constant variable
+```
+Howver, if you created a `const` that holds an object, like an array or object, you can change the object can be changed without a problem: 
+
+```javascript 
+
+const names = ['Liam', 'Daniel'];
+
+names.push('Abdi');//works as expected without throwing error
+
+console.log(names[2]); //prints 'Abdi'
+
+```
