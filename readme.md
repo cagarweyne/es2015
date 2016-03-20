@@ -332,5 +332,8 @@ console.log(sum(1, 2, 3, 4, 5)); // 15
 
 ###Spread 
 
-The spread operator uses the exact same syntax, and you could think of it a acting completely oppositely to the rest operator. Whereas the rest operator gathers all of the parameters passed in to the function into an array, the spread operator spreads out the contents of an array into individual values. The spread operator uses the same 3 dots to achieve this: 
+The spread operator uses the exact same syntax, and you could think of it as acting completely oppositely to the rest operator. Whereas the rest operator gathers all of the parameters passed in to the function into an array, the spread operator spreads out the contents of an array into individual values. The spread operator uses the same 3 dots to achieve this: 
 
+```javascript 
+
+```
