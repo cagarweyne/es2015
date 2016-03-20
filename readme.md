@@ -313,4 +313,6 @@ function sum() {
 console.log(sum(1));             // 1
 console.log(sum(1, 2, 3, 4, 5)); // 15
 ```
+In the sum function above it’s not at all obvious that the function can handle more than one parameter. You could define several more parameters, but you would still not know that this function can take any number of parameters and is a variadic function. If there are complex multiple parameters such as objects and arrays, you have to keep track of where to start your index when looping over the arguments object. As you can see this is a little cumbersome and the function can break if we pass it multiple parameters that aren't the correct type. 
 
+ES2015 introduced a new operator called rest parameters to help us access the parameters passed to a function.  
