@@ -381,3 +381,11 @@ function sum(num1, num2, num3) {
 
 sum.apply(null, numbers); 
 ```
+You can also use the spread operator in place of the `concat` method: 
+
+```javascript 
+let a = [2,3,4];
+let b = [ 1, ...a, 5 ];
+
+console.log( b ); // [1,2,3,4,5]
+```
