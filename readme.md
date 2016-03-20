@@ -255,5 +255,13 @@ function box(height = 50, color = 'blue', url = 'google.com') {
 
 box(0); //logs: height is: 0 color is: blue url is: google.com
 ```
-You will notice that the above function declaration is terse, in that the default parameters are actually assigned when setting the parameters themselves and you will also notice that when we pass in 0 as the first argument it isn't taken as falsy value and the default parameter for height is not used. The default assignment for the height in ES2015 equivalent to the explicit checking of the parameter to see if it is undefined, this is something that you don't have to do yourself anymore.  
+You will notice that the above function declaration is terse, in that the default parameters are actually assigned when setting the parameters themselves and you will also notice that when we pass in 0 as the first argument it isn't taken as falsy value and the default parameter for height is not used. The default assignment for the height in ES2015 equivalent to the explicit checking of the parameter to see if it is undefined, this is something that you don't have to do yourself anymore. 
+
+###Expressions as default values 
+
+In ES2015 you can use any valid expression as the default values, including function calls. Let's create a function call as  default value for our height parameter: 
+
+```javascript 
+
+```
 
