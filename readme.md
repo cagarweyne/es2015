@@ -411,5 +411,7 @@ var foo = (a, b) => {
   for(let i =0;i<b;i++) {
     counter += a; 
   }
+  
+  return counter; 
 }
 ```
