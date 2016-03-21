@@ -415,3 +415,14 @@ var foo = (a, b) => {
   return counter; 
 }
 ```
+
+####Arrow functions are always expressions
+
+A seasoned JS developer will know the difference between a function declaration and a function expression. Just to recap, a function declaration is a name function variable that isn't assigned to a variable: 
+
+```javascript 
+//function declaration
+function foo() {
+  console.log('foo'); 
+}
+```
