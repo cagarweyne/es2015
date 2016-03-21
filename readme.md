@@ -395,12 +395,21 @@ console.log( b ); // [1,2,3,4,5]
 Another fantastic addition to the language are arrow functions. If you are familiar with CoffeeScript the this is a great addition for you. Not only do fat arrows make your code more terse, but they also help address one of the most confusing parts of JS, the `this` context. Arrow functions are incfedibly easy to create and at first glance you would have to look carefully to understand that it is in fact a function: 
 
 ```javascript 
-let foo = (a, b) => a * b; 
+var foo = (a, b) => a * b; 
 ```
 Yes, the above is a function, and you can even make it more terse, by removing the parenthesis if you only have one parameter: 
 
 ```javascript 
-let foo = a => a * 5; 
+var bar = a => a * 5; 
 ```
 The above are examples of valid function ES2015, the arrow definition for function consists of the parameters if there are any and then followed by the curly braces {  }. The curly braces are required when there is more than one expression. For example: 
 
+```javascript 
+var foo = (a, b) => {
+  let counter = 0; 
+  
+  for(let i =0;i<b;i++) {
+    counter += a; 
+  }
+}
+```
