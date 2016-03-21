@@ -437,3 +437,10 @@ var foo = function() {
 ```
 It is worth keeping in mind that arrow functions will always be function expressions and are also anonymous function expressions. 
 
+####Binding of `this` with arrrow functions
+
+####Other notable features of arrow functions 
+
+-No `this`, 
+-No `arguments` object
+-No Prototype
