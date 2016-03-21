@@ -426,3 +426,14 @@ function foo() {
   console.log('foo'); 
 }
 ```
+
+And a function expression uses a variable assignment: 
+
+```javascript
+//anonymous function expression
+var foo = function() {
+  console.log('foo');
+}
+```
+It is worth keeping in mind that arrow functions will always be function expressions and are also anonymous function expressions. 
+
