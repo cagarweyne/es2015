@@ -439,6 +439,8 @@ It is worth keeping in mind that arrow functions will always be function express
 
 ####Binding of `this` with arrrow functions
 
+If you have done any noteworthy coding with JS, then you will have come across the issue with the `this` keyword. This was a particular point of confusion when it comes to programming wit the `this` keyword and has generated a lot of complaints from the developer community. As a result, the ES2015 implementation addressed this issue with the introduction of the arrow functions. 
+
 ####Other notable features of arrow functions 
 
 -No `this`, 
