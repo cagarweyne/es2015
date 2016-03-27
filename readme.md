@@ -530,7 +530,10 @@ var person = {
 
 person.getFullName();//Abdi Cagarweyne 
 ```
-By using the arrow function instead of a normal syntax with the `function` keyword, we get the behavior that is desired. This is because the `this` keyword binding in arrow functions is lexical. This means that arrow functions do not have a stand-alone `this` value binding, rather the value is decided by the closest containing non-arrow function and in our example that is the getFullName function. So, essentially the fat arrow `=>` replaces the `var self  this` or `bind(this)`.   
+By using the arrow function instead of a normal syntax with the `function` keyword, we get the behavior that is desired. This is because the `this` keyword binding in arrow functions is lexical. This means that arrow functions do not have a stand-alone `this` value binding, rather the value is decided by the closest containing non-arrow function and in our example that is the getFullName function. So, essentially the fat arrow `=>` replaces the `var self  this` or `bind(this)`. This creates its own set of quirks that yo uhave to keep in mind when using arrow functions.  
+
+####Arrow functions also have their own quirks with the `this` keyword
+
 ####Other notable features of arrow functions 
 
 -No `this`, 
