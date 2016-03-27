@@ -548,4 +548,18 @@ console.log( user.first );//Abdi
 console.log( user.last );//Abdi Ahmed
 console.log( user.fullName );//Abdi Ahmed
 ```
-However, as you can see returning objects with keys and variables with the same name looks repetitive
+However, as you can see returning objects with keys and variables with the same name looks repetitive and in ES2015 you can use the shorthand to initialize objects: 
+
+```javascript 
+function createUser(first, last){
+  let fullName = first + " " + last;
+  return { first, last, fullName }//this is equivalent to: return { first: first, last: last, fullName: fullName }
+}
+
+//calling the build user fuction 
+let user = createUser("Abdi", "Cagarweyne");
+console.log( user.first );//Abdi
+console.log( user.last );//Abdi Ahmed
+console.log( user.fullName );//Abdi Ahmed
+```
+As you can see this is much cleaner and means that you have less writing to do when initialize objects, if the key and value variables both have the same name, then you can use the shorthand method to make your code more terse and less repetitive. 
