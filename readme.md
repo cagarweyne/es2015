@@ -632,4 +632,20 @@ let obj = {
 let { x, y, z } = obj; 
 console.log(x, y, z);//prints: undefined undefined undefined
 ```
+Also for array destructuring, this will only work if the values on the right are the same number or less than the length of the array, for example: 
+
+```javascript 
+let nums = [1, 2, 3]; 
+let [a] = nums; //only the first element will be assigned to the variable a
+
+console.log(a)//1
+```
+This results in undefined for: 
+
+```javascript 
+let nums = [1]; 
+let [a, b, c] = nums; //b and c are assigned undefined since there isn't a corressponding value in array
+
+console.log(a, b, c)//1 undefined undefined
+```
 
