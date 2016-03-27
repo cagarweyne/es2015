@@ -534,6 +534,4 @@ By using the arrow function instead of a normal syntax with the `function` keywo
 
 ####Other notable features of arrow functions 
 
--No `this`, 
--No `arguments` object
--No Prototype
+*No this, super, arguments, and new.target bindings
