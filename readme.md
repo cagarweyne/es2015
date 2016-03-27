@@ -511,7 +511,7 @@ var person = {
 person.getFullName();//Abdi Cagarweyne
 ```
 
-ES2015 enables us to eliminate much of the frustrations with the `this` keyword in JS by using functions. So, we can rewrite the above examples using arrow functions and also address the issue of the value of `this`: 
+ES2015 enables us to eliminate much of the frustrations with the `this` keyword in JS by using fat arrow functions. So, we can rewrite the above examples using arrow functions and also address the issue of the value of `this`: 
 
 ```javascript 
 
