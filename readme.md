@@ -580,5 +580,9 @@ console.log( user.colleagues );//["George","Michelle"]
 ES2015 introduces anothe really cool feature when it comes to assigning values attached to an object or in an array. If we had an array that contained values which we wanted to assign to individual variables we would do the following in ES5: 
 
 ```javascript 
+let nums = [1, 2, 3]; 
 
+let a = nums[0], b = nums[1], c = nums[2]; 
+
+console.log(a, b, c); //prints 1 2 3 to the console 
 ```
