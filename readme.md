@@ -574,3 +574,11 @@ console.log( user.name );//Davide
 console.log( user.age );//45
 console.log( user.colleagues );//["George","Michelle"]
 ```
+
+##Object Destructuring 
+
+ES2015 introduces anothe really cool feature when it comes to assigning values attached to an object or in an array. If we had an array that contained values which we wanted to assign to individual variables we would do the following in ES5: 
+
+```javascript 
+
+```
