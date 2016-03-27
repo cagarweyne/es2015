@@ -649,3 +649,5 @@ let [a, b, c] = nums; //b and c are assigned undefined since there isn't a corre
 console.log(a, b, c)//1 undefined undefined
 ```
 
+##Adding functions to an Object 
+
