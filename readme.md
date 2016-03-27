@@ -441,6 +441,17 @@ It is worth keeping in mind that arrow functions will always be function express
 
 If you have done any noteworthy coding with JS, then you will have come across the issue with the `this` keyword. This was a particular point of confusion when it comes to programming wit the `this` keyword and has generated a lot of complaints from the developer community. As a result, the ES2015 implementation addressed this issue with the introduction of the arrow functions. To understand what the problem with the `this` keyword was in ES5, let's have a look at an example: 
 
+```javascript
+var person = {
+	firstname: "Abdi", 
+	lastname: "Cagarweyene",
+	getFullName: function() {
+		console.log(this.firstname, this.lastname);
+	}
+}
+
+person.getFullName();//prints Abdi Cagarweyne
+```
 
 
 ####Other notable features of arrow functions 
