@@ -562,4 +562,15 @@ console.log( user.first );//Abdi
 console.log( user.last );//Abdi Ahmed
 console.log( user.fullName );//Abdi Ahmed
 ```
-As you can see this is much cleaner and means that you have less writing to do when initialize objects, if the key and value variables both have the same name, then you can use the shorthand method to make your code more terse and less repetitive. 
+As you can see this is much cleaner and means that you have less writing to do when initialize objects, if the key and value variables both have the same name, then you can use the shorthand method to make your code more terse and less repetitive. The object initializer shorthand works anywhere a new object is returned for example: 
+
+```javascript 
+let name = "David";
+let age = 45;
+let colleagues = ["George","Michelle"];
+let user = { name, age, colleagues };//this is the same as: let user = { name: name, age: age, friends: friends };
+
+console.log( user.name );//Davide
+console.log( user.age );//45
+console.log( user.colleagues );//["George","Michelle"]
+```
