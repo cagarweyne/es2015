@@ -604,9 +604,32 @@ let obj = {
 }
 
 let x = obj.x, y = obj.y, z = obj.z; 
-
 console.log(x, y, z);//prinst 7 8 9 to the console
 ```
 
-This becomes: 
+This becomes:
+
+```javascript 
+let obj = {
+  x: 7, 
+  y: 8, 
+  z: 9
+}
+
+let { x, y, z } = obj; 
+console.log(x, y, z);//prinst 7 8 9 to the console
+```
+
+This destructuring process might seem confusing at first, as you are used to seeing syntax like `[ a, b, c]` or `{ x, y, z }` on the right hand side instead of the left. However, what is happeining here is that the pattern has been flipped, so that when you have `[ a, b, c]` or `{ x, y, z }` on the left hand side of the assignment it means that detach all of the values corresponding on the left handside from the right. Obvisouly, for this to work in object destructuring the variables that you are assigning the values to must match the keys of the object that you are destructuring. For example, the following will not work: 
+
+```javascript 
+let obj = {
+  a: 7, 
+  b: 8, 
+  c: 9
+}
+
+let { x, y, z } = obj; 
+console.log(x, y, z);//prints: undefined undefined undefined
+```
 
