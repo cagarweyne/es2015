@@ -537,9 +537,15 @@ By using the arrow function instead of a normal syntax with the `function` keywo
 ES2015 has added a shorter syntax for creating object literals, in ES5 you would typicaly see something like this: 
 
 ```javascript 
-function buildUser(first, last){
+function createUser(first, last){
   let fullName = first + " " + last;
   return { first: first, last: last, fullName: fullName }
 }
-```
 
+//calling the build user fuction 
+let user = createUser("Abdi", "Cagarweyne");
+console.log( user.first );//Abdi
+console.log( user.last );//Abdi Ahmed
+console.log( user.fullName );//Abdi Ahmed
+```
+However, as you can see returning objects with keys and variables with the same name looks repetitive
