@@ -452,6 +452,64 @@ var person = {
 
 person.getFullName();//prints Abdi Cagarweyne
 ```
+The above object gas has two properties and a method, which simply logs to the console the `firstname` and `lastname` propertis. This is all well and good and the `this` context works just fine. However, you will run into problems when you change contexts or closures come into the equation, for example: 
+
+```javascript 
+var person = {
+  firstname: "Abdi", 
+  lastname: "Cagarweyene",
+    getFullName: function() {
+       var name = function() {
+       console.log(this.firstname, this.lastname);
+       }
+		
+       return name(); 
+		
+  }
+}
+
+person.getFullName();//undefined undefined
+```
+When we call the getFullName method, we get `undefined undefined`, this is the not the behavior that we expected and this is one of the quirks of JS. To fix this we have two options, we can use the `var self = this` hack: 
+
+```javascript 
+var person = {
+  firstname: "Abdi", 
+  lastname: "Cagarweyene",
+    getFullName: function() {
+       var self = this; 
+       var name = function() {
+       console.log(self.firstname, self.lastname);
+       }
+		
+       return name(); 
+		
+  }
+}
+
+person.getFullName();//Abdi Cagarweyne
+```
+
+When we reference the context of this by assigning it to a variable inside the outer function, we will have access to inside the inner functions via a closure. So, in order to keep the context we simply use the `self` instead of the function's `this` keyword, which points to the global window object in the example above. 
+
+We can also fix the problem with `this` using the `bind` method that is available on functions:
+
+```javascript 
+var person = {
+  firstname: "Abdi", 
+  lastname: "Cagarweyene",
+    getFullName: function() {
+       var name = function() {
+       console.log(self.firstname, self.lastname);
+       }.bind(this)
+		
+       return name(); 
+		
+  }
+}
+
+person.getFullName();//Abdi Cagarweyne
+```
 
 
 ####Other notable features of arrow functions 
