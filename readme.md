@@ -530,5 +530,16 @@ var person = {
 
 person.getFullName();//Abdi Cagarweyne 
 ```
-By using the arrow function instead of a normal syntax with the `function` keyword, we get the behavior that is desired. This is because the `this` keyword binding in arrow functions is lexical. This means that arrow functions do not have a stand-alone `this` value binding, rather the value is decided by the closest containing non-arrow function and in our example that is the getFullName function. So, essentially the fat arrow `=>` replaces the `var self  this` or `bind(this)`. 
+By using the arrow function instead of a normal syntax with the `function` keyword, we get the behavior that is desired. This is because the `this` keyword binding in arrow functions is lexical. This means that arrow functions do not have a stand-alone `this` value binding, rather the value is decided by the closest containing non-arrow function and in our example that is the getFullName function. So, essentially the fat arrow `=>` replaces the `var self  this` or `bind(this)`.
+
+#Objects, Strings and Object.assign 
+
+ES2015 has added a shorter syntax for creating object literals, in ES5 you would typicaly see something like this: 
+
+```javascript 
+function buildUser(first, last){
+  let fullName = first + " " + last;
+  return { first: first, last: last, fullName: fullName }
+}
+```
 
