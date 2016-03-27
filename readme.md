@@ -640,7 +640,7 @@ let [a] = nums; //only the first element will be assigned to the variable a
 
 console.log(a)//1
 ```
-This results in undefined for: 
+This results in undefined for variables `b` and `c`: 
 
 ```javascript 
 let nums = [1]; 
