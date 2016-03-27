@@ -586,3 +586,27 @@ let a = nums[0], b = nums[1], c = nums[2];
 
 console.log(a, b, c); //prints 1 2 3 to the console 
 ```
+To get the values into individual we had to access each value in the index and assign it to a variable. However, we can achieve the same result by using destructuring in ES2015: 
+
+```javascript 
+let nums = [1, 2, 3]; 
+let [a, b, c] = nums; 
+
+console.log(a, b, c)
+```
+This looks much cleaner than the previous version and means that you have less code to write. The same can also be done with objects, for example: 
+
+```javascript 
+let obj = {
+  x: 7, 
+  y: 8, 
+  z: 9
+}
+
+let x = obj.x, y = obj.y, z = obj.z; 
+
+console.log(x, y, z);//prinst 7 8 9 to the console
+```
+
+This becomes: 
+
