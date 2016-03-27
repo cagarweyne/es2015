@@ -511,6 +511,25 @@ var person = {
 person.getFullName();//Abdi Cagarweyne
 ```
 
+ES2015 enables us to eliminate much of the frustrations with the `this` keyword in JS by using functions. So, we can rewrite the above examples using arrow functions and also address the issue of the value of `this`: 
+
+```javascript 
+
+var person = {
+  firstname: "Abdi", 
+  lastname: "Cagarweyene",
+  getFullName: function() {
+	var name = () => {
+	  console.log(this.firstname, this.lastname);
+	}
+		
+	return name(); 
+		
+  }
+}
+
+person.getFullName();//Abdi Cagarweyne 
+```
 
 ####Other notable features of arrow functions 
 
