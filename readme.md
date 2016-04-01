@@ -83,12 +83,12 @@ The `let` varaiables are scoped to the block in which they were declared and can
       //other code......
     } else {
       var lessThanFive = 'there are less than 5 names';
-      console.log(moreThanFive); //moreThanFive - causes reference error
+      console.log(moreThanFive); //moreThanFive - returns undefined
       alert(lessThanFive);
       //other
     }
     
-    //both let variables don't exist here either
+    //both var variables available here
   }
   
   showNamesLength(["Abdi", "Cagarweyne", "John", "Nick", "Kieran"]);// console logs undefined
