@@ -715,3 +715,27 @@ string text line 2`);
 // string text line 2"
 
 ```
+
+##Object.assign
+
+As a developer, writng flexible and reusabel functions is something that we all must strive to do and the new feature in ES6 object.assign helps in that regard. Let's look at an example scenario where using object.assign will be useful for us. Say we're creating a function that accepts an options parameter, in that it can take 0 or more options as properties, and depending on the options supplied the function will return a different value: 
+
+```javascript 
+
+function person(name, options = {}) {
+    let age = options.age || 'at least 18';
+    let address = options.address || 'Shared accommodation'; 
+    let occupation = options.occupation || 'Student'; 
+    
+  return `${name} is ${age} and is currently at ${address} 
+  and their occupation is ${occupation}`;
+}
+
+```
+When calling this function some options might not be specified, so this means that we need to account for this using default values. As you can see from the function, we assign each property of the options object to a variable and then use the double pipe to check for the presence of a value that has been passed in. If there is no value it will return undefined and then we fall back to the default values.
+
+the code above is fine as it is, but it requires a bit of brain power to understand and in the long term may be difficult to maintain. let's fix this function using a default object and the new feature object.assign: 
+
+```javascript 
+
+```
