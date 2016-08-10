@@ -656,7 +656,7 @@ Adding functions to an object is something that is done all of the time, and in 
 ```javascript 
 
 let myObj = {
-  prop1: 'Hello, 
+  prop1: 'Hello', 
   prop2: 'world', 
   fullName: function(firstname, lastname) {
   	let fullName = firstname + ' ' + lastname; 
@@ -670,7 +670,7 @@ In ES6 the syntax is shortand and made simpler by just declaring the object prop
 ```javascript 
 
 let myObj = {
-  prop1: 'Hello, 
+  prop1: 'Hello', 
   prop2: 'world', 
   fullName(firstname, lastname) {
   	let fullName = firstname + ' ' + lastname; 
