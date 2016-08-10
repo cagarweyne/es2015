@@ -734,7 +734,23 @@ function person(name, options = {}) {
 ```
 When calling this function some options might not be specified, so this means that we need to account for this using default values. As you can see from the function, we assign each property of the options object to a variable and then use the double pipe to check for the presence of a value that has been passed in. If there is no value it will return undefined and then we fall back to the default values.
 
-the code above is fine as it is, but it requires a bit of brain power to understand and in the long term may be difficult to maintain. let's fix this function using a default object and the new feature object.assign: 
+the code above is fine as it is, but it requires a bit of brain power to understand and in the long term may be difficult to maintain. let's fix this function using a defaults object and the new feature object.assign: 
+
+```javascript 
+
+function person(name, options = {}) {
+  let defaults = {
+    age: 'at least 18', 
+    address: 'Shared accommodation', 
+    occupation: 'Student'
+  }
+    
+  return `${name} is ${defaults.age} and is currently at ${defaults.address} 
+  and their occupation is ${defaults.occupation}`;
+}
+
+```
+Now that we have improved upon our function, the next step is to merge options and defaults, and where there are duplicate, those from options must override the properties in the defaults object. This is where the object.assign feature in ES6 comes in really useful to help us. 
 
 ```javascript 
 
