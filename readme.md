@@ -679,4 +679,39 @@ let myObj = {
 }
 
 ```
+##Template strings
 
+Another great feature added to ES6 is the use of ttenplate strings. Template strings allow embedded expressions and you can use multi-line strings and string interpolation features with them. Let's have look at some examples to understand better. Say you have a url where you are posting some data and you want to add interpolation with a service id, in ES5 this would be done like this:
+
+```javascript 
+
+let url = "/service/"+servid
+
+```
+In ES6, you can just use backticks to surround your whole string and add interpolation using the dollar sign and curly braces: 
+
+```javascript 
+
+let url = `/service/${servid}`
+
+```
+
+This is much cleaner and means that you can actually create complex strings with interpolation without having to use plus signs, line breaks, multiple double quotes etc. If you have ever needed to create multi-line strings before you would have to use line breaks to achieve this. However, in ES6 you simply use the backticks and continue writing you string on the new line without the need for a line break. Let's look at how this is done in ES5 first and then using template strings in ES6: 
+
+```javascript 
+
+//ES5 
+console.log("string text line 1\n"+
+"string text line 2");
+// "string text line 1
+// string text line 2"
+
+
+//ES6 
+
+console.log(`string text line 1
+string text line 2`);
+// "string text line 1
+// string text line 2"
+
+```
