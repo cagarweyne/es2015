@@ -651,3 +651,32 @@ console.log(a, b, c)//1 undefined undefined
 
 ##Adding functions to an Object 
 
+Adding functions to an object is something that is done all of the time, and in ES6 it has been made simpler to add a function to an object. Previously, we would declare the property of the object and then use th full function declaration to add a method: 
+
+```javascript 
+
+let myObj = {
+  prop1: 'Hello, 
+  prop2: 'world', 
+  fullName: function(firstname, lastname) {
+  	let fullName = firstname + ' ' + lastname; 
+  	return fullName; 
+  }
+}
+
+```
+In ES6 the syntax is shortand and made simpler by just declaring the object property followed by the parenthesis and the function body: 
+
+```javascript 
+
+let myObj = {
+  prop1: 'Hello, 
+  prop2: 'world', 
+  fullName(firstname, lastname) {
+  	let fullName = firstname + ' ' + lastname; 
+  	return fullName; 
+  }
+}
+
+```
+
