@@ -791,3 +791,4 @@ Object.assign(finalOptions, defaults, options);
 ```
 If we wrote it like this then we would not be using the return value from the function, and even though it would still work, the correct way is to assign the return value directly to the `finalOptions` variable. 
 
+#Arrays, Maps and Sets
