@@ -752,6 +752,10 @@ function person(name, options = {}) {
 ```
 Now that we have improved upon our function, the next step is to merge options and defaults, and where there are duplicate, those from options must override the properties in the defaults object. This is where the object.assign feature in ES6 comes in really useful to help us. 
 
+The object.assign feature helps us to copy one or more source objects into a target object and retunrs the target object. The way in which the function works is that it takes a target object as the first argument and then takes any number of subsequent arguments as the source object from which to copy the properties. So the function looks like this: `Object.assign(target, source_1, ..., source_n)`. 
+
+If Object.assign encounters duplicate properties on source objects, the value from the last source object will always be returned. So, if a property foo was already in the target object and then in the last source there is also another property foo, then this last property will overwrite the last one and this is the one that gets returned. 
+
 ```javascript 
 
 ```
