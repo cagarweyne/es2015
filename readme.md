@@ -756,6 +756,38 @@ The object.assign feature helps us to copy one or more source objects into a tar
 
 If Object.assign encounters duplicate properties on source objects, the value from the last source object will always be returned. So, if a property foo was already in the target object and then in the last source there is also another property foo, then this last property will overwrite the last one and this is the one that gets returned. 
 
+Let's now use the Object.assign function to merge the defaults object with the passed in options object and see the Object.assign in action. 
+
 ```javascript 
 
+function person(name, options = {}) {
+  let defaults = {
+    age: 'at least 18', 
+    address: 'Shared accommodation', 
+    occupation: 'Student'
+  }
+  
+  let finalOptions = Object.assign({}, defaults, options); 
+    
+  return `${name} is ${finalOptions.age} and is currently at ${finalOptions.address} 
+  and their occupation is ${finalOptions.occupation}`;
+}
+
+person('abdi', {age: 30});
+
 ```
+
+The way in which you use Object.assign is very straight forward, you create a variable that will hold the return value of the target object and you pass an empty object as the first argument then followed by the source objects that you wish to copy from: 
+
+`let finalOptions = Object.assign({}, defaults, options)`.
+
+One thing to note is that we haven't used the defaults object as the target object, because if we did we would be mutating the defaults object and we would  not have access to the original values anymore. It's important that we do not mutate the defaults object because if we wanted to compare the defaults value with the passed in options value then we would have nothing to compare with. 
+
+Also, notice how there is a variable declared to hold the return  value from the Object.assign function, we could have written it like this: 
+
+```javascript 
+let finalOptions; 
+Object.assign(finalOptions, defaults, options); 
+```
+If we wrote it like this then we would not be using the return value from the function, and even though it would still work, the correct way is to assign the return value directly to the `finalOptions` variable. 
+
