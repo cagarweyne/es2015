@@ -791,4 +791,50 @@ Object.assign(finalOptions, defaults, options);
 ```
 If we wrote it like this then we would not be using the return value from the function, and even though it would still work, the correct way is to assign the return value directly to the `finalOptions` variable. 
 
-#Arrays, Maps and Sets
+##Arrays
+
+###Assigning with Array desctructuring 
+
+###Destructuring and rest parameters
+
+###Destructuring from return values 
+
+###The for...of loop 
+
+###Objects and the for...of loop 
+
+###Array.find() 
+
+##Maps
+
+###The Map data structure 
+
+###Issues with Objects as maps 
+
+###The Map object
+
+###Adding entries to a map
+
+###Maps and objects 
+
+###Objects are still useful 
+
+###Iterating Maps with for...of
+
+###WeakMaps 
+
+##
+
+##Sets
+
+###Limitations with Array 
+
+###Using Sets 
+
+###Sets and for...of 
+
+###Sets and destructuring 
+
+###WeakSets 
+
+###WeakSets in action 
