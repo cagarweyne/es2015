@@ -819,6 +819,17 @@ let [a, b, c ] = fruits;
 
 console.log(a, b, c);//apple grapes banana
 ```
+Instead of accessing elements by their index, we declare a single line of code between square brackets and assign them to the variables on the left. The JS engine will try to match the number of variables on the left to the number of elements in the array. As you can see from the code above, we assigned the variables a, b and c the values apples, grapes and banana respectively. This code is actually easier to undertand and requires less code. 
+
+If there are any values that we aren't interested in, we can discard them during the assignment operation: 
+
+```javascipt 
+let fruits = ['apple', 'grapes', 'banana']; 
+
+let [a, , b ] = fruits; 
+console.log(a, b) //apple banana
+```
+In the exampe above we only store apple and banana into the variables and we have left out grapes. We achieved this using a blank space after the first variable to indicate that we don't want the second element assigned to any variable. When we run the code we only get apples and banana assigned to variables a and b respectively. 
 
 ###Destructuring and rest parameters
 
