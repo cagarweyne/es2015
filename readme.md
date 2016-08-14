@@ -940,8 +940,18 @@ If you try to run the code above you will run into a type error: `TypeError: per
 
 ```javascript 
 let fruits = ['apple', 'grapes', 'banana'];
-console.log(typeof fruits[Symbol.iterator]);
+console.log(typeof fruits[Symbol.iterator]);//function
+
+let person = {
+  name: "Abdi", 
+  address: "123 JS street Node Avenue", 
+  occupation: "JS Developer"
+}
+
+console.log(typeof person[Symbol.iterator]);//undefined
+
 ```
+If we run the same check on the plain JS object, you will notice that it returns undefined. This means that there is nothing assigned to the property and the obpject will not work with for of loop. 
 
 ###Array.find() 
 
