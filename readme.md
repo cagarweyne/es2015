@@ -813,7 +813,11 @@ As you can see from the code above, we can assign each fruit to its own variable
 In ES6, we can assign each fruit to a variable using what's called array destructuring. Array destructuring allows us to write the code in a much better way, similar to the way in which we destructure an object, we can destructure an array. So let's rewrite the example above using array destructuring: 
 
 ```javascript 
+let fruits = ['apple', 'grapes', 'banana']; 
 
+let [a, b, c ] = fruits; 
+
+console.log(a, b, c);//apple grapes banana
 ```
 
 ###Destructuring and rest parameters
