@@ -955,6 +955,35 @@ If we run the same check on the plain JS object, you will notice that it returns
 
 ###Array.find() 
 
+ES6 also adds new array function that we can use to find a specific element in an array. The array.find() function takes a testing function to return an element that meets this criteria: 
+
+```javascript 
+
+let services = [
+  {name: 'nails', activated: false},
+  {name: 'haircut', activated: true},
+  {name: 'feet therapy', activated: true}
+]
+
+```
+Lets say that we wante to find the first service object that was activated, we can use the array.find function to ohelp us get the first object which has activated set to true: 
+
+```javascript 
+let services = [
+  {name: 'nails', activated: false},
+  {name: 'haircut', activated: true},
+  {name: 'feet therapy', activated: true}
+]
+
+let activated = services.find(service => {
+  return service.activated
+}); 
+
+console.log(activated);//{name: 'haircut', activated: true}
+
+```
+The find method will return the first object that has activated set to true
+
 ##Maps
 
 ###The Map data structure 
