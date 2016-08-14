@@ -845,6 +845,41 @@ The example above shows array destructuring and the rest parameters in use, we a
 
 ###Destructuring from return values 
 
+There will always be opportunities to use array destructuring in your JS code, and another place where we can use them is when we return values from functions. We can use them to assign to multiple variables at once. Let's see what we mean by looking at some code: 
+
+```javascript 
+
+function myFruits() {
+   let fruits = ['apple', 'grapes', 'banana'];
+   return fruits; 
+}
+
+```
+As you would expect in JS, we can assign the return value to variable: 
+
+```javascript 
+function myFruits() {
+   let fruits = ['apple', 'grapes', 'banana'];
+   return fruits; 
+}
+
+let allFruits = myFruits(); 
+
+```
+Nothing new in the example above, however, using array destructuring we can assign multiple variables at once, just as we did before, from the return value of the function: 
+
+```javascript 
+
+function myFruits() {
+   let fruits = ['apple', 'grapes', 'banana'];
+   return fruits; 
+}
+
+let [a, b, c] = myFruits(); 
+
+console.log(a, b, c);//apple, grapes, banana
+
+```
 ###The for...of loop 
 
 ###Objects and the for...of loop 
