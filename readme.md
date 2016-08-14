@@ -882,6 +882,42 @@ console.log(a, b, c);//apple, grapes, banana
 ```
 ###The for...of loop 
 
+The for of loop is a new feature added in ES6, which is a better way of looping over arrays and other iterables. Let's look at an example to understand further. Once gain, say we have an array of fruits: 
+
+```javascript 
+let fruits = ['apple', 'grapes', 'banana'];
+```
+
+To loop over the array we can use the for in loop:
+
+```javascript 
+let fruits = ['apple', 'grapes', 'banana'];
+
+for(let i in fruits) {
+  console.log(fruits[i]);
+}
+
+```
+The for in loop returns the index for each element, and it is assigned to the `i` variable in the loop. We can then use this index variable to access each element of the array. So, there are two steps here, first assigning each index to the `i` variable and then accessing each element using the index in the variable on the array. 
+
+Using for of we don't need to use the index to access an element in an array: 
+
+```javascript 
+let fruits = ['apple', 'grapes', 'banana'];
+```
+
+To loop over the array we can use the for in loop:
+
+```javascript 
+let fruits = ['apple', 'grapes', 'banana'];
+
+for(let fruit of fruits) {
+  console.log(fruit);
+}
+
+```
+The for of loop reads each element directly from the array and assigns it to the named variable, which is `fruit`. This is only one step when compared to the for in loop, and this means that we can loop over arrays and other iterables writing less code. 
+
 ###Objects and the for...of loop 
 
 ###Array.find() 
