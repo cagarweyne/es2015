@@ -833,6 +833,16 @@ In the exampe above we only store apple and banana into the variables and we hav
 
 ###Destructuring and rest parameters
 
+We've already learned some cool things that we can do in ES6, and we can combine array destructuring with rest paramaters group values into other arrays. Let's look at an example to see what we mean: 
+
+```javascript 
+let fruits = ['apple', 'grapes', 'banana']; 
+let [first. ...rest] = fruits; 
+
+console.log(first, rest);//apple, ['grapes', 'banana']
+```
+The example above shows array destructuring and the rest parameters in use, we assigned the first element apple to the variable first and then we used the rest parameter with the three dots `...` to group all remaining elements into a new array called rest 
+
 ###Destructuring from return values 
 
 ###The for...of loop 
