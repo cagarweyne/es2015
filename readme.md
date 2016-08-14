@@ -920,6 +920,29 @@ The for of loop reads each element directly from the array and assigns it to the
 
 ###Objects and the for...of loop 
 
+The for of loop cannot be used to iterate over properties of a plain javascript object. So the following will not work: 
+
+```javascript 
+
+let person = {
+  name: "Abdi", 
+  address: "123 JS street Node Avenue", 
+  occupation: "JS Developer"
+}
+
+for(let prop of person) {
+  console.log("Property", prop);
+}
+
+```
+
+If you try to run the code above you will run into a type error: `TypeError: person[Symbol.iterator] is not a function`. So you migt be asking: when can I use for of without running into errors? We can check to see if the for of loop will work by looking to see if there is a function assigned to the Symbol.iterator property. For the array if we log the type that is assigned to the Symbol.iterator property, we can see that this returns a function: 
+
+```javascript 
+let fruits = ['apple', 'grapes', 'banana'];
+console.log(typeof fruits[Symbol.iterator]);
+```
+
 ###Array.find() 
 
 ##Maps
