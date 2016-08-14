@@ -795,6 +795,27 @@ If we wrote it like this then we would not be using the return value from the fu
 
 ###Assigning with Array desctructuring 
 
+Arrays are an important data type that is used extensively, and it is not uncommon to access elements by their index. For example, say we have an array of fruits: 
+
+```javascript 
+let fruits = ['apple', 'grapes', 'banana']; 
+
+let a = fruits[0]; 
+let b = fruits[1]; 
+let c = fruits[2]; 
+
+console.log(a, b, c);
+
+```
+
+As you can see from the code above, we can assign each fruit to its own variable using their indices 0, 1, and 2. This is perfectly fine and works, but it is more code than we actually need and if we had more elements in the array we would need to know the index fo each element in order to assign it to a variable, which means that this doesn't scale very well. 
+
+In ES6, we can assign each fruit to a variable using what's called array destructuring. Array destructuring allows us to write the code in a much better way, similar to the way in which we destructure an object, we can destructure an array. So let's rewrite the example above using array destructuring: 
+
+```javascript 
+
+```
+
 ###Destructuring and rest parameters
 
 ###Destructuring from return values 
