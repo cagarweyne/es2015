@@ -988,15 +988,35 @@ The find method will return the first object that has activated set to true
 
 ES6 introduces a new data structure called maps. Maps are a data structure composed of a collection of key value pairs, which makes them very useful to store simple data. Maps are actually present in other programming languages and are useful to store property values. A Map stores collections of unique keys mapped to values each key is associated with one, and only one value, in order to find a specific value in map, you give it it key and you receive its value in return. 
 
+###Issues with Objects as maps 
+
 JS developers are first exposed to Maps through objects, you can use objects as key values stores, there are some limitations with this. The main limitation is that you cannot use a non string value as a key. The JS engine always converts object keys to strings and this causes unexpected behavior when you use objects as keys. Let's look at an example to better understand this: 
 
+```javascript 
 
+let carOne = { make: 'Audi' };
+let carTwo = { make: 'Ford' }; 
 
+```
+lets add a new object to the scene `carAge' that will also be an object but will use the two car objects as keys: 
 
+```javascript
+
+let carOne = { make: 'Audi' };
+let carTwo = { make: 'Ford' }; 
+
+let carAge = {}; 
+
+carAge[carOne] = 3; 
+carAge[carTwo] = 5; 
+
+console.log(carAge); //{ '[object Object]': 5 }
+
+```
+
+When you look at the console log of the carAge object you will see that it only contains one key which is `object Object` and a value of 5. Both keys have been converted to strings, and since they were objects, the string that they were converted to was `object object', and this means that only that key is being set in the carAge object. 
 
 ###The Map data structure 
-
-###Issues with Objects as maps 
 
 ###The Map object
 
