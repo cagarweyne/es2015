@@ -1083,6 +1083,24 @@ As you can see from the for of loop, we have used array destructuring to assign 
 
 ###WeakMaps 
 
+ES6 has also inttroduced another type of data set that is a variation of the Map called WeakMaps. The WeakMap is a special type of Map, and the main difference is that you can only use objects as keys. This means that you can't use primitive data types such as strings, numbers and booleans as the keys in a WeakMap. Let's look at an example where WeakMaps are used: 
+
+```javascript 
+
+let personOne = {}; 
+let personTwo = {};
+
+let people = new WeakMap(); 
+people.set (personOne, "Abdi"); 
+people.set(personTwo, "David"); 
+
+console.log(people.get(personOne));//Abdi
+console.log(people.get(personTwo));//David
+
+```
+As you can see from the code above, we can use the same `set` and `get` methods as we did with `Map`. However, if you tried using a string as a key, you will run into an error, which says `Invalid value used as weak map key`.
+
+
 ##
 
 ##Sets
