@@ -1104,10 +1104,19 @@ As you can see from the code above, we can use the same `set` and `get` methods 
 
 The main use for WeakMaps is that they make efficient use of memory, this means that individual entries can be garbage collected while the WeakMap is still in use. They are called 'Weak' because they hold a weak reference to the object that is used as reference for the keys. As long as an object is no longer referenced after it is used, WeakMaps will not prevent the garbage collector from colecting objects that are being used a keys in a WeakMap. This makes efficient use of memory and frees more of it up that can be used else where. 
 
-
-##
-
 ##Sets
+
+Like Maps and WeakMaps, Sets are a new data structure introduced in ES6, to understand why we need Sets in the first place, let's first go back to JS Arrays and see some of the limitations that lead to Sets being added to ES6. As you know Arrays in JS are simple and easy to use, however one thing that they don't do is enforce uniqueness in the elments that they hold. This means that you can have duplicate entries in an array in JS. So the following array in JS is perfectly fine: 
+
+```javascript 
+let cars = ['Audi', 'Ford', 'Audi', 'Mercedes', 'VW']; 
+
+console.log(cars.length)//5
+```
+
+If we print the length property of the array we will see that it has a size of 5 items, even though we have duplicate item - audi. So in ES6 if you want to prevent duplicate entries in an array you can use Sets. 
+
+
 
 ###Limitations with Array 
 
