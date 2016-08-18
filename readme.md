@@ -1098,7 +1098,11 @@ console.log(people.get(personOne));//Abdi
 console.log(people.get(personTwo));//David
 
 ```
-As you can see from the code above, we can use the same `set` and `get` methods as we did with `Map`. However, if you tried using a string as a key, you will run into an error, which says `Invalid value used as weak map key`.
+As you can see from the code above, we can use the same `set` and `get` methods as we did with `Map`. However, if you tried using a string as a key, you will run into an error, which says `Invalid value used as weak map key`. Besides only allowing objects as keys, WeakMaps are not iterable, you cannot use the for..of loop to iterate over the keys in a WeakMap. You will run into the same error when trying to iterate over objects with a for...of loop. 
+
+###Why do need WeakMaps? 
+
+The main use for WeakMaps is that they make efficient use of memory, this means that individual entries can be garbage collected while the WeakMap is still in use. They are called 'Weak' because they hold a weak reference to the object that is used as reference for the keys. 
 
 
 ##
