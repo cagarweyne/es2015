@@ -1179,4 +1179,50 @@ console.log(a, b, c);//Audi, Ford, Mercedes
 
 ###WeakSets 
 
+Similar to WeakMaps we have WeakSets, and if you recall these are the memory efficient version for Sets. Let's look at an example to see how WeakSets work: 
+
+```javascript 
+
+let weakCars = new WeakSet(); 
+
+weakCars.add('Audi'); //error: Invalid value used in weak set
+
+```
+If you try to add a string to a WeakSet you will get an error: Invalid value used in weak set, just like WeakMaps, WeakSets only accept objects and nothing else can be stored. So let's add an object instead: 
+
+```javascript 
+let weakCars = new WeakSet(); 
+
+weakCars.add({driver: 'Abdi'});
+let passenger = { name: 'Sarah' }; 
+weakCars.add(passenger);
+
+```
+
+To see if a particular object is in a WeakSet you can use the `has()` method which returns a boolean, to see whether a WeakSet contains a given object. 
+
+```javascript 
+let weakCars = new WeakSet(); 
+
+weakCars.add({driver: 'Abdi'});
+let passenger = { name: 'Sarah' }; 
+weakCars.add(passenger);
+
+console.log(weakCars.has(passenger))// true 
+
+```
+If you wanted to delete a particular entry in a WeakSet you can use the `delete` method: 
+
+```javascript 
+
+let weakCars = new WeakSet(); 
+
+weakCars.add({driver: 'Abdi'});
+let passenger = { name: 'Sarah' }; 
+weakCars.add(passenger);
+weakCars.delete(passenger); 
+console.log(weakCars.has(passenger))// false 
+
+```
+
 ###WeakSets in action 
