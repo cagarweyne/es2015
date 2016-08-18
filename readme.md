@@ -1114,8 +1114,25 @@ let cars = ['Audi', 'Ford', 'Audi', 'Mercedes', 'VW'];
 console.log(cars.length)//5
 ```
 
-If we print the length property of the array we will see that it has a size of 5 items, even though we have duplicate item - audi. So in ES6 if you want to prevent duplicate entries in an array you can use Sets. 
+If we print the length property of the array we will see that it has a size of 5 items, even though we have duplicate item - audi. So in ES6 if you want to prevent duplicate entries in an array you can use Sets. Sets can store unique values of any type, be it primitive values or object references. You can create Sets in the same way that you create Maps, using the new keyword: 
 
+```javascript 
+let cars = new Set(); 
+```
+Now if you want to add items to a set you use the add method that is available on all instances of a set, insted of array push method: 
+```javascript 
+
+cars.add('Audi');
+cars.add('Ford');
+cars.add('Mercedes');
+cars.add({driver: 'Abdi'}); 
+cars.add('VW');
+cars.add('Audi');
+
+console.log('Total no. cars', cars.size);//5
+
+```
+To get the number of items in a set you use the `.size` propery instead of the `.length`. You will notice that the duplicate entry of Audi is ignored and the total size is 5 not 6. 
 
 
 ###Limitations with Array 
