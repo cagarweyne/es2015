@@ -1079,6 +1079,8 @@ for(let [key, value] of cars) {
 
 ```
 
+As you can see from the for of loop, we have used array destructuring to assign the key to a key and value to value respectively and we are accessing these using template strings when we log them out. When we run the code we can see that it prints each entry of the Map to the console successfully. 
+
 ###WeakMaps 
 
 ##
