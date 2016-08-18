@@ -1106,7 +1106,12 @@ The main use for WeakMaps is that they make efficient use of memory, this means 
 
 ##Sets
 
-Like Maps and WeakMaps, Sets are a new data structure introduced in ES6, to understand why we need Sets in the first place, let's first go back to JS Arrays and see some of the limitations that lead to Sets being added to ES6. As you know Arrays in JS are simple and easy to use, however one thing that they don't do is enforce uniqueness in the elments that they hold. This means that you can have duplicate entries in an array in JS. So the following array in JS is perfectly fine: 
+
+Like Maps and WeakMaps, Sets are a new data structure introduced in ES6, to understand why we need Sets in the first place, let's first go back to JS Arrays and see some of the limitations that lead to Sets being added to ES6. 
+
+###Limitations with Array 
+
+As you know Arrays in JS are simple and easy to use, however one thing that they don't do is enforce uniqueness in the elments that they hold. This means that you can have duplicate entries in an array in JS. So the following array in JS is perfectly fine: 
 
 ```javascript 
 let cars = ['Audi', 'Ford', 'Audi', 'Mercedes', 'VW']; 
@@ -1121,6 +1126,7 @@ let cars = new Set();
 ```
 Now if you want to add items to a set you use the add method that is available on all instances of a set, insted of array push method: 
 ```javascript 
+let cars = new Set(); 
 
 cars.add('Audi');
 cars.add('Ford');
@@ -1134,12 +1140,41 @@ console.log('Total no. cars', cars.size);//5
 ```
 To get the number of items in a set you use the `.size` propery instead of the `.length`. You will notice that the duplicate entry of Audi is ignored and the total size is 5 not 6. 
 
-
-###Limitations with Array 
-
-###Using Sets 
-
 ###Sets and for...of 
+As you would expect, Set objects are iterable and we can use the for...of loop and destructuring. Let's see an example of iterating over a set object: 
+
+```javascript 
+let cars = new Set(); 
+
+cars.add('Audi');
+cars.add('Ford');
+cars.add('Mercedes');
+cars.add({driver: 'Abdi'}); 
+cars.add('VW');
+cars.add('Audi');
+
+for(let car of cars) {
+  console.log(car);
+}
+```
+
+We can also use destructuring with sets just like we can with normal JS arrays: 
+
+```javascript 
+let cars = new Set(); 
+
+cars.add('Audi');
+cars.add('Ford');
+cars.add('Mercedes');
+cars.add({driver: 'Abdi'}); 
+cars.add('VW');
+cars.add('Audi');
+
+let [a, b, c] = cars; 
+console.log(a, b, c);//Audi, Ford, Mercedes
+
+```
+
 
 ###Sets and destructuring 
 
