@@ -1271,14 +1271,13 @@ let carSlides = [
 { car: 'Mercedes', seen: false, image: 'url' },
 { car: 'VW', seen: false, image: 'url' }
 ];
-let carsViewed = new WeaKSet();
 
-
+let carsViewed = new WeakSet();
 
 function clicked(carSlides) {
   carSlides.forEach(car => {
     //instead of mutating we add the object to the carsViewed WeakSet
-    carsViewed.add(car); 
+    carsViewed.add(car);
   } )
 }
 
@@ -1288,16 +1287,15 @@ let linkClicked = true;
   clicked(carSlides); 
 }
 
-console.log(carSlides)//still have our object intact without mutations
+//console.log(carSlides)//still have our object intact without mutations
 
 //we can then check to see that we have each car as an object in the WeakSets array
-for(let car in carSlides) {
+for(let car of carSlides) {
  //check each individiual object is present in the WeakSet
  console.log(carsViewed.has(car)); //true 
  //other code.......
- 
 }
 
 ```
-
+Even though it seems that we are doing extra work, this is actually making sure that we do not mutate our carSlides array data, and in essence achieve some form of data immutability. What you have to also remember is that the WeakSet does not preven the garbage collector from collecting objects that are no longer being referenced, and in turn creating an efficient use of memory. 
 
