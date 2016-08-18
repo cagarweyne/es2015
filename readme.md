@@ -1014,7 +1014,9 @@ console.log(carAge); //{ '[object Object]': 5 }
 
 ```
 
-When you look at the console log of the carAge object you will see that it only contains one key which is `object Object` and a value of 5. Both keys have been converted to strings, and since they were objects, the string that they were converted to was `object object', and this means that only that key is being set in the carAge object. 
+When you look at the console log of the carAge object you will see that it only contains one key which is `object Object` and a value of 5. Both keys have been converted to strings, and since they were objects, the string that they were converted to was `object object', and this means that only that key is being set in the carAge object. So in otherwords, the last value this set in the object will overwrite all previous values and so on. 
+
+To overcome this limitation in using objects as keys, ES6 introduced Map as a new data structure. The Map object is similar to the JS objects that we are used to, it is a simple key => value data structure. If you want to access the value of a particular key, you just provide that key and in return you get the value. The main difference with Maps is that you can use ANY value as a key or a value andmore importantly, objects are not converted to strings. 
 
 ###The Map data structure 
 
