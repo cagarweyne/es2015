@@ -1050,7 +1050,34 @@ You should use Maps when the keys are unknown until runtime, for example after l
 
 ###Iterating Maps with for...of
 
-The Map data structure are iterable, this means that we can use the for.. of loop and each run of the loop will return a [key, value] pair for each entry in the Map. 
+The Map data structure are iterable, this means that we can use the for.. of loop and each run of the loop will return a [key, value] pair for each entry in the Map. Let's create a new Map of cars and add some entries: 
+
+```javascript 
+
+let cars = new Map(); 
+
+cars.set("CarOne", "Audi"); 
+cars.set("CarTwo", "Ford"); 
+cars.set("CarThree", "GM"); 
+cars.set("CarFour", "BMW"); 
+```
+
+We can easily loop through this Map of car using for..of loop and in each loop it will return a key value pair: 
+
+```javascript 
+
+let cars = new Map(); 
+
+cars.set("CarOne", "Audi"); 
+cars.set("CarTwo", "Ford"); 
+cars.set("CarThree", "GM"); 
+cars.set("CarFour", "BMW"); 
+
+for(let [key, value] of cars) {
+  console.log(`${key} = ${value}`); 
+}
+
+```
 
 ###WeakMaps 
 
