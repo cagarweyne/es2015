@@ -1225,4 +1225,38 @@ console.log(weakCars.has(passenger))// false
 
 ```
 
-###WeakSets in action 
+WeakSets are different from Sets in a few different ways, first they are not iterable and they offer no methods for reading values from them. 
+
+
+
+###When should we use WeakSets 
+
+There are a limited use cases when WeakSets are actually useful, even though we can't iterate over them or even read values from them. One obvious example is efficient memory usage and to prevent memory leaks. Another instance where WeakSets can be used is when you want to make sure that you do not muatate any data in your app. For example say you have a function that is called when ever a particular link is clicked, and when it is called the function will set a property in an object to true: 
+
+```javascript 
+let carSlides = [
+{ 'Audi', seen: false, image: 'url' },
+{ 'Ford', seen: false, image: 'url' },
+{ 'Mercedes', seen: false, image: 'url' },
+{ 'VW', seen: false, image: 'url' }
+];
+
+
+
+function clicked(car) {
+  //function will mutate each object in the carSlides
+  car.seen = true; 
+  //return something.....
+}
+
+//..on click handler function 
+let linkClicked = true; 
+  if(linkClicked) {
+    for(let car in carSlides) {
+    clicked(car); 
+  }
+}
+
+console.log(carSlides)//
+
+```
