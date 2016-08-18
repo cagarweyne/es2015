@@ -1234,29 +1234,70 @@ WeakSets are different from Sets in a few different ways, first they are not ite
 There are a limited use cases when WeakSets are actually useful, even though we can't iterate over them or even read values from them. One obvious example is efficient memory usage and to prevent memory leaks. Another instance where WeakSets can be used is when you want to make sure that you do not muatate any data in your app. For example say you have a function that is called when ever a particular link is clicked, and when it is called the function will set a property in an object to true: 
 
 ```javascript 
+
 let carSlides = [
-{ 'Audi', seen: false, image: 'url' },
-{ 'Ford', seen: false, image: 'url' },
-{ 'Mercedes', seen: false, image: 'url' },
-{ 'VW', seen: false, image: 'url' }
+{ car: 'Audi', seen: false, image: 'url' },
+{ car: 'Ford', seen: false, image: 'url' },
+{ car: 'Mercedes', seen: false, image: 'url' },
+{ car: 'VW', seen: false, image: 'url' }
 ];
 
 
 
-function clicked(car) {
-  //function will mutate each object in the carSlides
-  car.seen = true; 
-  //return something.....
+function clicked(carSlides) {
+  carSlides.forEach(car => {
+    //mutates each object in the carSlides array
+    car.seen = true; 
+  } )
 }
 
-//..on click handler function 
+//lets say this is set true when user clicks on a link somewhere
 let linkClicked = true; 
   if(linkClicked) {
-    for(let car in carSlides) {
-    clicked(car); 
-  }
+  clicked(carSlides); 
 }
 
-console.log(carSlides)//
+console.log(carSlides)
 
 ```
+
+The above is fine, but let's say that you do not want to mutate your data, having immutable object in your code is something that you should try and implement in your code where possible. We can refactor the code above to make use of WeakSets and not make any mutations to the carSlides array: 
+
+```javascript 
+
+let carSlides = [
+{ car: 'Audi', seen: false, image: 'url' },
+{ car: 'Ford', seen: false, image: 'url' },
+{ car: 'Mercedes', seen: false, image: 'url' },
+{ car: 'VW', seen: false, image: 'url' }
+];
+let carsViewed = new WeaKSet();
+
+
+
+function clicked(carSlides) {
+  carSlides.forEach(car => {
+    //instead of mutating we add the object to the carsViewed WeakSet
+    carsViewed.add(car); 
+  } )
+}
+
+//lets say this is set true when user clicks on a link somewhere
+let linkClicked = true; 
+  if(linkClicked) {
+  clicked(carSlides); 
+}
+
+console.log(carSlides)//still have our object intact without mutations
+
+//we can then check to see that we have each car as an object in the WeakSets array
+for(let car in carSlides) {
+ //check each individiual object is present in the WeakSet
+ console.log(carsViewed.has(car)); //true 
+ //other code.......
+ 
+}
+
+```
+
+
