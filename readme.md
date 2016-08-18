@@ -1016,9 +1016,33 @@ console.log(carAge); //{ '[object Object]': 5 }
 
 When you look at the console log of the carAge object you will see that it only contains one key which is `object Object` and a value of 5. Both keys have been converted to strings, and since they were objects, the string that they were converted to was `object object', and this means that only that key is being set in the carAge object. So in otherwords, the last value this set in the object will overwrite all previous values and so on. 
 
+###The Map data structure 
+
 To overcome this limitation in using objects as keys, ES6 introduced Map as a new data structure. The Map object is similar to the JS objects that we are used to, it is a simple key => value data structure. If you want to access the value of a particular key, you just provide that key and in return you get the value. The main difference with Maps is that you can use ANY value as a key or a value andmore importantly, objects are not converted to strings. 
 
-###The Map data structure 
+To see Maps in action, let's make carAge a Map instead of a normal JS object, and use the set method to add keys to the Map. This is different to simply assigning the key in plain JS objects with dot notation or a using the brackets: 
+
+```javascript 
+
+let carOne = { make: 'Audi' };
+let carTwo = { make: 'Ford' }; 
+
+let carAge = new Map(); 
+
+carAge.set(carOne, 3); 
+carAge.set(CarTwo, 5); 
+
+console.log(carAge); //{ '[object Object]': 5 }
+
+```
+The `set` method takes two arguments, a key and a value. As we did before we are using the objects as keys and assiging them their respective ages. To read the values of a map we can't simply use the dot or bracket notation, again we need to use one of its methods that it comes with to manipulate the `Map`, which is the `get` method that only takes a key as its only argument. Here's how we read keys off of a map: 
+
+```javascript 
+
+console.log(carAge.get(carOne));// 3
+console.log(carAge.get(carTwo));//5
+
+```
 
 ###The Map object
 
