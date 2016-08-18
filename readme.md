@@ -1141,6 +1141,7 @@ console.log('Total no. cars', cars.size);//5
 To get the number of items in a set you use the `.size` propery instead of the `.length`. You will notice that the duplicate entry of Audi is ignored and the total size is 5 not 6. 
 
 ###Sets and for...of 
+
 As you would expect, Set objects are iterable and we can use the for...of loop and destructuring. Let's see an example of iterating over a set object: 
 
 ```javascript 
@@ -1157,6 +1158,7 @@ for(let car of cars) {
   console.log(car);
 }
 ```
+###Sets and destructuring 
 
 We can also use destructuring with sets just like we can with normal JS arrays: 
 
@@ -1174,9 +1176,6 @@ let [a, b, c] = cars;
 console.log(a, b, c);//Audi, Ford, Mercedes
 
 ```
-
-
-###Sets and destructuring 
 
 ###WeakSets 
 
