@@ -1044,15 +1044,13 @@ console.log(carAge.get(carTwo));//5
 
 ```
 
-###The Map object
+As you can see when you log the keys, the two values are assigned to different keys in the Map and nothing is converted to string or overwritten. Therefore, in majority of the cases we should not use JS objects as maps, because of their limitations when it comes to using objects as keys. 
 
-###Adding entries to a map
-
-###Maps and objects 
-
-###Objects are still useful 
+You should use Maps when the keys are unknown until runtime, for example after loading in data from an AJAX call. However, when we are using predefined keys and we know their values before runtime, it is perfectly fine to use normal JS objects. We should also aim to use keys when all the keys and their values are of the same type. This will help keep the maps consistent and easier to work with, as you know what to expect.  
 
 ###Iterating Maps with for...of
+
+The Map data structure are iterable, this means that we can use the for.. of loop and each run of the loop will return a [key, value] pair for each entry in the Map. 
 
 ###WeakMaps 
 
