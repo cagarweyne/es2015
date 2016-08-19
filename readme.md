@@ -1338,6 +1338,39 @@ console.log(car.description);//A large family car
 //Now our car instance has the drive method available to it
 car.drive(); //Driving.....
 ```
-Using this approach works but it involves a writing quit a bit of code, in ES6 we can rewrite our constructor functions using classes. Now in terms of the actual implementation of our ES6 classes it will actually just be converted to a constructor function under hood, it is worth remembering that JS has a prototype system that is different from classical OOP languages such as Java. When we create classes in ES6 it doesn't mean that we are using new object model, rather using classes is just another way to create objects. 
 
-WIth that out of the way, let's actually write an ES6 class to see how it's done. We'll use the car model again as an example but this time we will write it in ES6. 
+This is straight forward standard stuff that you are probably used to, let's say that we want to create a particular object car that inherits from the car object but also adds its own property when new instances are created from it. Let's see how we can do this: 
+
+```javascript 
+
+function Car(name, model, description) {
+  this.name = name; 
+  this.model = model; 
+  this.description = description; 
+} 
+
+//add the function to the prototype property 
+Car.prototype.drive = function() {
+  console.log("Driving.....");
+}
+
+//lets create another car constructor for Audi
+
+function Audi() {
+
+}
+
+
+
+```
+
+
+Using this approach works but it involves a writing quite a bit of code, in ES6 we can rewrite our constructor functions using classes. Now in terms of the actual implementation of our ES6 classes it will actually just be converted to a constructor function under hood, it is worth remembering that JS has a prototype system that is different from classical OOP languages such as Java. When we create classes in ES6 it doesn't mean that we are using new object model, rather using classes is just another way to create objects. 
+
+With that out of the way, let's actually write an ES6 class to see how it's done. We'll use the car model again as an example but this time we will write it in ES6 using classes.
+
+```javascript 
+
+
+
+```
