@@ -1299,3 +1299,42 @@ for(let car of carSlides) {
 ```
 Even though it seems that we are doing extra work, this is actually making sure that we do not mutate our carSlides array data, and in essence achieve some form of data immutability. What you have to also remember is that the WeakSet does not preven the garbage collector from collecting objects that are no longer being referenced, and in turn creating an efficient use of memory. 
 
+
+##Classes
+
+If you've written any amount of substantial code you will have come across the need to encapsulate your code, and using JS constructor functions is the way this has been achieved. Let's say that we want to create an object that we can use to create instances of cars from. To do this we will typically create a constructor function: 
+
+```javascript 
+
+function Car(name, model, description) {
+  this.name = name; 
+  this.model = model; 
+  this.description = description; 
+} 
+
+let car = new Car('Ford', 'Galaxy', 'A large family car'); 
+
+console.log(car.description);//A large family car 
+
+```
+Now if we want to add functions (methods) that we want to attach to the constructor function we add this to its to the functions prototype property like this: 
+
+```javascript 
+function Car(name, model, description) {
+  this.name = name; 
+  this.model = model; 
+  this.description = description; 
+} 
+
+//add the function to the prototype property 
+Car.prototype.drive = function() {
+  console.log("Driving.....");
+}
+
+let car = new Car('Ford', 'Galaxy', 'A large family car'); 
+
+console.log(car.description);//A large family car 
+
+//Now our car instance has the drive method available to it
+car.drive(); //Driving.....
+```
