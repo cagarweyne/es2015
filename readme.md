@@ -1417,3 +1417,26 @@ console.log(car.description);
 car.drive(); 
 
 ```
+Looking at that you can immediatley appreciate that it is cleaner and easier to understand, in fact adding a method to a class look exactly like the method initializer shorthand in object. There is no need to assign it to assign a function to the prototype. 
+
+All instance variables set in the constructor can be accessed from all other instance methods, for example lets say that when the drive method is called we wanted to say the name of the car that is driving plus its model. We can rewrite our class like this: 
+
+```javascript 
+
+class Car {
+  constructor(name, model, description) {
+    this.name = name; 
+    this.model = model; 
+    this.description = description; 
+  }
+  
+  drive() {
+    console.log(`${this.name} which is a ${this.model} model is now driving`);
+  }
+}
+
+let car = new Car('Ford', 'Galaxy', 'A large family car' )
+car.drive();//Ford which is a Galaxy model is now driving 
+
+```
+
