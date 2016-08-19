@@ -1320,18 +1320,18 @@ console.log(car.description);//A large family car
 Now if we want to add functions (methods) that we want to attach to the constructor function we add this to its to the functions prototype property like this: 
 
 ```javascript 
-function Car(name, model, description) {
-  this.name = name; 
-  this.model = model; 
-  this.description = description; 
-} 
+function Car(carSpec) {
+  this.name = carSpec.name; 
+  this.model = carSpec.model; 
+  this.description = carSpec.description; 
+}  
 
 //add the function to the prototype property 
 Car.prototype.drive = function() {
   console.log("Driving.....");
 }
 
-let car = new Car('Ford', 'Galaxy', 'A large family car'); 
+let car = new Car({name: 'Ford', model: 'Galaxy', description: 'A large family car'}); 
 
 console.log(car.description);//A large family car 
 
@@ -1339,12 +1339,45 @@ console.log(car.description);//A large family car
 car.drive(); //Driving.....
 ```
 
-Now we've created a generic car object model, what if we wanted to create another car model that inherits from this generic car object, but also has unique properties? We can achieve with this with  the prototypal inheritance of JS. 
+Now we've created a generic car object model, what if we wanted to create another car model, say Audi, that inherits from this generic car object, but also has unique properties? We can achieve with this with  the prototypal inheritance of JS. To implement this we'll need to create another constructor function and inherit from the Car object: 
 
+```javascript 
 
+//our main generic car object 
+function Car(carSpec) {
+  this.name = carSpec.name; 
+  this.model = carSpec.model; 
+  this.description = carSpec.description; 
+}  
 
+//add the function to the prototype property 
+Car.prototype.drive = function() {
+  console.log("Driving.....");
+} 
 
-Using this approach works but it involves a writing quite a bit of code, in ES6 we can rewrite our constructor functions using classes. Now in terms of the actual implementation of our ES6 classes it will actually just be converted to a constructor function under hood, it is worth remembering that JS has a prototype system that is different from classical OOP languages such as Java. When we create classes in ES6 it doesn't mean that we are using new object model, rather using classes is just another way to create objects. 
+function Audi(carSpec) {
+  //call the generic car function constructor an pass it the context and the carSpec params
+  Car.call(this, carSpec)
+  this.engine = carSpec.engine;
+  this.audiDrive = function() {
+    console.log('vroom vrooom');
+  }
+}
+
+//Then we need to use the Object.create to construct the subclass prototype so that we don't have to call the base constructor
+Audi.prototype = Object.create(Car.prototype); 
+//set the constructor of our Audi back to the Audi constructor again
+Audi.prototype.constructor = Audi;
+
+const myAudi = new Audi({name: 'My Audi', model: 'Audi', description: 'great German car', engine: 'A313'}); 
+
+console.log(myAudi.description); 
+
+```
+
+Using this approach works but it involves a writing quite a bit of code, especially when you want to inherit from another object. There are quite a lot of things that we have to write just to get things wired up and working - this is one of main points that can make working with OO code in JS confusing. 
+
+In ES6 we can rewrite our constructor functions using classes. Now in terms of the actual implementation of our ES6 classes it will actually just be converted to a constructor function under the hood, it is worth remembering that JS has a prototype system that is different from classical OOP languages such as Java and as such the JS remain a prototype based language. When we create classes in ES6 it doesn't mean that we are using new object model, rather using classes is just another way to create objects - but with a lot less code and lot less confusion surrounding it! 
 
 With that out of the way, let's actually write an ES6 class to see how it's done. We'll use the car model again as an example but this time we will write it in ES6 using classes. Creating Object Oriented code using classes will actually assimilate it with other popular programming languages, and the syntax will look familiar to other developers coming from a non JS background. 
 
@@ -1360,5 +1393,27 @@ class Car {
 
 let car = new Car('Ford', 'Galaxy', 'A large family car' )
 console.log(car.description);
+
+```
+
+You might argue that we have merely replaced the `function` keyword with `class` and everything else is still the same. Well, let's see how we can add methods to the class and then you'll realise that it's actually a lot different: 
+
+```javascript 
+
+class Car {
+  constructor(name, model, description) {
+    this.name = name; 
+    this.model = model; 
+    this.description = description; 
+  }
+  
+  drive() {
+    console.log("Driving.....");
+  }
+}
+
+let car = new Car('Ford', 'Galaxy', 'A large family car' )
+console.log(car.description);
+car.drive(); 
 
 ```
