@@ -7,12 +7,12 @@ To understand how inheritance is simplified in ES6, we will rewrite the previous
 ```javascript 
 //our generic car object in ES6 
 class Car {
-  constructor(name, model, description) {
-    this.name = name; 
-    this.model = model; 
-    this.description = description; 
+  constructor(carSpec) {
+    this.name = carSpec.name; 
+    this.model = carSpec.model; 
+    this.description = carSpec.description; 
   }
-  
+
   //drive method
   drive() {
     console.log("Driving.....");
@@ -20,14 +20,26 @@ class Car {
 }
 
 
+
 //new car model (Audi)
 class Audi extends Car {
   constructor(carSpec) {
-    super();
+    super(carSpec);// Car.constructor(); 
+    this.engine = carSpec.engine; 
   }
 
 }
 
+let audi = new Audi({name: "Audi", model: "A3", engine: "A313", description: "Best Audi Model"}); 
 
+console.log(audi);
+
+//prints 
+// {
+//   description: "Best Audi Model",
+//   engine: "A313",
+//   model: "A3",
+//   name: "Audi"
+// }
 ```
 
