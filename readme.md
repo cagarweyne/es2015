@@ -1439,4 +1439,4 @@ let car = new Car('Ford', 'Galaxy', 'A large family car' )
 car.drive();//Ford which is a Galaxy model is now driving 
 
 ```
-
+As you can see from the code example above, we can access Class instance variables inside other instance methods. The drive method has access to the Class instance variables `name`, `model` and `description`. It goes without saying, that you need to use they keyword `this` to acces instance properties and methods. 
