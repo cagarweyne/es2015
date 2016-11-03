@@ -1439,8 +1439,6 @@ let car = new Car('Ford', 'Galaxy', 'A large family car' )
 car.drive();//Ford which is a Galaxy model is now driving 
 
 ```
-As you can see from the code example above, we can access Class instance variables inside other instance methods. The drive method has access to the Class instance variables `name`, `model` and `description`. It goes without saying, that you need to use they keyword `this` to acces instance properties and methods. 
+As you can see from the code example above, we can access Class instance variables inside other instance methods. The drive method has access to the Class instance variables `name`, `model` and `description`. It goes without saying, that you need to use they keyword `this` to access instance properties and methods. 
 
-###Inheritance in ES6 Classes 
 
-In the previous example when we wanted to inherit from the generic car object, we had to write a lot of code to achieve this and this code can be confusing to understand at times. The process of inheritance is in ES6 is simplified and we don't have to actually write a lot of code to achieve inheritance. 
