@@ -41,5 +41,9 @@ console.log(audi);
 //   model: "A3",
 //   name: "Audi"
 // }
-```
 
+
+audi.drive(); //calls the inherited instance method from Car - "Driving....."
+
+```
+The ES6 code is actually a lot simpler! We have our initial car object, that takes in a carSpec options object as an argument. In the Car object's constructor method we initialize the variables `name`, `model` and `description`. Nothing new here. Then we created a new car object model Audi, and as you will have noticed we added a few things to the original Car object. After the class name we added the keyword `extends` followed by the name of the class that we want to inherit from. In our case here it is the Car object. At this point we already have access to the instance methods of the Car object, so if we were to call 
