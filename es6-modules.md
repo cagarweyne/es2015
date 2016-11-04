@@ -79,6 +79,8 @@ console.log(divide(27, 3));//9
 ```
 It is important to note that when you import named modules, you need to make sure that the variable in which you assign the return of the import matches the name of the exported item. So for example, if you wanted to import subtract and you assigned it the name sub instead of subtract, then this would not work since the import will use the name to reference the correct exported module and will return undefined. Also you can have as many named exports per file as you want. 
 
+###Importing a modules an object 
+
 You might be thinking is there a way that I can import all of the functions without having to assign them to individual variables as above? And the answer is yes! you can import all named exports as an object and call each function as a property of this object. So to demonstrate what we mean we will refactor the above import statement to use a single imported object and we can each of the function as a property of the imported object: 
 
 ```javascript 
@@ -129,13 +131,19 @@ console.log(square(11)); // 121
 console.log(add(4, 3)); // 7
 
 ```
+###Simpler way to export multiple items at once
+
+Let's say that you are using named exports and that in a single file you want to export several items, just like we did in the calculator.js file - but you want a shorter and simpler way to simply adding the keyord export to each item that you wish to export. You can achieve by passing multiple functions to the export keyword using curly braces. To see how this works let's refactor the export statemets in our calculator.js file: 
+
+```javascript 
+
+
+
+```
+
 ###The 'default' export in ES6 and what this means 
 
-###Importing named exports 
 
-###Importing a modules an object 
-
-###Simpler way to export multiple items at once
 
 ###Class modules can also be exported using default export
 
