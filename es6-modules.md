@@ -79,7 +79,20 @@ console.log(divide(27, 3));//9
 ```
 It is important to note that when you import named modules, you need to make sure that the variable in which you assign the return of the import matches the name of the exported item. So for example, if you wanted to import subtract and you assigned it the name sub instead of subtract, then this would not work since the import will use the name to reference the correct exported module and will return undefined. Also you can have as many named exports per file as you want. 
 
-You might be thinking is there a way that I can import all of the functions without having to assign them to individual variables as above? And the answer is yes! you can import all named exports as an object and call each function as a property of this object. So to demonstrate what we mean we will refactor the above import statement   
+You might be thinking is there a way that I can import all of the functions without having to assign them to individual variables as above? And the answer is yes! you can import all named exports as an object and call each function as a property of this object. So to demonstrate what we mean we will refactor the above import statement to use a single imported object and we can each of the function as a property of the imported object: 
+
+```javascript 
+//main.js 
+
+import * as calculator from './calculator'; 
+
+//we can now use any of the functions 
+console.log(calculator.divide(27, 3));//9
+
+console.log(calculator.add(5, 7));//12
+```
+As you can see from the refactor, we have now imported all of the functions in calculator.js as an object and assigned this to the variable calculator. And just like you would access an object, we can use the functions as property of the object and call them with the normal dot notation method and pass in the required function parameters. 
+
 
 ###The 'default' export in ES6 and what this means 
 
