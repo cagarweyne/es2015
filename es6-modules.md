@@ -20,6 +20,9 @@ It is more than likely that you have copied and pasted code that you have writte
 
 ###Creating modules in ES6 
 
+in following the general trend of simplifying things, ES6 introduces two kinds of exports; named exports and default exports. Let's say we are writing a helper module that helps us calculate. We'll call it the module calculator. In the calculator module we have methods that allow is to add, subtract and divide and square.   
+
+
 ###How to import Modules in ES6 
 
 ###The 'default' export in ES6 and what this means 
