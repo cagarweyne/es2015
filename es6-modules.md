@@ -205,6 +205,7 @@ export default function anotherFunc() {
 Classes can also be exported from modules using the same syntax as functions. Instead of several individual functions, we can have a single class that has multiple functions. If we refactor the calcultator.js module to be class and export it as a default: 
 
 ```javascript 
+//calculator.js 
 export default class Calculator {
   function add(a, b) {
   return a + b; 
@@ -223,6 +224,16 @@ export default class Calculator {
   }
 }
 ```
-We now have a single class that contains all of our functions as methods and this class been exported as the default module. 
+We now have a single class that contains all of our functions as methods and this class been exported as the default module. Imported classes are assigned to a variable using import and can then be used to create new instances: 
+
+```javascript 
+import Calculator from './calculator';
+
+let calculator = new Calculator(); 
+//works the same as previously 
+console.log(calculator.divide(27, 3));//9
+console.log(calculator.add(5, 7));//12
+
+```
 ###Exporting class modules with named export 
 
