@@ -7,12 +7,16 @@ With this in mind, the committee responsible for defining the ECMAScript specifi
 
 Just like good authors divide their books into chapters you should always take the opportunity to divide your code into modules! There are a host of arguments for the need to modularize code, so we will only mention a few: 
 
-1. Maintainability 
+####Maintainability
+
 The fact that you have extracted out certain functionality into its own module means that it is self contained and not dependent on the rest of you code. This means that you can improve on this module in the future without affecting the rest of your code base. Imagine you had a massive codebase and you did not modularize your code, then you decided to change a part of your code, but since the code is interdependent on each other it will affect other parts of the code. This means that you have to go through your entire code base to check and see which parts of other code will be affected by the change. This is a nightmare scenario, as a small change is likely to break your whole application. This in itself is probably enough of an argument as to why you should use modules in your code!
 
-2. 
+####Avoiding namespace 'pollution'
+As you are probably aware, variables outside the scope of a top-level function are global, meaning, everyone can access them. This leads to what is called 'namespace pollution' or collisions, where unrelated code share variables and overwrite each other's data. 
 
+####Reusability 
 
+It is more than likely that you have copied and pasted code that you have written in a project to another one that you are working on. Instead of repeating your code between projects, you can create a module that you can reuse again and again. You also have the flexibility to improve and update the module as and when you please without needing to go back to your code update it. You only need to do this once and all of the projects that you used the module on will have the updated code in their copy of the module.  
 
 ###Creating modules in ES6 
 
