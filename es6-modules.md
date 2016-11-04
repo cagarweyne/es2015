@@ -93,6 +93,35 @@ console.log(calculator.add(5, 7));//12
 ```
 As you can see from the refactor, we have now imported all of the functions in calculator.js as an object and assigned this to the variable calculator. And just like you would access an object, we can use the functions as property of the object and call them with the normal dot notation method and pass in the required function parameters. 
 
+Now if we want to compare how this is different from the ES5 way, we can refactor this to see how we might do the same thing but in ES5 using the CommonJS approach: 
+
+```javascript 
+//calculator.js - in ES5 with CommonJS module pattern
+
+function add(a, b) {
+  return a + b; 
+}
+
+function subtract(a, b) {
+  return a - b; 
+}
+
+function multiply(a, b) {
+  return a / b; 
+}
+
+function square(x) {
+  return multiply(x, x); 
+}
+
+module.exports = {
+  add: add, 
+  subtract: subtract, 
+  multiply: multiply, 
+  square: square
+}
+
+```
 
 ###The 'default' export in ES6 and what this means 
 
