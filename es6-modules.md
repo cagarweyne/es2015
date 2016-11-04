@@ -5,6 +5,15 @@ With this in mind, the committee responsible for defining the ECMAScript specifi
 
 ###Quick recap of the need for modules in the first place 
 
+Just like good authors divide their books into chapters you should always take the opportunity to divide your code into modules! There are a host of arguments for the need to modularize code, so we will only mention a few: 
+
+1. Maintainability 
+The fact that you have extracted out certain functionality into its own module means that it is self contained and not dependent on the rest of you code. This means that you can improve on this module in the future without affecting the rest of your code base. Imagine you had a massive codebase and you did not modularize your code, then you decided to change a part of your code, but since the code is interdependent on each other it will affect other parts of the code. This means that you have to go through your entire code base to check and see which parts of other code will be affected by the change. This is a nightmare scenario, as a small change is likely to break your whole application. This in itself is probably enough of an argument as to why you should use modules in your code!
+
+2. 
+
+
+
 ###Creating modules in ES6 
 
 ###How to import Modules in ES6 
