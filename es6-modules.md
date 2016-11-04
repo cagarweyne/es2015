@@ -186,11 +186,20 @@ Now for us to use the default exported value, we need to assign to a variable. N
 import myFunc from './lib'; 
 myFunc('Abdi');//hello Abdi
 ```
+It is worth noting that you cannot default export multiple values from a module, the default type export limits the number of values that you can default export so the following will not work: 
 
+```javascript 
+//lib.js 
+export default function greet(name) {
+  return `hello ${name}`;  
+}
 
-
-
-
+//this function is not available outside this module
+export default function anotherFunc() {
+  //some computations...
+  
+  //this will create an error - only one default export allowed per module
+```
 
 ###Class modules can also be exported using default export
 
