@@ -41,14 +41,33 @@ function square(x) {
   return multiply(x, x); 
 }
 ```
+###Named exports - multiple
+Now that we have the functions written in our calculator.js file, we want to be able to use them elsewhere, say like in a main.js file. In order for to to be able to use the functions we need to 'export' them first, and in ES6 you can export more than one function or variable using the `export` keyword. So all we have to do is to prepend the keyword export on each of the functions that we want to export: 
 
+```javascript 
+//calculator.js
 
+export function add(a, b) {
+  return a + b; 
+}
+
+export function subtract(a, b) {
+  return a - b; 
+}
+
+export function multiply(a, b) {
+  return a / b; 
+}
+
+export function square(x) {
+  return multiply(x, x); 
+}
+```
+Now we can use import in any of the functions in the calculator.js file. 
 
 ###How to import Modules in ES6 
 
 ###The 'default' export in ES6 and what this means 
-
-###Named exports
 
 ###Importing named exports 
 
