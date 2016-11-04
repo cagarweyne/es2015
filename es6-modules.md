@@ -65,7 +65,21 @@ export function square(x) {
 ```
 Now we can use import in any of the functions in the calculator.js file. 
 
-###How to import Modules in ES6 
+###How to import named export modules in ES6 
+To import modules we use the new `import` keyword in ES6, so to import all of the functions in the calculator.js file we will write: 
+
+```javascript 
+//main.js 
+
+import { add, subtract, multiply, square } from './calculator'; 
+
+//we can now use any of the functions 
+console.log(divide(27, 3));//9
+
+```
+It is important to note that when you import named modules, you need to make sure that the variable in which you assign the return of the import matches the name of the exported item. So for example, if you wanted to import subtract and you assigned it the name sub instead of subtract, then this would not work since the import will use the name to reference the correct exported module and will return undefined. Also you can have as many named exports per file as you want. 
+
+You might be thinking is there a way that I can import all of the functions without having to assign them to individual variables as above? And the answer is yes! you can import all named exports as an object and call each function as a property of this object. So to demonstrate what we mean we will refactor the above import statement   
 
 ###The 'default' export in ES6 and what this means 
 
