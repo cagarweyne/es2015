@@ -121,8 +121,14 @@ module.exports = {
   square: square
 }
 
-```
+//main.js - in ES5 with CommonJS module pattern
 
+var square = require('calculator').square;
+var add = require('calculator').add;
+console.log(square(11)); // 121
+console.log(add(4, 3)); // 7
+
+```
 ###The 'default' export in ES6 and what this means 
 
 ###Importing named exports 
