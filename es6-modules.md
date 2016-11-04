@@ -165,8 +165,7 @@ console.log(calculator.add(5, 7));//12
 ```
 
 ###The 'default' export in ES6 and what this means 
-
-
+The second way in which we can export modules is using the export default keyword. In NodeJs community and also on the Front end, there is a tendency to have modules that export only a single value. ES6 plays along really nicely with this concept, as it provides the option to have a main module exported as the 'default'. To use the export default approach you simply prepend `export default` to the value that you want to export as the default. 
 
 ###Class modules can also be exported using default export
 
