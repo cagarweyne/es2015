@@ -136,8 +136,31 @@ console.log(add(4, 3)); // 7
 Let's say that you are using named exports and that in a single file you want to export several items, just like we did in the calculator.js file - but you want a shorter and simpler way to simply adding the keyord export to each item that you wish to export. You can achieve by passing multiple functions to the export keyword using curly braces. To see how this works let's refactor the export statemets in our calculator.js file: 
 
 ```javascript 
+//calculator.js
 
+function add(a, b) {
+  return a + b; 
+}
 
+function subtract(a, b) {
+  return a - b; 
+}
+
+function multiply(a, b) {
+  return a / b; 
+}
+
+function square(x) {
+  return multiply(x, x); 
+}
+
+export { add, subtract, multiply, square }; 
+
+//main.js
+import * as calculator from './calculator';
+//works the same as previously 
+console.log(calculator.divide(27, 3));//9
+console.log(calculator.add(5, 7));//12
 
 ```
 
