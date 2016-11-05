@@ -237,3 +237,27 @@ console.log(calculator.add(5, 7));//12
 ```
 ###Exporting class modules with named export 
 
+Just as we can export classes using the `export default` method, we can export classes as named exports: 
+
+```javascript 
+//calculator.js 
+class Calculator {
+  function add(a, b) {
+  return a + b; 
+}
+
+  subtract(a, b) {
+    return a - b; 
+  }
+
+  multiply(a, b) {
+    return a / b; 
+  }
+
+  square(x) {
+    return multiply(x, x); 
+  }
+}
+
+export { Calculator }
+```
