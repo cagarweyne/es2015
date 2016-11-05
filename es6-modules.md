@@ -295,7 +295,7 @@ When you import variables from a module they are read-only and you cannot change
 export let count = 0;
  
 // main.js
-import { count } from './my-module;
+import { count } from './my-module';
  
 count++; // read-only error
 ```
@@ -310,10 +310,27 @@ export function increment() {
 }
 
 // main.js
-import { count, increment } from './my-module;
+import { count, increment } from './my-module';
 increment(); 
 
 console.log(count); //1 
 ```
 
 This means that the module we import is not a copy, but rather there is a connection to the variables declared inside module bodies and these are in essence 'live'. 
+
+Even though imported variables are read-only, we can change the property of an imported object and this works just fine: 
+
+```javascript
+// my-module.js
+export const myObj = {
+  name: 'Robert De Niro'
+}
+
+//main.js 
+import { myObj } from './my-module';
+
+myObj.name = 'Al Pacino';//
+
+console.log(myObj.name);//Al Pacino 
+
+```
