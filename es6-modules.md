@@ -270,12 +270,12 @@ When importing or exporting ES6 Modules you cannot do these conditionally, so fo
 
 ```javascript 
 if (someCondition) {
-    import myMdoule from './lib; // SyntaxError
+    import myMdoule from './lib'; // SyntaxError
 }
 
 // You can’t  `import` and `export`
 // inside a simple block:
 {
-    import React from 'react; // SyntaxError
+    import React from 'react'; // SyntaxError
 }
 ```
