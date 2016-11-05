@@ -287,3 +287,33 @@ someFunction();
 
 import { myModule } from 'my_module';
 ```
+###Imported variables are read-only 
+When you import variables from a module they are read-only and you cannot change their values when once imported. So for example, if we had a count variable and we imported this in we would be able to read the value but cannot change it inisde our code: 
+
+```javascript 
+// my-module.js
+export let count = 0;
+ 
+// main.js
+import { count } from './my-module;
+ 
+count++; // read-only error
+```
+However, if we had imported a function along with the variable from the module and then this function can change the value of the count variable. The following works just fine: 
+
+```javascript 
+// my-module.js
+export let count = 0;
+
+export function increment() {
+  count++;
+}
+
+// main.js
+import { count, increment } from './my-module;
+increment(); 
+
+console.log(count); //1 
+```
+
+This means that the module we import is not a copy, but rather there is a connection to the variables declared inside module bodies and these are in essence 'live'. 
