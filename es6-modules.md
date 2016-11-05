@@ -279,3 +279,11 @@ if (someCondition) {
     import React from 'react'; // SyntaxError
 }
 ```
+###Imports are hoisted 
+Just like the `var` ES6 import are hoisted to the top of the current scope, so no matter where the imports are declared in a module, they will always be hoisted up to the beginning of the current scope. So the following works just fine: 
+
+```javascript 
+someFunction();
+
+import { myModule } from 'my_module';
+```
