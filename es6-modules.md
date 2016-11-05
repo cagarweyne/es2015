@@ -261,3 +261,21 @@ class Calculator {
 
 export { Calculator }
 ```
+##Some points to note on ES6 Modules
+As simple as ES6 Modules are to implement, there are some things that we need to know about how they work. 
+
+###You cannot conditionally import or export ES6 Modules
+
+When importing or exporting ES6 Modules you cannot do these conditionally, so for example the following will not work and will generate a syntax error: 
+
+```javascript 
+if (someCondition) {
+    import myMdoule from './lib; // SyntaxError
+}
+
+// You can’t  `import` and `export`
+// inside a simple block:
+{
+    import React from 'react; // SyntaxError
+}
+```
