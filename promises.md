@@ -8,13 +8,15 @@ let url = 'http://data-api/data';
 
 let data = getdata(url);
 
-console.log(data);
+console.log('data:', data);
 
 console.log('I am running after Ajax call');
 
 //when executed - our output 
 
-undefined 
+data: undefined 
 
 I am running after Ajax call
 ```
+
+In JavaScript code is executed one after the other by a single thread, so the output that we see from our code above is that we have `undefined` as the value on data and the string that we logged inside the console function. Data is undefined because the AJAX call takes some time to retrieve the data from the server, and the code is immediately executed one after the other - hence there is no waiting around for the response. We could wait until we have a response from the server, but this would mean everything will freeze, the user will not be able to interact with the app until we have received the response. 
