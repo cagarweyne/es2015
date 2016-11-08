@@ -203,3 +203,17 @@ function waitingFor(name) {
 
 ```
 We can create a new Promise by using the native Promise API, so in our function we have refactored it to return a new Promise object. When a new Promise is instantiated, we pass it two paramteres, resolve and reject. These parameters are themselves functions that we can use inside the promise when the request is resolved or rejected. 
+
+We can call our newly refactored function like we did before, but we don't pass in a callback function as the second argument. Our callback function will be passed to the then function, where inside it we have access to the returned value: 
+
+```javascript 
+
+waitingFor('Abdi').then((abdi)=> {
+  console.log("Great, we got: " + abdi)
+})
+
+//output 
+//"Waiting for Abdi"
+//"Great, we got: Abdi"
+
+```
