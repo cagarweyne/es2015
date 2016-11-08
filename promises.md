@@ -98,6 +98,13 @@ Inside the callback function that is executed after the setTimeout, we first che
 
 This process is repeated three times, so hence the output of three sentences that say who we are waiting for and then after each has run its duration with no errors, then in the final callback function's else block we have access to all outer functions parameters and here we simply console log out the text to sau that we have finally got each person that we were waiting for. 
 
+If you have worked with Node.js previously, then this pattern will be very familiar. Again, this is a very simple example without any errors, so if we had an error after the first call to waitingFor, this would happen if the person we are waiting for is Mike, then the execution of the code would stop and it can get very messy: 
+
+```javascript 
+
+
+```
+
 
 
 
