@@ -58,7 +58,19 @@ function waitingFor(name, done) {
 The callback function takes two parameters, an error and the name of the person that we waited for. So let's put the function to use and say that we are waiting for three people, Abdi, Michelle, Thomas and John: 
 
 ```javascript 
-waitingFor('Abdi', function(error, abdi) {
+function waitingFor(name, done) {
+  console.log('Wating for ' + name)
+
+  setTimeout(function() {
+    if (name === 'Mike') {
+      done('Mike is always late!')
+    } else {
+      done(null, name)
+    }
+  }, 3000)
+}
+
+waitingFor('Abdi', function(error, Abdi) {
   if (error) {
     console.log(error)
   } else {
@@ -74,11 +86,7 @@ waitingFor('Abdi', function(error, abdi) {
               if (error) {
                 console.log(error)
               } else {
-                console.log('Got ' + abdi)
-                console.log('Got ' + michelle)
-                console.log('Got ' + thomas)
-                console.log('Got ' + john)
-                console.log("Ok, let's go!")
+                console.log("Great! We've got everyone, let's go!")
               }
             })
           }
@@ -88,16 +96,13 @@ waitingFor('Abdi', function(error, abdi) {
   }
 })
 
-//output 
+// output
 // "Wating for Abdi"
 // "Wating for Michelle"
 // "Wating for Thomas"
 // "Wating for John"
-// "Got Abdi"
-// "Got Michelle"
-// "Got Thomas"
-// "Got John"
-// "Ok, let's go!"
+// "Great! We've got everyone, let's go!"
+
 
 ```
 When our function waitingFor is invoked we call it with its parameters name and the callback function. Inside the function body we simply console log out the string "Waiting for" plus the name of the person that we are waiting for. Then we run the setTimeout function and after 3 seconds we call the given callback function and give it the name parameter that was passed in. 
@@ -125,11 +130,7 @@ waitingFor('Mike', function(error, mike) {
               if (error) {
                 console.log(error)
               } else {
-                console.log('Got ' + mike)
-                console.log('Got ' + michelle)
-                console.log('Got ' + thomas)
-                console.log('Got ' + john)
-                console.log("Ok, let's go!")
+                console.log("Great! We've got everyone, let's go!")
               }
             })
           }
@@ -221,6 +222,39 @@ This is very straight forward, let's say that we want to wait for Thomas as well
 
 ```javascript 
 
+function waitingFor(name) {
+  console.log('Waiting for ' + name)
 
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      if (name === 'Mike') {
+        reject(Error('Mike is always late!'))
+      } else {
+        resolve(name)
+      }
+    }, 1000)
+  })
+}
+
+function waitForFriend(name) {
+  return function() {
+    return waitingFor(name)
+  }
+}
+
+function leave() {
+  console.log("Great! We've got everyone, let's go")
+}
+
+
+waitingFor('Abdi').then(waitForFriend('Thomas'))
+  .then(leave)
+
+
+// output 
+// "Waiting for Abdi"
+// "Waiting for Thomas"
+// "Great! We've got everyone, let's go"
 
 ```
+I have simply refactored the code to abstract out the callback function that is passed to `then`. The function `waitForFriend()` simply takes in a one parameter which is the name and returns our promise based function `waitingFor` and passed along the required argument, which is the name of the friend. 
