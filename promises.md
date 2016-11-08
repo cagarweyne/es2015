@@ -147,4 +147,8 @@ You can see from this simple example that we need to think very carefully when u
 
 Now that we have an understanding about the problems we can run into when using callbacks in asynchronous tasks, we need better way that will enable us to write async code and make it less complex than using callbacks. 
 
-Well, the answer is Promises. And I promise it's not going to be difficult to understand! You might already by using promises if you have used the fetch library in any of our projects previously. 
+Well, the answer is Promises. And I promise it's not going to be difficult to understand! You might already by using promises if you have used the fetch library in any of our projects previously. Promises help you to write cleaner code that is easier to comprehend and also provide mechanisms for error handling. 
+
+###Promise concepts 
+
+
