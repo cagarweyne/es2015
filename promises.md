@@ -150,5 +150,15 @@ Now that we have an understanding about the problems we can run into when using 
 Well, the answer is Promises. And I promise it's not going to be difficult to understand! You might already by using promises if you have used the fetch library in any of our projects previously. Promises help you to write cleaner code that is easier to comprehend and also provide mechanisms for error handling. 
 
 ###Promise concepts 
+Promises have actually been around for a number of yours, and they have been implemented as third party libraries. To look at it simply, promises are objects with several functions that we can call and pass in callback functions into. For example: 
 
+```javascript
 
+let Promise = {
+  then() {}, 
+  catch() {}, 
+  all() {}
+  //.....
+}
+```
+The `then` function is called anytime a promise is successful and the catch method of the promise is called when there is an error. We can also call another method on the promise called `all`, that we can use to call multiple promises as an array, we will see more on this later. Depending on browser implementation of ES6, as of ES2015 promises are native JavaScript, meaning that you will not necessarily need a third party library to use them in your code. 
