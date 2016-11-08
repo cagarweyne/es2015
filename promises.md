@@ -277,4 +277,56 @@ waitingFor('Abdi').then(waitForFriend('Thomas'))
 // "Great! We've got everyone, let's go"
 
 ```
-As you can see the code is much cleaner, easier to reason about and we can plug in any other functionality at will once the promise has resolved. We haven't yet factored in if there is an error, if you remember when the friend we are waiting for is 'Mike' this should result in a rejected promise. In the callback version whenever there was an error, the rest of the code was not run since we run into a problem. Let's see how promises handle the same situation:  
+As you can see the code is much cleaner, easier to reason about and we can plug in any other functionality at will once the promise has resolved. We haven't yet factored in if there is an error, if you remember when the friend we are waiting for is 'Mike' this should result in a rejected promise. In the callback version whenever there was an error, the rest of the code was not run since we run into a problem and dealing with an error situation with callbacks is quite messy. Let's see how promises handle the same situation:  
+
+```javascript 
+
+function waitingFor(name) {
+  console.log('Waiting for ' + name)
+
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      if (name === 'Mike') {
+        reject(Error('Mike is always late!'))
+      } else {
+        resolve(name)
+      }
+    }, 1000)
+  })
+}
+
+function waitForFriend(name) {
+  return function() {
+    return waitingFor(name)
+  }
+}
+
+function leave() {
+  console.log("Great! We've got everyone, let's go")
+}
+
+var gotImpatient = function(error) {
+  console.log(error.message)
+  return Promise.resolve("We're leaving")
+}
+
+
+waitingFor('Abdi').then(waitForFriend('Thomas'))
+  .then(waitForFriend('Michelle'))
+  .then(waitForFriend('Mike'))
+  .then(waitForFriend('John'))
+  .catch(gotImpatient)
+  .then(leave)
+
+
+// output 
+// "Waiting for Abdi"
+// "Waiting for Thomas"
+// "Waiting for Michelle"
+// "Waiting for Mike"
+// "Mike is always late!"
+// "Great! We've got everyone, let's go"
+
+```
+
+The code ran as we expected up until we waited for Mike, the promise that is returned after Michelle does not get fulfilled because the person is Mike. This means that the promise has not resolved, so therefore we cannot return another promise to wait for John. Instead of the then function being run after Michelle, the catch function of the promise is run since it got rejected. The function that is passed to catch simply handles the error - in our very simplistic scenario it simply logs out that Mike is always late! 
