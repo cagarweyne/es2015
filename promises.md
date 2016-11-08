@@ -329,4 +329,15 @@ waitingFor('Abdi').then(waitForFriend('Thomas'))
 
 ```
 
-The code ran as we expected up until we waited for Mike, the promise that is returned after waiting for Michelle does not get fulfilled because the person is Mike. This means that the promise has not resolved, so therefore we cannot return another promise to wait for John. Instead of the then function being run after Michelle, the catch function of the promise is run since it got rejected. The function that is passed to `catch` simply handles the error - in our very simplistic scenario it simply logs out that Mike is always late! 
+The code ran as we expected up until we waited for Mike, the promise that is returned after waiting for Michelle does not get fulfilled because the person is Mike. This means that the promise has not resolved, so therefore we cannot return another promise to wait for John. Instead of the then function being run after Michelle, the catch function of the promise is run since it got rejected. The function that is passed to `catch` simply handles the error - in our very simplistic scenario it calls the resolve function of the promise object and passes in a string value and resolves the promise - thereby fixing the error. 
+
+The executing of the code continues further down to the next then function, since we called `Promise.resolve("We're leaving")` in the function that handled the error. Then the leave function is called, whcih simply prints out some text. 
+
+##Promise.all()
+As I mentioned previously, you can queue up a list of promises that will get run one after the other. In our previous example we run 4 promises, using a special function provided by the Promise object Promise.all(), we can pass all of the promises as an array to the Promise.all function: 
+
+```javascript 
+
+
+
+```
