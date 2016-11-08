@@ -143,9 +143,4 @@ waitingFor('Mike', function(error, mike) {
 // "Wating for Mike"
 // "Mike is always late!"
 ```
-
-
-
-
-
-
+You can see from this simple example that we need to think very carefully when using callbacks, becuase it can get very messy quickly and it can be very difficult to read and to trace any bugs in your code. 
