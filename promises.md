@@ -46,7 +46,7 @@ Because JavaScript executes code in a synchronous manner, we have to use callbac
 function waitingFor(name, done) {
   console.log('Wating for ' + name)
 
-  setTimeout(()=> {
+  setTimeout(function() {
     if (name === 'Mike') {
       done('Mike is always late!')
     } else {
@@ -55,31 +55,36 @@ function waitingFor(name, done) {
   }, 3000)
 }
 ```
-The callback function takes two parameters, an error and the name of the person that we waited for. So let's put the function to use and say that we are waiting for three people, Abdi, Michelle and Thomas: 
+The callback function takes two parameters, an error and the name of the person that we waited for. So let's put the function to use and say that we are waiting for three people, Abdi, Michelle, Thomas and John: 
 
 ```javascript 
-
 waitingFor('Abdi', function(error, abdi) {
-  
-  if(error) {
-    console.log(erorr);
+  if (error) {
+    console.log(error)
   } else {
     waitingFor('Michelle', function(error, michelle) {
-      if(error) {
-        console.log(error);
+      if (error) {
+        console.log(error)
       } else {
-        
         waitingFor('Thomas', function(error, thomas) {
-          if(error) {
-            console.log(error);
+          if (error) {
+            console.log(error)
           } else {
-            console.log('OK good to go, we got ' +  abdi);
-            console.log('OK good to go, we got ' +  michelle);
-            console.log('OK good to go, we got ' +  thomas);
+            waitingFor('John', function(error, john) {
+              if (error) {
+                console.log(error)
+              } else {
+                console.log('Got ' + abdi)
+                console.log('Got ' + michelle)
+                console.log('Got ' + thomas)
+                console.log('Got ' + john)
+                console.log("Ok, let's go!")
+              }
+            })
           }
-        });
+        })
       }
-    })   
+    })
   }
 })
 
@@ -87,9 +92,12 @@ waitingFor('Abdi', function(error, abdi) {
 // "Wating for Abdi"
 // "Wating for Michelle"
 // "Wating for Thomas"
-// "OK good to go, we got Abdi"
-// "OK good to go, we got Michelle"
-// "OK good to go, we got Thomas"
+// "Wating for John"
+// "Got Abdi"
+// "Got Michelle"
+// "Got Thomas"
+// "Got John"
+// "Ok, let's go!"
 
 ```
 When our function waitingFor is invoked we call it with its parameters name and the callback function. Inside the function body we simply console log out the string "Waiting for" plus the name of the person that we are waiting for. Then we run the setTimeout function and after 3 seconds we call the given callback function and give it the name parameter that was passed in. 
@@ -101,8 +109,39 @@ This process is repeated three times, so hence the output of three sentences tha
 If you have worked with Node.js previously, then this pattern will be very familiar. Again, this is a very simple example without any errors, so if we had an error after the first call to waitingFor, this would happen if the person we are waiting for is Mike, then the execution of the code would stop and it can get very messy: 
 
 ```javascript 
+waitingFor('Mike', function(error, mike) {
+  if (error) {
+    console.log(error)
+  } else {
+    waitingFor('Michelle', function(error, michelle) {
+      if (error) {
+        console.log(error)
+      } else {
+        waitingFor('Thomas', function(error, thomas) {
+          if (error) {
+            console.log(error)
+          } else {
+            waitingFor('John', function(error, john) {
+              if (error) {
+                console.log(error)
+              } else {
+                console.log('Got ' + mike)
+                console.log('Got ' + michelle)
+                console.log('Got ' + thomas)
+                console.log('Got ' + john)
+                console.log("Ok, let's go!")
+              }
+            })
+          }
+        })
+      }
+    })
+  }
+})
 
-
+//output 
+// "Wating for Mike"
+// "Mike is always late!"
 ```
 
 
