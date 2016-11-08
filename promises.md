@@ -257,12 +257,24 @@ waitingFor('Abdi').then(waitForFriend('Thomas'))
 // "Great! We've got everyone, let's go"
 
 ```
-I have simply refactored the code to abstract out the callback function that is passed to `then`. The function `waitForFriend()` simply takes in one parameter which is the name and returns our promise based function `waitingFor` and passed along the required argument, which is the name of the person we're waiting for. 
+I have simply refactored the code to abstract out the callback function that is passed to `then`. The function `waitForFriend()` simply takes in one parameter which is the name and returns our promise based function `waitingFor` and passed along the required argument, which is the name of the person we're waiting for. I have also created another function, `leave()` which will be called when we are no longer waiting for anyone. 
 
 We can now wait for as many friends as we want, simply by passing to the then our `waitForFriend` function. So let's wait for the rest of the crew just as in the previous example with the callbacks: 
 
 ```javascript 
 
+waitingFor('Abdi').then(waitForFriend('Thomas'))
+  .then(waitForFriend('Michelle'))
+  .then(waitForFriend('John'))
+  .then(leave)
 
+
+// output: 
+// "Waiting for Abdi"
+// "Waiting for Thomas"
+// "Waiting for Michelle"
+// "Waiting for John"
+// "Great! We've got everyone, let's go"
 
 ```
+As you can see the code is much cleaner, easier to reason about and we can plug in any other functionality at will once the promise has resolved. We haven't yet factored in if there is an error, if you remember when the friend we are waiting for is 'Mike' this should result in a rejected promise. In the callback 
