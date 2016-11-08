@@ -338,6 +338,26 @@ As I mentioned previously, you can queue up a list of promises that will get run
 
 ```javascript 
 
+function waitForAll() {
+  return Promise.all([
+    waitingFor('Abdi'),
+    waitingFor('Rhoda'),
+    waitingFor('John')
+  ])
+}
 
+waitForAll().then(function(friends) {
+  console.log('Great! ' +friends[0] + ' is coming' )
+  console.log('Great! ' +friends[1] + ' is coming' )
+  console.log('Great! ' +friends[2] + ' is coming' )
+})
+
+// output 
+// "Waiting for Abdi"
+// "Waiting for Rhoda"
+// "Waiting for John"
+// "Great! Abdi is coming"
+// "Great! Rhoda is coming"
+// "Great! John is coming"
 
 ```
