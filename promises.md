@@ -197,8 +197,9 @@ function waitingFor(name) {
         //all good to go, so we can fulfill the promise and call the resolve function and pass in the value
         resolve(name)
       }
-    }, 3000)
+    }, 1000)
   })
 }
 
 ```
+We can create a new Promise by using the native Promise API, so in our function we have refactored it to return a new Promise object. When a new Promise is instantiated, we pass it two paramteres, resolve and reject. These parameters are themselves functions that we can use inside the promise when the request is resolved or rejected. 
