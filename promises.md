@@ -174,3 +174,10 @@ When we receive our list of tasks from the API, the state of our promise will ch
 ###Rejected 
 If, for whatever reason, there is an error that causes the request to not be fulfilled, then the promise's state will be rejected and we can access this error via the `catch()` 
 
+Now that's a lot of explanation without any examples, so without further ado, let's look at an example to make sense of everything that has been mentioned already using our first waitingFor function example: 
+
+```javascript 
+
+
+
+```
