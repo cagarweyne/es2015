@@ -217,3 +217,10 @@ waitingFor('Abdi').then((abdi)=> {
 //"Great, we got: Abdi"
 
 ```
+This is very straight forward, let's say that we want to wait for Thomas as well. We can call the waitingFor function again inside the body of the callback function passed to then. At the moment we are simply console logging out the text that says we got our person. So this means that we will return another promise: 
+
+```javascript 
+
+
+
+```
