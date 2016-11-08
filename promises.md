@@ -55,7 +55,43 @@ function waitingFor(name, done) {
   }, 3000)
 }
 ```
+The callback function takes two parameters, an error and the name of the person that we waited for. So let's put the function to use and say that we are waiting for three people, Abdi, Michelle and Thomas: 
 
+```javascript 
+
+waitingFor('Abdi', function(error, abdi) {
+  
+  if(error) {
+    console.log(erorr);
+  } else {
+    waitingFor('Michelle', function(error, michelle) {
+      if(error) {
+        console.log(error);
+      } else {
+        
+        waitingFor('Thomas', function(error, thomas) {
+          if(error) {
+            console.log(error);
+          } else {
+            console.log('OK good to go, we got ' +  abdi);
+            console.log('OK good to go, we got ' +  michelle);
+            console.log('OK good to go, we got ' +  thomas);
+          }
+        });
+      }
+    })   
+  }
+})
+
+// "Wating for Abdi"
+// "Wating for Michelle"
+// "Wating for Thomas"
+// "OK good to go, we got Abdi"
+// "OK good to go, we got Michelle"
+// "OK good to go, we got Thomas"
+
+
+```
 
 
 
