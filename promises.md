@@ -329,4 +329,4 @@ waitingFor('Abdi').then(waitForFriend('Thomas'))
 
 ```
 
-The code ran as we expected up until we waited for Mike, the promise that is returned after Michelle does not get fulfilled because the person is Mike. This means that the promise has not resolved, so therefore we cannot return another promise to wait for John. Instead of the then function being run after Michelle, the catch function of the promise is run since it got rejected. The function that is passed to catch simply handles the error - in our very simplistic scenario it simply logs out that Mike is always late! 
+The code ran as we expected up until we waited for Mike, the promise that is returned after waiting for Michelle does not get fulfilled because the person is Mike. This means that the promise has not resolved, so therefore we cannot return another promise to wait for John. Instead of the then function being run after Michelle, the catch function of the promise is run since it got rejected. The function that is passed to catch simply handles the error - in our very simplistic scenario it simply logs out that Mike is always late! 
