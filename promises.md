@@ -83,6 +83,7 @@ waitingFor('Abdi', function(error, abdi) {
   }
 })
 
+//output 
 // "Wating for Abdi"
 // "Wating for Michelle"
 // "Wating for Thomas"
@@ -90,8 +91,10 @@ waitingFor('Abdi', function(error, abdi) {
 // "OK good to go, we got Michelle"
 // "OK good to go, we got Thomas"
 
-
 ```
+When our function waitingFor is invoked we call it with its parameters name and the callback function. Inside the function body we simply console log out the string "Waiting for" plus the name of the person that we are waiting for. Then we run the setTimeout function and after 3 seconds we call the given callback function and give it the name parameter that was passed in. 
+
+Inside the callback function that is executed after the setTimeout, we first check to see if there is an error, and if there is we simply console log it. If there is no error we call the waitingFor function again with a new person's name and another callback function that will be invoked after the setTimeout inside the waitingFor function. 
 
 
 
