@@ -171,7 +171,7 @@ Promises can be in one of three states:
 2. Fulfilled
 3. Rejected 
 
-###pending state 
+###Pending state 
 promises transition from state to state and whenever we create a promise it will initially be in a 'pending' state. This means that the promises has not been resolved or rejected. Its status is pending, meaning that we are waiting on the outcome to either be resolved or rejected. 
 
 ###Fulfilled 
@@ -180,10 +180,25 @@ When we receive our list of tasks from the API, the state of our promise will ch
 ###Rejected 
 If, for whatever reason, there is an error that causes the request to not be fulfilled, then the promise's state will be rejected and we can access this error via the `catch()` 
 
+###Promises in action
 Now that's a lot of explanation without any examples, so without further ado, let's look at an example to make sense of everything that has been mentioned already using our first waitingFor function example: 
 
 ```javascript 
 
+function waitingFor(name) {
+  console.log('Waiting for ' + name)
 
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      if (name === 'Mike') {
+        //this means that we have a problem so call the reject function and pass in the error
+        reject(Error('Mike is always late!'))
+      } else {
+        //all good to go, so we can fulfill the promise and call the resolve function and pass in the value
+        resolve(name)
+      }
+    }, 3000)
+  })
+}
 
 ```
