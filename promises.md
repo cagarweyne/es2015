@@ -165,10 +165,16 @@ The `then` function is called anytime a promise is successful and the catch meth
 
 let's say that you want to make an API call to retreive a list of tasks from the server and this is going to be promise based. When you make the call you will not be able to get the list of tasks immediately from the server, since this takes time to traverse the network, process the request and send back the response etc. Since we have a promised based AJAX call, we can imagine the promise to be like a receipt or a 'promise' so to speak that we will eventually receive the value that we requested or get a reason (error) as to why it could not be sent. 
 
+Promises can be in one of three states: 
+
+1. Pending 
+2. Fulfilled
+3. Rejected 
+
 ###pending state 
 promises transition from state to state and whenever we create a promise it will initially be in a 'pending' state. This means that the promises has not been resolved or rejected. Its status is pending, meaning that we are waiting on the outcome to either be resolved or rejected. 
 
-###Resolved 
+###Fulfilled 
 When we receive our list of tasks from the API, the state of our promise will change from 'pending' to fulfilled or resolved. We can then access our list of tasks inside the `then()` function. 
 
 ###Rejected 
