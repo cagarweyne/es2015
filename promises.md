@@ -143,4 +143,8 @@ waitingFor('Mike', function(error, mike) {
 // "Wating for Mike"
 // "Mike is always late!"
 ```
-You can see from this simple example that we need to think very carefully when using callbacks, becuase it can get very messy quickly and it can be very difficult to read and to trace any bugs in your code. 
+You can see from this simple example that we need to think very carefully when using callbacks, becuase it can get very messy quickly and it can be very difficult to read and to trace any bugs in your code. In these cases, you’d need to track multiple callbacks and cleanup operations which requires a lot of brain power and is easy prone to introducing bugs into your code. 
+
+Now that we have an understanding about the problems we can run into when using callbacks in asynchronous tasks, we need better way that will enable us to write async code and make it less complex than using callbacks. 
+
+Well, the answer is Promises. And I promise it's not going to be difficult to understand! You might already by using promises if you have used the fetch library in any of our projects previously. 
