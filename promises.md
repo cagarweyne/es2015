@@ -96,6 +96,8 @@ When our function waitingFor is invoked we call it with its parameters name and 
 
 Inside the callback function that is executed after the setTimeout, we first check to see if there is an error, and if there is we simply console log it. If there is no error we call the waitingFor function again with a new person's name and another callback function that will be invoked after the setTimeout inside the waitingFor function. 
 
+This process is repeated three times, so hence the output of three sentences that say who we are waiting for and then after each has run its duration with no errors, then in the final callback function's else block we have access to all outer functions parameters and here we simply console log out the text to sau that we have finally got each person that we were waiting for. 
+
 
 
 
