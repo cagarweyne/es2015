@@ -41,5 +41,37 @@ I am running after Ajax call
 data: Hello World 
 ```
 
-Because JavaScript executes code in a synchronous manner, we have to use callbacks whenever we come across something that will take some time to execute. Using callbacks is fine for most trivial use cases, however, when you are using callbacks everywhere and they are nested this is when you can run into issues wit them and you might get caught by what is called the callback hell. Let's look at an example to understand what is meant by callback hell: 
+Because JavaScript executes code in a synchronous manner, we have to use callbacks whenever we come across something that will take some time to execute. Using callbacks is fine for most trivial use cases, however, when you are using callbacks everywhere and they are nested this is when you can run into issues wit them and you might get caught by what is called the callback hell. Let's look at an example to understand what is meant by callback hell. Say we have a simple function that we run that will simply log out a string of text to say we are waiting for someone:
+```javascript 
+
+var waitFor = function(name, done) {
+  console.log('Wating for ' + name)
+
+  setTimeout(function() {
+    if (name === 'Steve') {
+      done(Error('Steve is always late!'))
+    } else {
+      done(null, name)
+    }
+  }, 500)
+}
+
+function waitingFor(name, callback) {
+  console.log('waiting for', name)
+  setTimeout(()=> {
+    if(name === 'Abdi') {
+      callback(Error('Abdi is always late!'))  
+    } else {
+      callback(null, name)
+    } 
+  });
+}
+
+```
+
+
+
+
+
+
 
