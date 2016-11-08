@@ -277,4 +277,4 @@ waitingFor('Abdi').then(waitForFriend('Thomas'))
 // "Great! We've got everyone, let's go"
 
 ```
-As you can see the code is much cleaner, easier to reason about and we can plug in any other functionality at will once the promise has resolved. We haven't yet factored in if there is an error, if you remember when the friend we are waiting for is 'Mike' this should result in a rejected promise. In the callback 
+As you can see the code is much cleaner, easier to reason about and we can plug in any other functionality at will once the promise has resolved. We haven't yet factored in if there is an error, if you remember when the friend we are waiting for is 'Mike' this should result in a rejected promise. In the callback version whenever there was an error, the rest of the code was not run since we run into a problem. Let's see how promises handle the same situation:  
