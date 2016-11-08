@@ -361,3 +361,4 @@ waitForAll().then(function(friends) {
 // "Great! John is coming"
 
 ```
+So instead of chaining together our calls to each promise inside the the function, we can pass them all in as an array to the Promise.all function and when each they all resolve we can access the return values in the order in which we passed in the promises to the function. So, this means that access `friends[0]` will always give us 'Abdi'. In other words the order of the returned values is always guaranteed. 
