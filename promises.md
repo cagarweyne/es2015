@@ -55,7 +55,7 @@ function waitingFor(name, done) {
   }, 3000)
 }
 ```
-The callback function takes two parameters, an error and the name of the person that we waited for. So let's put the function to use and say that we are waiting for three people, Abdi, Michelle, Thomas and John: 
+The callback function takes two parameters, an error and the name of the person that we waited for. So let's put the function to use and say that we are waiting for four people, Abdi, Michelle, Thomas and John: 
 
 ```javascript 
 function waitingFor(name, done) {
