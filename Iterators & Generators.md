@@ -156,5 +156,9 @@ All subsequent calls to `next()` would return `value` as `undefined` and `done` 
 
 The main difference is that we didn't have to write the functionality ourselves, rather all we had to do was create the special Generator function and simply use the `yield` keyword to return a value when `next()` was called. 
 
+###`yield` can only be used inside of Generator functions 
+
+As you might have gathered the `yield` keyword can only be used inside of Generator functions. If you use this keyword anywhere else beside a generator function, then this will create a syntax error. This also applies to functions that are inside of Generator functions themselves. For example, the following will generate a syntax error: 
+
 
 
