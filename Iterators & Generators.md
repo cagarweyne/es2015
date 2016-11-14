@@ -49,8 +49,8 @@ function createIterator(items) {
             //var value = !done ? items[i++] : undefined;
 
             return {
-                done: done,
-                value: value
+                done
+                value
             };
 
         }
@@ -70,4 +70,6 @@ console.log(iterator.next());           // "{ value: undefined, done: true }"
 ```
 In our function `createIterator`, we first declare a variable `i` that we will use to keep track of the index of the items that we are iterating over, `items` is passed in as a parameter when the function is called. Then we simply return an object that contains a single item, the `next` function. All the `next` function does is also return an object that contains two properties, `value` and `done`. 
 
-Inside the `next` method, we delcare two variables, `done` and `value`. `done` is a boolean and all we are doing is checking to see if our tracker variable `i` is greater than or equal to the length of the passed in iterable - we did the same thing with the for loop. 
+Inside the `next` method, we delcare two variables, `done` and `value`. `done` is a boolean and all we are doing is checking to see if our tracker variable `i`, is greater than or equal to the length of the passed in iterable - we did the same thing with the for loop.
+
+We then do a check to see if `done` is false: `if(!done)` if it is, we assign value to contain the item at the current index using `i` and then increment `i` so that it can contains the next index. Finally, the `next` method returns an object containing two properties and their values are `done` and `value` respectively. 
