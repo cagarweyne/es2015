@@ -156,6 +156,29 @@ All subsequent calls to `next()` would return `value` as `undefined` and `done` 
 
 The main difference is that we didn't have to write the functionality ourselves, rather all we had to do was create the special Generator function and simply use the `yield` keyword to return a value when `next()` was called. 
 
+The `yield` keyword can be used with any value or expression, so this means that you can create Generator functions that add items to iterators without just listing them one by one, like we did in our example. You can even use `yield` inside a `for` loop: 
+
+```javscript 
+
+function *createIterator(items) {
+    for (let i = 0; i < items.length; i++) {
+        yield items[i];
+    }
+}
+
+let iterator = createIterator([1, 2, 3]);
+
+console.log(iterator.next());           // "{ value: 1, done: false }"
+console.log(iterator.next());           // "{ value: 2, done: false }"
+console.log(iterator.next());           // "{ value: 3, done: false }"
+console.log(iterator.next());           // "{ value: undefined, done: true }"
+
+// for all further calls
+console.log(iterator.next());           // "{ value: undefined, done: true }"
+
+```
+The above example has simply refactored the use of the keyword `yield` to be computed from a passed in array. When we call our Generator function `createIterator` we pass it an array of items as a parameter and this array is then iterated over using a `for` loop. Inside the body of the loop we yield the elements from the array into the iterator as the loop progresses. Just as before, each time `yield` is encountered the loop stops and picks up from the same position when `next()` is called on the iterator.  
+
 ###`yield` can only be used inside of Generator functions 
 
 As you might have gathered the `yield` keyword can only be used inside of Generator functions. If you use this keyword anywhere else beside a generator function, then this will create a syntax error. This also applies to functions that are inside of Generator functions themselves. For example, the following will generate a syntax error: 
