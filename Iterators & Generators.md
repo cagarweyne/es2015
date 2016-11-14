@@ -112,4 +112,4 @@ console.log(iterator.next());           // "{ value: undefined, done: true }"
 Our implementation of an iterator is a really simple one, and you can see from the example that creating an Iterator function which meets all of the rules laid out in ES6 can be quite a challenge. This is where Generators come into the equation. 
 
 ##What are Generators? 
-Simply put, a Generator is a function that returns an iterator. They behave in pretty much the same way as normal function with a few differences. Generator functions contain the * star character when they are declared after the `function` keyword. 
+Simply put, a Generator is a function that returns an iterator. They behave in pretty much the same way as normal functions with a few differences. Generator functions contain the * star character when they are declared after the `function` keyword. As you might have already noticed, these are special functions that allow you to use the `yield` keyword to return iterator objects. 
