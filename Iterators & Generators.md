@@ -31,3 +31,40 @@ Iterators are nothing special, in fact they are just good old JavaScript objects
 
 Things will be become a lot clearer when we write some code, so let's create an Iterator function that will take a collection, i.e. an object that is iterable, and will return an object, when we call its `next()` method, with the two properties that we mentioned already, `value` and `done`. I'm going to write it in the most simplest way, so that we can understand the underlying concept of an Iterator in ES6: 
 
+```javascript 
+function createIterator(items) {
+    let i = 0;
+    
+    return {
+        next() {
+            let done = (i >= items.length);
+            let value; 
+          
+            if(!done) {
+              value = items[i]; 
+              i++; 
+            } else {
+              value = undefined; 
+            }
+            //var value = !done ? items[i++] : undefined;
+
+            return {
+                done: done,
+                value: value
+            };
+
+        }
+    };
+}
+
+var iterator = createIterator([1, 2, 3]);
+
+console.log(iterator.next());           // "{ value: 1, done: false }"
+console.log(iterator.next());           // "{ value: 2, done: false }"
+console.log(iterator.next());           // "{ value: 3, done: false }"
+console.log(iterator.next());           // "{ value: undefined, done: true }"
+
+// for all further calls
+console.log(iterator.next());           // "{ value: undefined, done: true }"
+
+```
