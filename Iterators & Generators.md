@@ -114,7 +114,7 @@ Our implementation of an iterator is a really simple one, and you can see from t
 ##What are Generators? 
 Simply put, a Generator is a function that returns an iterator. They behave in pretty much the same way as normal functions with a few differences. Generator functions contain the * star character when they are declared after the `function` keyword. As you might have already noticed, these are special functions that allow you to use the `yield` keyword to return iterator objects. 
 
-In terms of declaring a Generator it doesn't matter where we place the star, as long as it's the first thing after the `function` keyword. So, the following Generator function declarations are all valid: 
+In terms of declaring a Generator function, it doesn't matter where we place the star, as long as it's the first thing after the `function` keyword. So, the following Generator function declarations are all valid: 
 
 ```javascript 
 
