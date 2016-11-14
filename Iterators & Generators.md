@@ -125,3 +125,23 @@ function* nameList() {};
 function * nameList() {}; 
 
 ```
+Let's create an Generator function so that we can better understand how it works: 
+
+
+```javascript 
+
+function *createIterator() {
+    yield 1; 
+    yield 2; 
+    yield 3; 
+  }
+
+let iterator = createIterator();
+
+console.log(iterator.next().value);     // 1
+console.log(iterator.next().value);     // 2
+console.log(iterator.next().value);     // 3
+
+```
+
+The `yield` keyword, which is new to ES6, specifies values the resulting itreator should return when `next()` is called and the order they should be returned in. 
