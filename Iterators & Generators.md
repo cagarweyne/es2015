@@ -86,7 +86,7 @@ function createIterator(items) {
     return {
         next() {
             let done = (i >= items.length);
-            let value = !done ? items[i++] : undefined;
+            let value = !done ? items[i++] : undefined;//refactored from the if else code block
 
             return {
                 done,
