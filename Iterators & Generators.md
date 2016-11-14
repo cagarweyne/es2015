@@ -26,6 +26,6 @@ In fact, many programming languages have shifted from iterating over data with `
 
 So far we have painted a rosy picture about iterators in ES6 without actually really understanding what they are and how we can use them. It's time for us now to take a deep dive into the world of Iterators and Generators in ES6. 
 
-What are Iterators? 
-
+##What are Iterators? 
+Iterators are nothing special, in fact they are just good old JavaScript objects with a `next` method on them. The `next` methods was designed for iteration, and this method returns what's called a 'result object'. This result object has two properties, `value` and `done`. 
 
