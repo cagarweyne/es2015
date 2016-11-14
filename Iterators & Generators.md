@@ -49,7 +49,7 @@ function createIterator(items) {
             //var value = !done ? items[i++] : undefined;
 
             return {
-                done
+                done,
                 value
             };
 
