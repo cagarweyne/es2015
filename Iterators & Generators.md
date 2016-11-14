@@ -138,10 +138,12 @@ function *createIterator() {
 
 let iterator = createIterator();
 
-console.log(iterator.next().value);     // 1
-console.log(iterator.next().value);     // 2
-console.log(iterator.next().value);     // 3
+console.log(iterator.next());// { value: 1, done: false }
+console.log(iterator.next());// { value: 2, done: false }
+console.log(iterator.next());// { value: 3, done: false }
 
 ```
 
-The `yield` keyword, which is new to ES6, specifies values the resulting itreator should return when `next()` is called and the order they should be returned in. 
+Let's take it from the top, we declared a Genrerator function using the star character, and we are using the the `yield` keyword, which is new in ES6, and specifies values the resulting itreator should return when `next()` is called and the order they should be returned in. As you can see from the code example, we are calling the `createIterator` function and assigning the return value, which is an object, to the `iterator` variable. 
+
+At this moment we have an object available to us with a `next()` method that we can call. Once we call the `next` method, we get back an object with two properties
