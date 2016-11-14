@@ -29,3 +29,5 @@ So far we have painted a rosy picture about iterators in ES6 without actually re
 ##What are Iterators? 
 Iterators are nothing special, in fact they are just good old JavaScript objects with a `next` method on them. The `next` methods was designed for iteration, and this method returns what's called a 'result object'. This result object has two properties, `value` and `done`. 
 
+Things will be become a lot clearer when we write some code, so let's create an Iterator function that will take a collection, i.e. an object that is iterable, and will return an object, when we call its `next()` method, with the two properties that we mentioned already, `value` and `done`. I'm going to write it in the most simplest way, so that we can understand the underlying concept of an Iterator in ES6: 
+
