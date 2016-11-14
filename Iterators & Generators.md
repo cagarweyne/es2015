@@ -197,3 +197,22 @@ function *createIterator(items) {
 ```
 In this example, `yield` is actually insidethe Generator function but still create a syntax error. This is because `yield` in the inner function, cannot cross function boundaries - just like a nested function cannot return a value for its containing function.  
 
+##Generator Function Expressions
+
+
+##Generator Object Methods
+
+
+##Iterables and for-of
+
+
+##Accessing the Default Iterator
+
+
+##Creating Iterables
+
+
+##Built-in Iterators
+
+
+##String Iterators
