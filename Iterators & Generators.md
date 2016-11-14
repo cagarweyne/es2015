@@ -72,4 +72,39 @@ In our function `createIterator`, we first declare a variable `i` that we will u
 
 Inside the `next` method, we delcare two variables, `done` and `value`. `done` is a boolean and all we are doing is checking to see if our tracker variable `i`, is greater than or equal to the length of the passed in iterable - we did the same thing with the for loop.
 
-We then do a check to see if `done` is false: `if(!done)` if it is, we assign value to contain the item at the current index using `i` and then increment `i` so that it can contains the next index. Finally, the `next` method returns an object containing two properties and their values are `done` and `value` respectively. 
+We then do a check to see if `done` is false: `if(!done)` if it is, we assign value to contain the item at the current index using `i` and then increment `i` so that it can contains the next index. Finally, the `next` method returns an object containing two properties and their values are `done` and `value` respectively.
+
+Each time the `next()` method is called, the next value in the items array is returned as value. When `i` is 3, done becomes true and this means that we execute the code inside of else in the `next` method, which simply assigns `undefined` as the value since we have iterated over all of the items of the passed in array. 
+
+Our code inside the `next` method could do with a bit of refactoring, we can get rid ofthe `if` `else` and use a ternary operator to make an assignment to our `value` variable. Here's the refactored code: 
+
+```javascript 
+
+function createIterator(items) {
+    let i = 0;
+    
+    return {
+        next() {
+            let done = (i >= items.length);
+            let value = !done ? items[i++] : undefined;
+
+            return {
+                done,
+                value
+            };
+
+        }
+    };
+}
+
+var iterator = createIterator([1, 2, 3]);
+
+console.log(iterator.next());           // "{ value: 1, done: false }"
+console.log(iterator.next());           // "{ value: 2, done: false }"
+console.log(iterator.next());           // "{ value: 3, done: false }"
+console.log(iterator.next());           // "{ value: undefined, done: true }"
+
+// for all further calls
+console.log(iterator.next());           // "{ value: undefined, done: true }"
+
+```
