@@ -154,7 +154,7 @@ Generator functions behave differently to normal functions when they are called.
 
 All subsequent calls to `next()` would return `value` as `undefined` and `done` would contain `true`. The resulting behavior is very similar to the one we got from our iterator function that we implemented previously. Both returned an object once we called the function initially, and when we called the `next` method they returned each value and wether we were done iterating over all available items. 
 
-
+The main difference is that we didn't have to write the functionality ourselves, rather all we had to do was create the special Generator function and simply use the `yield` keyword to return a value when `next()` was called. 
 
 
 
