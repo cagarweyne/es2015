@@ -146,4 +146,15 @@ console.log(iterator.next());// { value: 3, done: false }
 
 Let's take it from the top, we declared a Genrerator function using the star character, and we are using the the `yield` keyword, which is new in ES6, and specifies values the resulting itreator should return when `next()` is called and the order they should be returned in. As you can see from the code example, we are calling the `createIterator` function and assigning the return value, which is an object, to the `iterator` variable. 
 
-At this moment we have an object available to us with a `next()` method that we can call. Once we call the `next` method, we get back an object with two properties
+At this moment we have an object available to us with a `next()` method that we can call. Once we call the `next` method, we get back an object with two properties `value` and `done` - just like we did previously when we created our own iterator. The iterator generated in this example has three different values to return on successive calls to the next() method: first 1, then 2, and finally 3. A generator gets called like any other function, when we call the `next` method on that is available to us on the `iterator` variable. 
+
+I mentioned previously that Generator functions behaved similarly to normal functions, but that they have some unique behavior. We have already seen that they are delcared in a different way to normal functions, so when we are creating a Generator function we need to include the star charater after the `function` keyword. 
+
+Generator functions behave differently to normal functions when they are called. Generator functions stop execution after the `yield` statement. So in the other words, when the `yield` statement is run, execution is halted until `next()` is called again. When `next()` is called again `yield 2` is executed and once again execution is stopped until `next()` is called again, then `yield 3` is run and so on.
+
+All subsequent calls to `next()` would return `value` as `undefined` and `done` would contain `true`. The resulting behavior is very similar to the one we got from our iterator function that we implemented previously. Both returned an object once we called the function initially, and when we called the `next` method they returned each value and wether we were done iterating over all available items. 
+
+
+
+
+
