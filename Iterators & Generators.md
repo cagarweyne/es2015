@@ -379,4 +379,4 @@ Only in certain special use cases would you need to create your own iterators, E
 
 
 
-##String Iterators
+##The Spread Operator and Non-Array Iterables
