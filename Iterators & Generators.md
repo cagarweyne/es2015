@@ -224,7 +224,7 @@ console.log(iterator.next());           // "{ value: undefined, done: true }"
 
 ```
 
-We simply refactored the previous Generator function declaration and turned it into a function expression. Because the function is anonymous, the asterisk needs to go the `functio` keyword and openning parenthesis. 
+We simply refactored the previous Generator function declaration and turned it into a function expression. Because the function is anonymous, the asterisk needs to go the `functio` keyword and openning parenthesis. It's also worth noting that you cannot create Generator function using the fat arrow syntax. 
 
 ##Generator Object Methods
 
