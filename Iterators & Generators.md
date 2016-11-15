@@ -250,6 +250,8 @@ As we've already seen in the section on Arrays, Sets, and Maps, we can use the f
 
 When using a normal for loop, we have to keep track of the index, however when we used iterators we no longer had this issue. Now when we use for of on an iterable it removes the need for us to track an index when iterating over an iterable all together. So this means that we don't need to keep track of anything with the for of loop, and we simply have available to us the contents of each item in a collection. 
 
+Now that we have a better understanding of how iterators work, we can now look at how the for of loop works under the hood and how it uses an iterator when iterating over a collection. At its core, the for of loop uses the `Symbol.iterator` property on the iterable object. In other words, it simply calls this function and gets the iterable object which has the `next()` method available on it. Then the for
+
 ##Accessing the Default Iterator
 
 
