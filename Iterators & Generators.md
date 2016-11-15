@@ -340,6 +340,34 @@ All we've done is add another property, which is actually a Generator function. 
 
 The Generator that we created uses a for of loop on each of the elements of the items array, remember that arrays are iterable by default and this means we can use the for of loop on them. Then it uses the `yield` keyword to return each element in the items array. 
 
+The iterator that we added to our object merely returns each item in the items array, using the arrays default iterator. But what if we want our object to behave just like the array, so when we call for of loop on it, all of the objects properties values are retireived one at a time using the for of loop. We can easily do that all we have to do is refactor the Generator function to yield each property on every call to `next()`: 
+
+```javascript 
+
+let simpleObj = {
+    items: ['Milk', 'ES6', 'Gym'],
+    anotherProp: 'Hello World!',
+    Name: 'Abdi', 
+    *[Symbol.iterator]() {
+        let keys = Object.keys(this)
+           for(let i =0;i<keys.length;i++) {
+                 yield this[keys[i]]
+            }
+    }
+
+};
+
+for (let item of simpleObj) {
+    console.log(item);
+}
+
+//output: 
+// ["Milk", "ES6", "Gym"]
+// Hello World!
+// Abdi
+
+```
+
 In most cases you won't need to create your own iterators, as ES6 comes with many built-in iterators that you can use to efficiently work with collections in JavaScript 
 
 ##Built-in Iterators
