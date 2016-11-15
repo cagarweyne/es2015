@@ -250,7 +250,30 @@ As we've already seen in the section on Arrays, Sets, and Maps, we can use the f
 
 When using a normal for loop, we have to keep track of the index, however when we used iterators we no longer had this issue. Now when we use for of on an iterable it removes the need for us to track an index when iterating over an iterable all together. So this means that we don't need to keep track of anything with the for of loop, and we simply have available to us the contents of each item in a collection. 
 
-Now that we have a better understanding of how iterators work, we can now look at how the for of loop works under the hood and how it uses an iterator when iterating over a collection. At its core, the for of loop uses the `Symbol.iterator` property on the iterable object. In other words, it simply calls this function and gets the iterable object which has the `next()` method available on it. Then the for
+Now that we have a better understanding of how iterators work, we can now look at how the for of loop works under the hood and how it uses an iterator when iterating over a collection. At its core, the for of loop uses the `Symbol.iterator` property on the iterable object. In other words, it simply calls this function and gets the iterable object which has the `next()` method available on it. 
+
+Say we have an array of fruits, we can loop over this array using the for of loop since arrays are iterables: 
+
+```javascript 
+let fruits = ['apple', 'grapes', 'banana'];
+
+for(let fruit of fruits) {
+  console.log(fruit);
+}}
+
+//apple
+//grapes
+//banana
+```
+The for of loop reads each element directly from the array and assigns it to the named variable, which is `fruit`. But how does this actually work? As I mentioned the for loop simply makes use of the iterator returned from calling the arrays' `Symbol.iterator` function and this returns an iterator that the for of loop can use. 
+
+Since the iterator know how to access items from a collection one at a time, all the for loop needs to do is call the `next()` method then save the value into a variable - in our example we specified `fruit`.  So what is really happening behind the scenes is that the for of loop simply calls the `Symboliterator` function: 
+
+```javascript 
+let iterator = fruits[Symbol.iterator]();
+```
+It then calls `next().value`  and assigns this to the variable `fruit`, it keeps on doing this until `next().done` is equal to true. 
+
 
 ##Accessing the Default Iterator
 
