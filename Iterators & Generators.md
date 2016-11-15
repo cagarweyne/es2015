@@ -386,7 +386,7 @@ Let's look at an example of each type of collection with the entries iterator:
 ```javascript 
 
 let colors = [ "red", "green", "blue" ];
-let tracking = new Set([1234, 5678, 9012]);
+let tracking = new Set(['Milk', 'ES6', 'Gym']);
 let data = new Map();
 
 data.set("Name", "Abdi Cagarweyne");
@@ -403,6 +403,16 @@ for (let entry of tracking.entries()) {
 for (let entry of data.entries()) {
     console.log(entry);
 }
+
+// output
+// [0, "red"]
+// [1, "green"]
+// [2, "blue"]
+// ["Milk", "Milk"]
+// ["ES6", "ES6"]
+// ["Gym", "Gym"]
+// ["Name", "Abdi Cagarweyne"]
+// ["Occupation", "Web Developer"]
 
 ```
 
