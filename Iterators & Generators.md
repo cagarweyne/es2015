@@ -245,7 +245,7 @@ let iterator = myObj.createIterator([1, 2, 3]);
 ```
 In the shorthand version of adding methods to objects in ES6 you ommit the function keyword, this means that when creating a Generator function you place the star immediately before the method name. You can leave blank space between the method name and the star, as the whitespace will simply be ignored. 
 
-##Iterables and for-of
+##Iterables and for-of & accessing the Default Iterator
 As we've already seen in the section on Arrays, Sets, and Maps, we can use the for..of loop to iterate over these objects. An iterable is an object with a `Symbol.iterator` property. So in other words, all iterable objects in ES6 have this property on them. This is actually a method that returns an iterator for the iterable object.As we've already seen in previous sections, we can use the for loop with an iterable. 
 
 When using a normal for loop, we have to keep track of the index, however when we used iterators we no longer had this issue. Now when we use for of on an iterable it removes the need for us to track an index when iterating over an iterable all together. So this means that we don't need to keep track of anything with the for of loop, and we simply have available to us the contents of each item in a collection. 
@@ -301,9 +301,6 @@ while (counter < fruits.length) {
 //banana
 ```
 Using the for of loop is should be used where possible, as it's less error prone and yo don't have to keep track of the index in a sequence. We shouldn't abandon the for loop altogether, but it's use should be reserved for complex scenarios where you need more control. The for of loop only works on iterable objects, so this means that when you try to use the for loop with a non iterable object such as plain JavaScript object `{}`, `null` or `undefined` it will throw an error: `TypeError: [Symbol.iterator] is not a function`. 
-
-##Accessing the Default Iterator
-
 
 ##Creating Iterables
 
