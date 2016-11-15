@@ -227,7 +227,23 @@ console.log(iterator.next());           // "{ value: undefined, done: true }"
 We simply refactored the previous Generator function declaration and turned it into a function expression. Because the function is anonymous, the asterisk needs to go the `functio` keyword and openning parenthesis. It's also worth noting that you cannot create Generator function using the fat arrow syntax. 
 
 ##Generator Object Methods
-As I mentioned previously, Generator functions behave just like normal functions with some differences. So, just like you can add add a function to an object as method, you can also add a Generator function as a method on an object: 
+As I mentioned previously, Generator functions behave just like normal functions with some differences. So, just like you can add add a function to an object as a method, you can also add a Generator function as a method on an object - here is how we would add a function as a Generator in ES6: 
+
+```javascript 
+
+let myObj = {
+
+    *createIterator(items) {
+        for (let i = 0; i < items.length; i++) {
+            yield items[i];
+        }
+    }
+};
+
+let iterator = myObj.createIterator([1, 2, 3]);
+
+```
+
 
 ##Iterables and for-of
 
