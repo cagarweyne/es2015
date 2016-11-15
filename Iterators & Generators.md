@@ -368,7 +368,7 @@ for (let item of simpleObj) {
 
 ```
 
-In most cases you won't need to create your own iterators, as ES6 comes with many built-in iterators that you can use to efficiently work with collections in JavaScript 
+Now our object behaves just like an iterable object, all we did is use a for loop to return each property in the object via the yield statement. In most cases you won't need to create your own iterators, as ES6 comes with many built-in iterators that you can use to efficiently work with collections in JavaScript 
 
 ##Built-in Iterators
 
