@@ -201,7 +201,30 @@ In this example, `yield` is actually insidethe Generator function but still crea
 
 ##Generator Function Expressions
 
-Just like creating normal function expressions, you can also create Generator function expressions. To create a Generator function expression, you simply add the star charatcter between the function keyword and the openning parenthesis.
+Just like creating normal function expressions, you can also create Generator function expressions. To create a Generator function expression, you simply add the star charatcter between the function keyword and the openning parenthesis. Let's refactor the previous example of the generator function and turn into a Generator function expression: 
+
+```javascript 
+
+
+let createIterator = function *(items) {
+    for (let i = 0; i < items.length; i++) {
+        yield items[i];
+    }
+}
+
+let iterator = createIterator([1, 2, 3]);
+
+console.log(iterator.next());           // "{ value: 1, done: false }"
+console.log(iterator.next());           // "{ value: 2, done: false }"
+console.log(iterator.next());           // "{ value: 3, done: false }"
+console.log(iterator.next());           // "{ value: undefined, done: true }"
+
+// for all further calls
+console.log(iterator.next());           // "{ value: undefined, done: true }"
+
+```
+
+We simply refactored the previous Generator function declaration and turned it into a function expression. Because the function is anonymous, the asterisk needs to go the `functio` keyword and openning parenthesis. 
 
 ##Generator Object Methods
 
