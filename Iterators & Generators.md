@@ -201,6 +201,7 @@ In this example, `yield` is actually insidethe Generator function but still crea
 
 ##Generator Function Expressions
 
+Just like creating normal function expressions, you can also create Generator function expressions. To create a Generator function expression, you simply add the star charatcter between the function keyword and the openning parenthesis.
 
 ##Generator Object Methods
 
