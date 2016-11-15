@@ -272,8 +272,34 @@ Since the iterator know how to access items from a collection one at a time, all
 ```javascript 
 let iterator = fruits[Symbol.iterator]();
 ```
-It then calls `next().value`  and assigns this to the variable `fruit`, it keeps on doing this until `next().done` is equal to true. 
+It then calls `iterator.next().value`  and assigns this to the variable `fruit`, it keeps on doing this until `next().done` is equal to true. 
 
+```javascript 
+let iterator = fruits[Symbol.iterator]();
+
+let fruit = iterator.next().value; 
+
+```
+So essentially it's calling `next().value` and then assigning this to the fruit variable that we provided to it. We can actually loop over the array using a `while` loop by using the iterator returned by calling `fruits[Symbol.iterator]()`: 
+
+```javascript 
+
+let fruits = ['apple', 'grapes', 'banana'];
+
+let iterator = fruits[Symbol.iterator]();
+
+let counter = 0; 
+
+while (counter < fruits.length) {
+  let fruit = iterator.next().value; 
+  console.log(fruit); 
+  counter++; 
+}
+
+//apple
+//grapes
+//banana
+```
 
 ##Accessing the Default Iterator
 
