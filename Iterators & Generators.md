@@ -246,7 +246,7 @@ let iterator = myObj.createIterator([1, 2, 3]);
 In the shorthand version of adding methods to objects in ES6 you ommit the function keyword, this means that when creating a Generator function you place the star immediately before the method name. You can leave blank space between the method name and the star, as the whitespace will simply be ignored. 
 
 ##Iterables and for-of
-
+As we've already seen in the section on Arrays, Sets, and Maps, we can use the for..of loop to iterate over these objects. An iterable is an object with a `Symbol.iterator` property. So in other words, all iterable objects in ES6 have this property on them. This is actually a method that returns an iterator for the iterable object. 
 
 ##Accessing the Default Iterator
 
