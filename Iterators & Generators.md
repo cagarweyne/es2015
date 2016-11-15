@@ -377,6 +377,12 @@ Only in certain special use cases would you need to create your own iterators, E
 2. values()
 3. keys()
 
+###Entries iterator 
+
+The `entries()` iterator returns a two item as the value every time `next()` is called. The two items represent the key and the value for each item in the collection. For arrays, the first item in the pair is the numeric index and the second item second item is the actual element on that index. For Sets the first item is also the numeric index, but since the values double up as the numeric index this means that it will return both key and value as the same. And finally, for Maps the first item is the key and the second is the value. 
+
+Let's look at an example of each type of collection with the entries iterator: 
+
 
 
 ##The Spread Operator and Non-Array Iterables
