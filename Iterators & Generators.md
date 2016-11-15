@@ -303,6 +303,39 @@ while (counter < fruits.length) {
 Using the for of loop is should be used where possible, as it's less error prone and yo don't have to keep track of the index in a sequence. We shouldn't abandon the for loop altogether, but it's use should be reserved for complex scenarios where you need more control. The for of loop only works on iterable objects, so this means that when you try to use the for loop with a non iterable object such as plain JavaScript object `{}`, `null` or `undefined` it will throw an error: `TypeError: [Symbol.iterator] is not a function`. 
 
 ##Creating Iterables
+As I mentioned, calling the for of loop on a plain JavaScript object will throw a type error, as there is no `Symbol.iterator` property on the object. Since this is not built-in, we can actually add a the `Symbol.iterator` property ourselves. Let's say we have a simple object that contains an array of items as a single property: 
+
+```javascript 
+
+let simpleObj = {
+    items: ['Milk', 'ES6', 'Gym']
+};
+
+```
+So this is a typical object nothing special. However, we can't call the for of on it. We simply add the `Symbol.iterator` as a property method: 
+
+```javascript 
+
+let simpleObj = {
+    items: ['Milk', 'ES6', 'Gym'],
+    *[Symbol.iterator]() {
+        for (let item of this.items) {
+            yield item;
+        }
+    }
+
+};
+
+for (let prop of simpleObj) {
+    console.log(item);
+}
+
+//output
+//1
+//2
+//3
+
+```
 
 
 ##Built-in Iterators
