@@ -326,17 +326,17 @@ let simpleObj = {
 
 };
 
-for (let prop of simpleObj) {
+for (let item of simpleObj) {
     console.log(item);
 }
 
 //output
-//1
-//2
-//3
+//Milk
+//ES6
+//Gym
 
 ```
-
+All we've done is add another property, which is actually a Generator function. It is now possible to use the for of loop on our object since it has the `Symbol.iterator` property. The for of will use this as the default operator and when it calls the function it gets back the iterator. From here, all it does is call the `iterator.next()` and assigns the value to our variable `prop` and then this logged on to the console. This is repeated until `iterator.next().done` is equal to true - hence our output 1, 2, 3
 
 ##Built-in Iterators
 
