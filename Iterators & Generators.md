@@ -450,6 +450,44 @@ for (let value of data.values()) {
 // "Abdi Cagarweyne"
 // "Web Developer"
 
-``
+```
+
+###Keys iterator 
+
+The keys iterator returns each key associated with a collection: 
+
+```javascript 
+
+let colors = [ "red", "green", "blue" ];
+let tracking = new Set(['Milk', 'ES6', 'Gym']);
+let data = new Map();
+
+data.set("Name", "Abdi Cagarweyne");
+data.set("Occupation", "Web Developer");
+
+for (let key of colors.keys()) {
+    console.log(key);
+}
+
+for (let key of tracking.keys()) {
+    console.log(key);
+}
+
+for (let key of data.keys()) {
+    console.log(key);
+}
+
+// output 
+// 0
+// 1
+// 2
+// Milk
+// ES6
+// Gym
+// Name
+// Occupation
+
+```
+
 
 ##The Spread Operator and Non-Array Iterables
