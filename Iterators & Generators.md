@@ -383,6 +383,27 @@ The `entries()` iterator returns a two item as the value every time `next()` is 
 
 Let's look at an example of each type of collection with the entries iterator: 
 
+```javascript 
 
+let colors = [ "red", "green", "blue" ];
+let tracking = new Set([1234, 5678, 9012]);
+let data = new Map();
+
+data.set("Name", "Abdi Cagarweyne");
+data.set("Occupation", "Web Developer");
+
+for (let entry of colors.entries()) {
+    console.log(entry);
+}
+
+for (let entry of tracking.entries()) {
+    console.log(entry);
+}
+
+for (let entry of data.entries()) {
+    console.log(entry);
+}
+
+```
 
 ##The Spread Operator and Non-Array Iterables
