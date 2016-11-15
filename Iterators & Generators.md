@@ -336,7 +336,7 @@ for (let item of simpleObj) {
 //Gym
 
 ```
-All we've done is add another property, which is actually a Generator function. It is now possible to use the for of loop on our object since it has the `Symbol.iterator` property. The for of will use this as the default operator and when it calls the function it gets back the iterator. From here, all it does is call the `iterator.next()` and assigns the value to our variable `prop` and then this logged on to the console. This is repeated until `iterator.next().done` is equal to true - hence our output 1, 2, 3
+All we've done is add another property, which is actually a Generator function. It is now possible to use the for of loop on our object since it has the `Symbol.iterator` property. The for of will use this as the default operator and when it calls the function it gets back the iterator. From here, all it does is call the `iterator.next()` and assigns the value to our variable `prop` and then this logged on to the console. This is repeated until `iterator.next().done` is equal to true - hence our output Milk, ES6, Gym.
 
 ##Built-in Iterators
 
