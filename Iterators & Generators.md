@@ -338,6 +338,8 @@ for (let item of simpleObj) {
 ```
 All we've done is add another property, which is actually a Generator function. It is now possible to use the for of loop on our object since it has the `Symbol.iterator` property. The for of will use this as the default operator and when it calls the function it gets back the iterator. From here, all it does is call the `iterator.next()` and assigns the value to our variable `prop` and then this logged on to the console. This is repeated until `iterator.next().done` is equal to true - hence our output Milk, ES6, Gym.
 
+The Generator that we created uses a for of loop on each of the elements of the items array, remember that arrays are iterable by default and this means we can use the for of loop on them. 
+
 ##Built-in Iterators
 
 
