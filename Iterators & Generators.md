@@ -440,6 +440,16 @@ for (let value of data.values()) {
     console.log(entry);
 }
 
+// output 
+// "red"
+// "green"
+// "blue"
+// "Milk"
+// "ES6"
+// "Gym"
+// "Abdi Cagarweyne"
+// "Web Developer"
+
 ``
 
 ##The Spread Operator and Non-Array Iterables
