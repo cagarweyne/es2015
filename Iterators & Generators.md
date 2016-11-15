@@ -416,4 +416,30 @@ for (let entry of data.entries()) {
 
 ```
 
+###Values iterator 
+The `values()` iterator returns each value associated with an item in a collection. We will simply use the `values()` iterator in each for loop: 
+
+```javascript 
+
+let colors = [ "red", "green", "blue" ];
+let tracking = new Set(['Milk', 'ES6', 'Gym']);
+let data = new Map();
+
+data.set("Name", "Abdi Cagarweyne");
+data.set("Occupation", "Web Developer");
+
+for (let value of colors.values()) {
+    console.log(entry);
+}
+
+for (let value of tracking.values()) {
+    console.log(entry);
+}
+
+for (let value of data.values()) {
+    console.log(entry);
+}
+
+``
+
 ##The Spread Operator and Non-Array Iterables
