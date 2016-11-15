@@ -300,6 +300,7 @@ while (counter < fruits.length) {
 //grapes
 //banana
 ```
+Using the for of loop is should be used where possible, as it's less error prone and yo don't have to keep track of the index in a sequence. We shouldn't abandon the for loop altogether, but it's use should be reserved for complex scenarios where you need more control. 
 
 ##Accessing the Default Iterator
 
