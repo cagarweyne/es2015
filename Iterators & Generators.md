@@ -243,7 +243,7 @@ let myObj = {
 let iterator = myObj.createIterator([1, 2, 3]);
 
 ```
-
+In the shorthand version of adding methods to objects in ES6 you ommit the function keyword, this means that when creating a Generator function you place the star immediately before the method name. You can leave blank space between the method name and the star, as the whitespace will simply be ignored. 
 
 ##Iterables and for-of
 
