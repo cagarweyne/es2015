@@ -371,6 +371,12 @@ for (let item of simpleObj) {
 Now our object behaves just like an iterable object, all we did is use a for loop to return each property in the object via the yield statement. In most cases you won't need to create your own iterators, as ES6 comes with many built-in iterators that you can use to efficiently work with collections in JavaScript 
 
 ##Built-in Iterators
+Only in certain special use cases would you need to create your own iterators, ES6 comes with iterators by default and we have already seen some these in action. In ES6 there are 3 types of collection objects: Arrays, Maps and Sets and by default all three types of collections have the following built-in iterators to help you retriev their content: 
+
+1. entries()
+2. values()
+3. keys()
+
 
 
 ##String Iterators
