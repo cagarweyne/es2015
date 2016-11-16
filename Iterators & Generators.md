@@ -489,5 +489,36 @@ for (let key of data.keys()) {
 
 ```
 
-
 ##The Spread Operator and Non-Array Iterables
+
+The spread operator, as we've already seen, works by spreading out the contents of an array into individual values. So, you will recall this example from the spread section previously: 
+
+```javascript 
+
+let numbers = [1, 2, 3]; 
+
+function sum(num1, num2, num3) {
+  return num1 + num2 + num3; 
+}
+
+sum(...numbers); 
+
+// ouput 
+//6 
+
+```
+What I didn't mentioned was that the spread operator also works on any iterable object, and works by using the default iterator to determine which values to include. Let's look at an example where we spread out the values from a Set into an array: 
+
+```javascript 
+
+let set = new Set([1, 2, 3, 3, 3, 4, 5];
+let array = [...set];
+
+console.log(array);             
+
+// output
+// [1,2,3,4,5]
+
+```
+
+
