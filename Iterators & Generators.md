@@ -556,3 +556,4 @@ console.log(allNumbers);
 // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 ```
+We've used the spread operator to create `allNumbers`, the first element in the array we've specified as 0 and the last 10. In between these two elements the spread operator was used to read the values from each array in the order that they appear in their respective arrays. The original values are changed all that has happened is that their values have been copied into the allNumbers array using the spread operator. 
