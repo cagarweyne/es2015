@@ -540,3 +540,19 @@ The default iterator for the Map object is the `entries()` iterator, and this me
 
 For example let's say that you have three arrays and each contain single string elements and you want to combine them to create one array that contains all of the contents aof the previous three arrays, you can do this using the spread operator easily: 
 
+```javascript 
+
+let smallNumbers  = [1, 2, 3];
+
+let mediumNumbers = [4, 5, 6];
+
+let largeNumbers  = [7, 8, 9];
+
+let allNumbers = [0, ...smallNumbers, ...mediumNumbers, ...largeNumbers, 10]; 
+
+console.log(allNumbers); 
+
+// output 
+// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+```
