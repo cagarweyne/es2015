@@ -520,5 +520,6 @@ console.log(array);
 // [1,2,3,4,5]
 
 ```
+This works on Sets because the spread operator uses the default iterator and in the case of Arrays and Sets their default iterator is the `values()` iterator. This means that what is returned on each call to next using this iterator is the value for the Array and the Sets. As I mentioned the spread operator works on any iterable, so this means that it will also work on Maps, here is an example that demonstrates that: 
 
 
