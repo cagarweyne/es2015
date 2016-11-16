@@ -536,4 +536,4 @@ console.log(array)
 ```
 In the example above we create a new Map object and initialize it with two properies, `name` and `job title`. We can initialize the Map when we call the constructor initially and pass in an array of key value pairs that we want the Map to contain. So, in this example we pass in an array that contains two arrays, the first array contains two elements: name and abdi, this will be used as the key value pair. The we have another array that contains: job title and JS Developer, similarly these will be used to populate the second key value pair in our map. 
 
-The default iterator for the Map object is the 
+The default iterator for the Map object is the `entries()` iterator, and this means that it returns key-value pairs on each call to `next()`. This is why we have an array whose first and second elements are arrays.  
