@@ -19,7 +19,7 @@ data: undefined
 I am running after Ajax call
 ```
 
-In JavaScript code is executed one after the other by a single thread, so the output that we see from our code above is that we have `undefined` as the value on data and the string that we logged inside the console function. Data is undefined because the AJAX call takes some time to retrieve the data from the server, and the code is immediately executed one after the other - hence there is no waiting around for the response. We could wait until we have a response from the server, but this would mean everything will freeze, the user will not be able to interact with the app until we have received the response. 
+In JavaScript, code is executed one after the other by a single thread, so the output that we see from our code above is that we have `undefined` as the value on data and the string that we logged inside the console function. Data is undefined because the AJAX call takes some time to retrieve the data from the server, and the code is immediately executed one after the other - hence there is no waiting around for the response. We could wait until we have a response from the server, but this would mean everything will freeze, the user will not be able to interact with the app until we have received the response. 
 
 It’s very important to understand how to work with JavaScript’s single-threaded model. Otherwise, we might accidentally freeze the entire app, to the detriment of user experience.
 
@@ -41,7 +41,7 @@ I am running after Ajax call
 data: Hello World 
 ```
 
-Because JavaScript executes code in a synchronous manner, we have to use callbacks whenever we come across something that will take some time to execute. Using callbacks is fine for most trivial use cases, however, when you are using callbacks everywhere and they are nested this is when you can run into issues wit them and you might get caught by what is called the callback hell. Let's look at an example to understand what is meant by callback hell. Say we have a simple function that we run that will simply log out a string of text to say we are waiting for someone, and it will call a callback function after a given amount of time to mimick making an AJAX call:
+Because JavaScript executes code in a synchronous manner, we have to use callbacks whenever we come across something that will take some time to execute. Using callbacks is fine for most trivial use cases, however, when you are using callbacks everywhere and they are nested this is when you can run into issues with them and you might get caught by what is called the callback hell. Let's look at an example to understand what is meant by callback hell. Say we have a simple function that we run that will simply log out a string of text to say we are waiting for someone, and it will call a callback function after a given amount of time to mimick making an AJAX call:
 ```javascript 
 function waitingFor(name, done) {
   console.log('Wating for ' + name)
@@ -109,7 +109,7 @@ When our function waitingFor is invoked we call it with its parameters name and 
 
 Inside the callback function that is executed after the setTimeout, we first check to see if there is an error, and if there is we simply console log it. If there is no error we call the waitingFor function again with a new person's name and another callback function that will be invoked after the setTimeout inside the waitingFor function. 
 
-This process is repeated each person we are waiting for, so hence the output of four sentences that say who we are waiting for and then after each has run its duration with no errors, then in the final callback function's else block we have access to all outer functions parameters and here we simply console log out the text to say that we have finally got everyone that we were waiting for. 
+This process is repeated for each person we are waiting for, so hence the output of four sentences that say who we are waiting for and then after each has run its duration with no errors, then in the final callback function we simply console log out the text to say that we have finally got everyone that we were waiting for. 
 
 If you have worked with Node.js previously, then this pattern will be very familiar. Again, this is a very simple example without any errors, so if we had an error after the first call to waitingFor, this would happen if the person we are waiting for is Mike, then the execution of the code would stop and it can get very messy: 
 
@@ -144,17 +144,16 @@ waitingFor('Mike', function(error, mike) {
 // "Wating for Mike"
 // "Mike is always late!"
 ```
-You can see from this simple example that we need to think very carefully when using callbacks, becuase it can get very messy quickly and it can be very difficult to read and to trace any bugs in your code. In these cases, you’d need to track multiple callbacks and cleanup operations which requires a lot of brain power and is easy prone to introducing bugs into your code. 
+You can see from this simple example that we need to think very carefully when using callbacks, because it can get very messy quickly and it can be very difficult to read and to trace any bugs in your code. In these cases, you’d need to track multiple callbacks and cleanup operations which requires a lot of brain power and you can easily introduce bugs into your code. 
 
-Now that we have an understanding about the problems we can run into when using callbacks in asynchronous tasks, we need better way that will enable us to write async code and make it less complex than using callbacks. 
+Now that we have an understanding about the problems we can run into when using callbacks in asynchronous tasks, we need a better way that will enable us to write async code and make it less complex than using callbacks. 
 
-Well, the answer is Promises. And I promise it's not going to be difficult to understand! You might already by using promises if you have used the fetch library in any of our projects previously. Promises help you to write cleaner code that is easier to comprehend and also provide mechanisms for error handling. 
+Well, the answer is Promises. You might already by using promises if you have used the fetch library in any of our projects previously. Promises help you to write cleaner code that is easier to comprehend and also provide mechanisms for error handling. 
 
 ###Promise concepts 
 Promises have actually been around for a number of yours, and they have been implemented as third party libraries. To look at it simply, promises are objects with several functions that we can call and pass in callback functions into. For example: 
 
 ```javascript
-
 let Promise = {
   then() {}, 
   catch() {}, 
