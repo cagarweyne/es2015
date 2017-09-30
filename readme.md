@@ -4,7 +4,7 @@ JavaScript has undergone some major changes in the latest update to the language
 
 The name of the standard versioning of ES2015 was agreed, because the committe realized that they didn't want to limit the release of a standard update to once every few years, rather, suggestions were made that versioning will be based on year of release. For example the current version was finalized in June 2015, so the version will be called ES2015 to refer to the year in which the standard was finalized. All future versioning will be referred to in this way, ES20xx. 
 
-#How to run ES2015
+# How to run ES2015
 
 Running the latest and greatest version of JavaScript can pose a problem for the JS developers that want to make use of the new features made available in the new standard, whilst at the same making making sure that their websites and apps support older browsers who have yet to implement the new features. Fortunately, there is a workaround that will enable developers to make use of new features and still run their sites and apps on older browsers, transpiling. 
 
@@ -33,7 +33,7 @@ var myObj = {
 
 A great tool that will help you to transpile your code into ES5 is [Babel](https://babeljs.io/), which, as it's motto says, will let you use next generation JavaScript today. However, not all the new features in JavaScript can be simply transpiled into its equivalent in ES5, because there are some features that aren't simply availabel, even if you transpile the code. The solution to this problem is: Shims. 
 
-#Shims/Polyfills
+# Shims/Polyfills
 
 In order to make use of new features that cannot be achieved with transpiling, we make user of shims to mimic the same behavior in older versions of JavaScript. There are many new features introduced that require a shim in order to work properly, and these are included within the tooling that we can use to run ES2015 in older browsers. Just in case, you're wondering what a shim is, it is basically a small piece of code that imeplements the feature which is missing from an older environment. for example, in ES2015 it introduces new API's to check strict equality of two values called `Object.is()`. This is a feature that is not available in all browsers, so to get around this feature, we can use a shim to make use of this feature in older browsers, the code for this shim is pretty straight forward and you can get more details at the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) documentation: 
 
@@ -51,7 +51,7 @@ if (!Object.is) {
 
 The outer `if` statement checks to see whether the API is available, and this will only return true if it isn't implemented in the browser's JavaScript engine. There are many shims that you can use as a fallback behavior for older evironments and fortunately most of these shims are available in Babel. With the combination of transpiling and Shims/Polyfills, we can make use of the newesta and best features of JavaScript without worrying about backwards compatibility with older versions of JavaScript. This truly spells an exciting time for JS developers!
 
-#Block scope declarations with `let` 
+# Block scope declarations with `let` 
 
 One of the key features of the new JavaScript update is the ability to bind your variables to a scope. Before ES2015, you had to create an immediatelt invoked function expression to create "private" variables that weren't available outside the block in which they were declared. In ES2015 we can now create variables that are bound to blocks using `let`. The wonderful thing about using this feature is that all you need is a block scoping, so in other words all you need are a pair of curly braces `{  }`. So let's have a look at an example: 
 
@@ -96,7 +96,7 @@ The `let` varaiables are scoped to the block in which they were declared and can
 
 If we run this function, you will see that it doesn't throw a reference error, and instead writes to the console `undefined`. This is because when we use `var` instead of `let` all of the variables get hoisted up to the top of the function before the code is executed line by line. All variables get assigned undefined until they are explicitly assigned a value in the code. Since the code inside the `if` block doesn't get executed the variable moreThanFive doesn't get assigned the string, it stll contains undefined and this is what is printed out to the console when the line of code: `console.log(moreThanfive)` is executed.  
 
-##Using `let` in for loops
+## Using `let` in for loops
 
 One very useful feature of using `let` is when you use it with for loops. To demonstrate this, we'll use an example that you have probably seen when concering closures in JS: 
 
@@ -131,7 +131,7 @@ funcs[4](); //this logs 4 to the console.
 ```
 Using `let` solves this problem of shared variable in the scope, `i` is redclared for each iteration of the loop. this means that each function that is pushed to the funcs array will close over that instance of `i` and not the last value that is assigned before the iteration comes to an end. 
 
-##A few gotchas with `let` that are worth noting
+## A few gotchas with `let` that are worth noting
 
 As we have seen `let` can be very useful in some instances, but there are a few things that we need to be aware of when using it: 
 
@@ -174,7 +174,7 @@ let foo = "world"; //generates error: SyntaxError: Identifier 'foo' has already 
 
 ```
 
-#`const` 
+# `const` 
 
 Another great addition to the JS language is the variable `const` declaration. `const` creates constants and this means that value cannot be changed once it has been set. This is something that was badly needed in JS, as developers had to bec careful that they didn't reset a constant further down their program code. When using `const` you must initialize it on declaration, so if you just declare a `const` like this: 
 
@@ -205,11 +205,11 @@ console.log(names[2]); //prints 'Abdi'
 ```
 `const`s share a few similarites with `let` in that they are also block scoped, so this means that they are not accessible outside their block scope. Also, you cannot use the same identifier that has eithe been used with a `var` or `let` variable. 
 
-#Functions 
+# Functions 
 
 Functions are one of the foundations of the JS language, and it is no surprise that functions have been updated in the latest edition of JS. One of the cool features of functions in ES2015 is the addition of default parameters. 
 
-##Default parameters 
+## Default parameters 
 
 To make functions more robust and not break when they are called without their expected paramters, we would normally add in default values in the body of the function to make sure that our function didn't break. Let's take a simple function that will take 3 parameters and do some computation based on the passed in values or the default fall back ones set in the function body: 
 
@@ -257,7 +257,7 @@ box(0); //logs: height is: 0 color is: blue url is: google.com
 ```
 You will notice that the above function declaration is terse, in that the default parameters are actually assigned when setting the parameters themselves and you will also notice that when we pass in 0 as the first argument it isn't taken as falsy value and the default parameter for height is not used. The default assignment for the height in ES2015 equivalent to the explicit checking of the parameter to see if it is undefined, this is something that you don't have to do yourself anymore. 
 
-###Expressions as default values 
+### Expressions as default values 
 
 In ES2015 you can use any valid expression as the default values, including function calls. Let's create a function call as  default value for our height parameter: 
 
@@ -294,7 +294,7 @@ function multiply(num1 = num2, num2) {
 console.log(multiply(3, 3));     // 9
 console.log(multiply(1));        // throws error
 ```
-###Rest
+### Rest
 
 So far we have seen some really cool additions to the language in ES2015 and the spread and rest operators are another great feature added to JS. Let's start with the rest operator first, to understand why it's useful we need to look at the arguments object that is available inside all functions. You can examine all of the parameters passed to function in the `arguments` object, this is an object that behaves very much like an array, but is actually an object. Let's take a look at an example of using the `atguments` object in a function in ES5: 
 
@@ -356,7 +356,7 @@ function sum(first, second, ...numbers) {
 sum('first', 'second', 2,2,3,4,5); //works just fine
 ```
 
-###Spread 
+### Spread 
 
 The spread operator uses the exact same syntax, and you could think of it as acting completely oppositely to the rest operator. Whereas the rest operator gathers all of the parameters passed in to the function into an array, the spread operator spreads out the contents of an array into individual values. The spread operator uses the same 3 dots to achieve this: 
 
@@ -390,7 +390,7 @@ let b = [ 1, ...a, 5 ];
 console.log( b ); // [1,2,3,4,5]
 ```
 
-###Arrow functions
+### Arrow functions
 
 Another fantastic addition to the language are arrow functions. If you are familiar with CoffeeScript the this is a great addition for you. Not only do fat arrows make your code more terse, but they also help address one of the most confusing parts of JS, the `this` context. Arrow functions are incfedibly easy to create and at first glance you would have to look carefully to understand that it is in fact a function: 
 
@@ -416,7 +416,7 @@ var foo = (a, b) => {
 }
 ```
 
-####Arrow functions are always expressions
+#### Arrow functions are always expressions
 
 A seasoned JS developer will know the difference between a function declaration and a function expression. Just to recap, a function declaration is a name function variable that isn't assigned to a variable: 
 
@@ -437,7 +437,7 @@ var foo = function() {
 ```
 It is worth keeping in mind that arrow functions will always be function expressions and are also anonymous function expressions. 
 
-####Binding of `this` with arrrow functions
+#### Binding of `this` with arrrow functions
 
 If you have done any noteworthy coding with JS, then you will have come across the issue with the `this` keyword. This was a particular point of confusion when it comes to programming wit the `this` keyword and has generated a lot of complaints from the developer community. As a result, the ES2015 implementation addressed this issue with the introduction of the arrow functions. To understand what the problem with the `this` keyword was in ES5, let's have a look at an example: 
 
@@ -532,7 +532,7 @@ person.getFullName();//Abdi Cagarweyne
 ```
 By using the arrow function instead of a normal syntax with the `function` keyword, we get the behavior that is desired. This is because the `this` keyword binding in arrow functions is lexical. This means that arrow functions do not have a stand-alone `this` value binding, rather the value is decided by the closest containing non-arrow function and in our example that is the getFullName function. So, essentially the fat arrow `=>` replaces the `var self  this` or `bind(this)`.
 
-#Objects, Strings and Object.assign 
+# Objects, Strings and Object.assign 
 
 ES2015 has added a shorter syntax for creating object literals, in ES5 you would typicaly see something like this: 
 
@@ -575,7 +575,7 @@ console.log( user.age );//45
 console.log( user.colleagues );//["George","Michelle"]
 ```
 
-##Object Destructuring 
+## Object Destructuring 
 
 ES2015 introduces anothe really cool feature when it comes to assigning values attached to an object or in an array. If we had an array that contained values which we wanted to assign to individual variables we would do the following in ES5: 
 
@@ -649,7 +649,7 @@ let [a, b, c] = nums; //b and c are assigned undefined since there isn't a corre
 console.log(a, b, c)//1 undefined undefined
 ```
 
-##Adding functions to an Object 
+## Adding functions to an Object 
 
 Adding functions to an object is something that is done all of the time, and in ES6 it has been made simpler to add a function to an object. Previously, we would declare the property of the object and then use th full function declaration to add a method: 
 
@@ -679,7 +679,7 @@ let myObj = {
 }
 
 ```
-##Template strings
+## Template strings
 
 Another great feature added to ES6 is the use of ttenplate strings. Template strings allow embedded expressions and you can use multi-line strings and string interpolation features with them. Let's have look at some examples to understand better. Say you have a url where you are posting some data and you want to add interpolation with a service id, in ES5 this would be done like this:
 
@@ -716,7 +716,7 @@ string text line 2`);
 
 ```
 
-##Object.assign
+## Object.assign
 
 As a developer, writng flexible and reusabel functions is something that we all must strive to do and the new feature in ES6 object.assign helps in that regard. Let's look at an example scenario where using object.assign will be useful for us. Say we're creating a function that accepts an options parameter, in that it can take 0 or more options as properties, and depending on the options supplied the function will return a different value: 
 
@@ -791,7 +791,7 @@ Object.assign(finalOptions, defaults, options);
 ```
 If we wrote it like this then we would not be using the return value from the function, and even though it would still work, the correct way is to assign the return value directly to the `finalOptions` variable. 
 
-##Arrays
+## Arrays
 
 ###Assigning with Array desctructuring 
 
@@ -843,7 +843,7 @@ console.log(first, rest);//apple, ['grapes', 'banana']
 ```
 The example above shows array destructuring and the rest parameters in use, we assigned the first element apple to the variable first and then we used the rest parameter with the three dots `...` to group all remaining elements into a new array called rest 
 
-###Destructuring from return values 
+### Destructuring from return values 
 
 There will always be opportunities to use array destructuring in your JS code, and another place where we can use them is when we return values from functions. We can use them to assign to multiple variables at once. Let's see what we mean by looking at some code: 
 
@@ -880,7 +880,7 @@ let [a, b, c] = myFruits();
 console.log(a, b, c);//apple, grapes, banana
 
 ```
-###The for...of loop 
+### The for...of loop 
 
 The for of loop is a new feature added in ES6, which is a better way of looping over arrays and other iterables. Let's look at an example to understand further. Once gain, say we have an array of fruits: 
 
@@ -918,7 +918,7 @@ for(let fruit of fruits) {
 ```
 The for of loop reads each element directly from the array and assigns it to the named variable, which is `fruit`. This is only one step when compared to the for in loop, and this means that we can loop over arrays and other iterables writing less code. 
 
-###Objects and the for...of loop 
+### Objects and the for...of loop 
 
 The for of loop cannot be used to iterate over properties of a plain javascript object. So the following will not work: 
 
@@ -953,7 +953,7 @@ console.log(typeof person[Symbol.iterator]);//undefined
 ```
 If we run the same check on the plain JS object, you will notice that it returns undefined. This means that there is nothing assigned to the property and the obpject will not work with for of loop. 
 
-###Array.find() 
+### Array.find() 
 
 ES6 also adds new array function that we can use to find a specific element in an array. The array.find() function takes a testing function to return an element that meets this criteria: 
 
@@ -984,11 +984,11 @@ console.log(activated);//{name: 'haircut', activated: true}
 ```
 The find method will return the first object that has activated set to true
 
-##Maps
+## Maps
 
 ES6 introduces a new data structure called maps. Maps are a data structure composed of a collection of key value pairs, which makes them very useful to store simple data. Maps are actually present in other programming languages and are useful to store property values. A Map stores collections of unique keys mapped to values each key is associated with one, and only one value, in order to find a specific value in map, you give it it key and you receive its value in return. 
 
-###Issues with Objects as maps 
+### Issues with Objects as maps 
 
 JS developers are first exposed to Maps through objects, you can use objects as key values stores, there are some limitations with this. The main limitation is that you cannot use a non string value as a key. The JS engine always converts object keys to strings and this causes unexpected behavior when you use objects as keys. Let's look at an example to better understand this: 
 
@@ -1048,7 +1048,7 @@ As you can see when you log the keys, the two values are assigned to different k
 
 You should use Maps when the keys are unknown until runtime, for example after loading in data from an AJAX call. However, when we are using predefined keys and we know their values before runtime, it is perfectly fine to use normal JS objects. We should also aim to use keys when all the keys and their values are of the same type. This will help keep the maps consistent and easier to work with, as you know what to expect.  
 
-###Iterating Maps with for...of
+### Iterating Maps with for...of
 
 The Map data structure are iterable, this means that we can use the for.. of loop and each run of the loop will return a [key, value] pair for each entry in the Map. Let's create a new Map of cars and add some entries: 
 
@@ -1081,7 +1081,7 @@ for(let [key, value] of cars) {
 
 As you can see from the for of loop, we have used array destructuring to assign the key to a key and value to value respectively and we are accessing these using template strings when we log them out. When we run the code we can see that it prints each entry of the Map to the console successfully. 
 
-###WeakMaps 
+### WeakMaps 
 
 ES6 has also inttroduced another type of data set that is a variation of the Map called WeakMaps. The WeakMap is a special type of Map, and the main difference is that you can only use objects as keys. This means that you can't use primitive data types such as strings, numbers and booleans as the keys in a WeakMap. Let's look at an example where WeakMaps are used: 
 
@@ -1100,16 +1100,16 @@ console.log(people.get(personTwo));//David
 ```
 As you can see from the code above, we can use the same `set` and `get` methods as we did with `Map`. However, if you tried using a string as a key, you will run into an error, which says `Invalid value used as weak map key`. Besides only allowing objects as keys, WeakMaps are not iterable, you cannot use the for..of loop to iterate over the keys in a WeakMap. You will run into the same error when trying to iterate over objects with a for...of loop. 
 
-###Why do need WeakMaps? 
+### Why do need WeakMaps? 
 
 The main use for WeakMaps is that they make efficient use of memory, this means that individual entries can be garbage collected while the WeakMap is still in use. They are called 'Weak' because they hold a weak reference to the object that is used as reference for the keys. As long as an object is no longer referenced after it is used, WeakMaps will not prevent the garbage collector from colecting objects that are being used a keys in a WeakMap. This makes efficient use of memory and frees more of it up that can be used else where. 
 
-##Sets
+## Sets
 
 
 Like Maps and WeakMaps, Sets are a new data structure introduced in ES6, to understand why we need Sets in the first place, let's first go back to JS Arrays and see some of the limitations that lead to Sets being added to ES6. 
 
-###Limitations with Array 
+### Limitations with Array 
 
 As you know Arrays in JS are simple and easy to use, however one thing that they don't do is enforce uniqueness in the elments that they hold. This means that you can have duplicate entries in an array in JS. So the following array in JS is perfectly fine: 
 
@@ -1140,7 +1140,7 @@ console.log('Total no. cars', cars.size);//5
 ```
 To get the number of items in a set you use the `.size` propery instead of the `.length`. You will notice that the duplicate entry of Audi is ignored and the total size is 5 not 6. 
 
-###Sets and for...of 
+### Sets and for...of 
 
 As you would expect, Set objects are iterable and we can use the for...of loop and destructuring. Let's see an example of iterating over a set object: 
 
@@ -1158,7 +1158,7 @@ for(let car of cars) {
   console.log(car);
 }
 ```
-###Sets and destructuring 
+### Sets and destructuring 
 
 We can also use destructuring with sets just like we can with normal JS arrays: 
 
@@ -1177,7 +1177,7 @@ console.log(a, b, c);//Audi, Ford, Mercedes
 
 ```
 
-###WeakSets 
+### WeakSets 
 
 Similar to WeakMaps we have WeakSets, and if you recall these are the memory efficient version for Sets. Let's look at an example to see how WeakSets work: 
 
@@ -1229,7 +1229,7 @@ WeakSets are different from Sets in a few different ways, first they are not ite
 
 
 
-###When should we use WeakSets 
+### When should we use WeakSets 
 
 There are a limited use cases when WeakSets are actually useful, even though we can't iterate over them or even read values from them. One obvious example is efficient memory usage and to prevent memory leaks. Another instance where WeakSets can be used is when you want to make sure that you do not muatate any data in your app. For example say you have a function that is called when ever a particular link is clicked, and when it is called the function will set a property in an object to true: 
 
@@ -1300,7 +1300,7 @@ for(let car of carSlides) {
 Even though it seems that we are doing extra work, this is actually making sure that we do not mutate our carSlides array data, and in essence achieve some form of data immutability. What you have to also remember is that the WeakSet does not preven the garbage collector from collecting objects that are no longer being referenced, and in turn creating an efficient use of memory. 
 
 
-##Classes
+## Classes
 
 If you've written any amount of substantial code you will have come across the need to encapsulate your code, and using JS constructor functions is the way this has been achieved. Let's say that we want to create an object that we can use to create instances of cars from. To do this we will typically create a constructor function: 
 
