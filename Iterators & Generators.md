@@ -111,7 +111,7 @@ console.log(iterator.next());           // "{ value: undefined, done: true }"
 
 Our implementation of an iterator is a really simple one, and you can see from the example that creating an Iterator function which meets all of the rules laid out in ES6 can be quite a challenge. This is where Generators come into the equation. 
 
-##What are Generators? 
+## What are Generators? 
 Simply put, a Generator is a function that returns an iterator. They behave in pretty much the same way as normal functions with a few differences. Generator functions contain the * star character when they are declared after the `function` keyword. Generator functions that allow you to use the `yield` keyword to return iterator objects. 
 
 In terms of declaring a Generator function, it doesn't matter where we place the star, as long as it's the first thing after the `function` keyword. So, the following Generator function declarations are all valid: 
@@ -181,7 +181,7 @@ console.log(iterator.next());           // "{ value: undefined, done: true }"
 ```
 The above example has simply refactored the use of the keyword `yield` to be computed from a passed in array. When we call our Generator function `createIterator` we pass it an array of items as a parameter and this array is then iterated over using a `for` loop. Inside the body of the loop we yield the elements from the array into the iterator as the loop progresses. Just as before, each time `yield` is encountered the loop stops and picks up from the same position when `next()` is called on the iterator.  
 
-###`yield` can only be used inside of Generator functions 
+### `yield` can only be used inside of Generator functions 
 
 As you might have gathered the `yield` keyword can only be used inside of Generator functions. If you use this keyword anywhere else beside a generator function, then this will create a syntax error. This also applies to functions that are inside of Generator functions themselves. For example, the following will generate a syntax error: 
 
@@ -226,7 +226,7 @@ console.log(iterator.next());           // "{ value: undefined, done: true }"
 
 We simply refactored the previous Generator function declaration and turned it into a function expression. Because the function is anonymous, the asterisk needs to go the `functio` keyword and openning parenthesis. It's also worth noting that you cannot create Generator function using the fat arrow syntax. 
 
-##Generator Object Methods
+## Generator Object Methods
 As I mentioned previously, Generator functions behave just like normal functions with some differences. So, just like you can add add a function to an object as a method, you can also add a Generator function as a method on an object - here is how we would add a function as a Generator in ES6: 
 
 ```javascript 
@@ -245,7 +245,7 @@ let iterator = myObj.createIterator([1, 2, 3]);
 ```
 In the shorthand version of adding methods to objects in ES6 you ommit the function keyword, this means that when creating a Generator function you place the star immediately before the method name. You can leave blank space between the method name and the star, as the whitespace will simply be ignored. 
 
-##Iterables and for-of & accessing the Default Iterator
+## Iterables and for-of & accessing the Default Iterator
 As we've already seen in the section on Arrays, Sets, and Maps, we can use the for..of loop to iterate over these objects. An iterable is an object with a `Symbol.iterator` property. So in other words, all iterable objects in ES6 have this property on them. This is actually a method that returns an iterator for the iterable object.As we've already seen in previous sections, we can use the for loop with an iterable. 
 
 When using a normal for loop, we have to keep track of the index, however when we used iterators we no longer had this issue. Now when we use for of on an iterable it removes the need for us to track an index when iterating over an iterable all together. So this means that we don't need to keep track of anything with the for of loop, and we simply have available to us the contents of each item in a collection. 
@@ -302,7 +302,7 @@ while (counter < fruits.length) {
 ```
 Using the for of loop is should be used where possible, as it's less error prone and yo don't have to keep track of the index in a sequence. We shouldn't abandon the for loop altogether, but it's use should be reserved for complex scenarios where you need more control. The for of loop only works on iterable objects, so this means that when you try to use the for loop with a non iterable object such as plain JavaScript object `{}`, `null` or `undefined` it will throw an error: `TypeError: [Symbol.iterator] is not a function`. 
 
-##Creating Iterables
+## Creating Iterables
 As I mentioned, calling the for of loop on a plain JavaScript object will throw a type error, as there is no `Symbol.iterator` property on the object. Since this is not built-in, we can actually add a the `Symbol.iterator` property ourselves. Let's say we have a simple object that contains an array of items as a single property: 
 
 ```javascript 
@@ -370,14 +370,14 @@ for (let item of simpleObj) {
 
 Now our object behaves just like an iterable object, all we did is use a for loop to return each property in the object via the yield statement. In most cases you won't need to create your own iterators, as ES6 comes with many built-in iterators that you can use to efficiently work with collections in JavaScript 
 
-##Built-in Iterators
+## Built-in Iterators
 Only in certain special use cases would you need to create your own iterators, ES6 comes with iterators by default and we have already seen some these in action. In ES6 there are 3 types of collection objects: Arrays, Maps and Sets and by default all three types of collections have the following built-in iterators to help you retriev their content: 
 
 1. entries()
 2. values()
 3. keys()
 
-###Entries iterator 
+### Entries iterator 
 
 The `entries()` iterator returns a two item as the value every time `next()` is called. The two items represent the key and the value for each item in the collection. For arrays, the first item in the pair is the numeric index and the second item second item is the actual element on that index. For Sets the first item is also the numeric index, but since the values double up as the numeric index this means that it will return both key and value as the same. And finally, for Maps the first item is the key and the second is the value. 
 
@@ -416,7 +416,7 @@ for (let entry of data.entries()) {
 
 ```
 
-###Values iterator 
+### Values iterator 
 The `values()` iterator returns each value associated with an item in a collection. We will simply use the `values()` iterator in each for loop: 
 
 ```javascript 
@@ -452,7 +452,7 @@ for (let value of data.values()) {
 
 ```
 
-###Keys iterator 
+### Keys iterator 
 
 The keys iterator returns each key associated with a collection: 
 
@@ -489,7 +489,7 @@ for (let key of data.keys()) {
 
 ```
 
-##The Spread Operator and Non-Array Iterables
+## The Spread Operator and Non-Array Iterables
 
 The spread operator, as we've already seen, works by spreading out the contents of an array into individual values. So, you will recall this example from the spread section previously: 
 
