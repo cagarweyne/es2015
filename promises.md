@@ -1,4 +1,4 @@
-#Promises 
+# Promises 
 
 JavaScript, as a programming language, is single threaded. To understand what we mean by this let's take the example of an office where there is just one person that is available to serve customers. If the office worker is at the back working on a task, then this means that there is no one at the front desk to serve the other customers and this will force them to wait until the office worker finishes the task that they are currently working on. This is similar to JavaScript's single threaded nature, there aren't multiple threads available to do different tasks, so when you make an AJAX call to retrieve some data in JavaScript you will have seen this: 
 
@@ -180,7 +180,7 @@ When we receive our list of tasks from the API, the state of our promise will ch
 ###Rejected 
 If, for whatever reason, there is an error that causes the request to not be fulfilled, then the promise's state will be rejected and we can access this error via the `catch()` 
 
-###Promises in action
+### Promises in action
 Now that's a lot of explanation without any examples, so without further ado, let's look at an example to make sense of everything that has been mentioned already using our first waitingFor function example: 
 
 ```javascript 
