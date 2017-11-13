@@ -26,7 +26,7 @@ In fact, many programming languages have shifted from iterating over data with `
 
 So far we have painted a rosy picture about iterators in ES6 without actually really understanding what they are and how we can use them. It's time for us now to take a deep dive into the world of Iterators and Generators in ES6. 
 
-##What are Iterators? 
+## What are Iterators? 
 Iterators are nothing special, in fact they are just good old JavaScript objects with a `next` method on them. The `next` methods was designed for iteration, and this method returns what's called a 'result object'. This result object has two properties, `value` and `done`. 
 
 Things will be become a lot clearer when we write some code, so let's create an Iterator function that will take a collection, i.e. an object that is iterable, and will return an object, when we call its `next()` method, with the two properties that we mentioned already, `value` and `done`. I'm going to write it in the most simplest way, so that we can understand the underlying concept of an Iterator in ES6: 
@@ -199,7 +199,7 @@ function *createIterator(items) {
 ```
 In this example, `yield` is actually insidethe Generator function but still create a syntax error. This is because `yield` in the inner function, cannot cross function boundaries - just like a nested function cannot return a value for its containing function.  
 
-##Generator Function Expressions
+## Generator Function Expressions
 
 Just like creating normal function expressions, you can also create Generator function expressions. To create a Generator function expression, you simply add the star charatcter between the function keyword and the openning parenthesis. Let's refactor the previous example of the generator function and turn into a Generator function expression: 
 
