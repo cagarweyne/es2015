@@ -332,7 +332,8 @@ The code ran as we expected up until we waited for Mike, the promise that is ret
 
 The executing of the code continues further down to the next then function, since we called `Promise.resolve("We're leaving")` in the function that handled the error. Then the leave function is called, whcih simply prints out some text. 
 
-##Promise.all()
+## Promise.all()
+
 As I mentioned previously, you can queue up a list of promises that will get run one after the other. In our previous example we run 4 promises, using a special function provided by the Promise object Promise.all(), we can pass all of the promises as an array to the Promise.all function: 
 
 ```javascript 
