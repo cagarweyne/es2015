@@ -150,7 +150,7 @@ Now that we have an understanding about the problems we can run into when using 
 
 Well, the answer is Promises. You might already by using promises if you have used the fetch library in any of our projects previously. Promises help you to write cleaner code that is easier to comprehend and also provide mechanisms for error handling. 
 
-###Promise concepts 
+### Promise concepts 
 Promises have actually been around for a number of years, and they have been implemented as third party libraries. To look at it simply, promises are objects with several functions that we can call and pass in callback functions into. For example: 
 
 ```javascript
@@ -171,13 +171,13 @@ Promises can be in one of three states:
 2. Fulfilled
 3. Rejected 
 
-###Pending state 
+### Pending state 
 promises transition from state to state and whenever we create a promise it will initially be in a 'pending' state. This means that the promises has not been resolved or rejected. Its status is pending, meaning that we are waiting on the outcome to either be resolved or rejected. 
 
-###Fulfilled 
+### Fulfilled 
 When we receive our list of tasks from the API, the state of our promise will change from 'pending' to fulfilled or resolved. We can then access our list of tasks inside the `then()` function. 
 
-###Rejected 
+### Rejected 
 If, for whatever reason, there is an error that causes the request to not be fulfilled, then the promise's state will be rejected and we can access this error via the `catch()` 
 
 ### Promises in action
