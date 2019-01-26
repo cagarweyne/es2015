@@ -10,6 +10,13 @@ Running the latest and greatest version of JavaScript can pose a problem for the
 
 Transpiling is the process of taking one language and translating it to another similar language, in this case it's going from ES2015 (ES6) to ES5. This is the perfect answer to run the latest and greatest version of JavaScript on browsers that haven't implemented the standard yet. The process of transpiling is basically taking your ES2015 code and translating it to its equivalent in ES5. One prime example is the way property definitions can be done in ES2015, for example: 
 
+```javascript
+function Hello() {
+  console.log('hello')
+}
+```
+
+
 ``` javascript
 var name = "Abdi"; 
 
