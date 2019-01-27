@@ -3,7 +3,7 @@ Modules are an integral part of your code, and it's what makes your app readable
 
 With this in mind, the committee responsible for defining the ECMAScript specification decided that it was time to add native support for modules in JavaScript. The JavaScript community has really embraced the approaches of CommonJS and AMD, and these approaches have been implemented by NodeJS and RequireJS respectively. So, with this in mind, the committee decided that they wanted to create a native module system that would appease users of both camps. 
 
-<p><iframe width="560" height="315" src="https://www.youtube.com/embed/5P04OK6KlXA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5P04OK6KlXA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Quick recap of the need for modules in the first place 
 
